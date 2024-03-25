@@ -24,3 +24,13 @@ jobs:
     - name: Build project with Maven
       run: mvn -B package --file pom.xml
 
+    - name: Test project with Maven
+      run: mvn -B test --file pom.xml
+
+    - name: Test project with Maven
+      run: mvn -B deploy --file pom.xml
+
+
+
+
+

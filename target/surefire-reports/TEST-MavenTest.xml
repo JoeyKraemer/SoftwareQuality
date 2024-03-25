@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="MavenTest" time="0.015" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="MavenTest" time="0.012" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2023.3.4"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -64,5 +64,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="iWantToTestMyPipeline" classname="MavenTest" time="0.012"/>
+  <testcase name="iWantToTestMyPipeline" classname="MavenTest" time="0.01"/>
 </testsuite>
