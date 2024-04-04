@@ -1,9 +1,9 @@
-package jabberPoint.commands.menuController;
+package jabberpoint.commands.menucontroller;
 
-import jabberPoint.Accessor;
-import jabberPoint.Presentation;
-import jabberPoint.XMLAccessor;
-import jabberPoint.commands.Command;
+import jabberpoint.Accessor;
+import jabberpoint.Presentation;
+import jabberpoint.XMLAccessor;
+import jabberpoint.commands.Command;
 
 
 import javax.swing.JOptionPane;

@@ -1,7 +1,7 @@
-package jabberPoint.commands.keyController;
+package jabberpoint.commands.keycontroller;
 
-import jabberPoint.Presentation;
-import jabberPoint.commands.Command;
+import jabberpoint.Presentation;
+import jabberpoint.commands.Command;
 
 public class QuitCommand extends Command {
     public QuitCommand(Presentation presentation) {

@@ -1,6 +1,6 @@
-package jabberPoint.commands;
+package jabberpoint.commands;
 
-import jabberPoint.Presentation;
+import jabberpoint.Presentation;
 
 public abstract class Command {
     public Presentation presentation;

@@ -1,7 +1,7 @@
-package jabberPoint.commands.menuController;
+package jabberpoint.commands.menucontroller;
 
-import jabberPoint.Presentation;
-import jabberPoint.commands.Command;
+import jabberpoint.Presentation;
+import jabberpoint.commands.Command;
 
 public class ExitCommand extends Command {
     public ExitCommand(Presentation presentation) {

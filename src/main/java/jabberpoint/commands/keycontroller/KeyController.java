@@ -1,7 +1,7 @@
-package jabberPoint.commands.keyController;
+package jabberpoint.commands.keycontroller;
 
-import jabberPoint.Presentation;
-import jabberPoint.commands.Command;
+import jabberpoint.Presentation;
+import jabberpoint.commands.Command;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;

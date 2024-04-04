@@ -1,4 +1,4 @@
-package jabberPoint;
+package jabberpoint;
 
 import java.util.Vector;
 import java.io.File;
