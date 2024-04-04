@@ -3,7 +3,7 @@ package JabberPoint;
 import java.io.IOException;
 
 /**
- * <p>Een JabberPoint.Accessor maakt het mogelijk om gegevens voor een presentatie
+ * <p>Een JabberPoint.JabberPoint.Accessor maakt het mogelijk om gegevens voor een presentatie
  * te lezen of te schrijven.</p>
  * <p>Niet-abstracte subklassen moeten de load en de save methode implementeren.</p>
  *

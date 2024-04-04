@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
 
 /**
- * <p>This is the JabberPoint.commands.keyController.KeyController (KeyListener)</p>
+ * <p>This is the JabberPoint.JabberPoint.commands.keyController.KeyController (KeyListener)</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 2.0 2024/04/04 Caterina Aresti & Joey Kramer

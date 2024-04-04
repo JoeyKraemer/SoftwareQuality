@@ -37,12 +37,12 @@ public class Slide {
         title = newTitle;
     }
 
-    // Create JabberPoint.TextItem of String, and add the JabberPoint.TextItem
+    // Create JabberPoint.JabberPoint.TextItem of String, and add the JabberPoint.JabberPoint.TextItem
     public void append(int level, String message) {
         append(new TextItem(level, message));
     }
 
-    // give the  JabberPoint.SlideItem
+    // give the  JabberPoint.JabberPoint.SlideItem
     public SlideItem getSlideItem(int number) {
         return (SlideItem) items.elementAt(number);
     }
@@ -52,7 +52,7 @@ public class Slide {
         return items;
     }
 
-    // give the size of the JabberPoint.Slide
+    // give the size of the JabberPoint.JabberPoint.Slide
     public int getSize() {
         return items.size();
     }

@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 
 /**
- * <p>JabberPoint.SlideViewerComponent is a graphical component that can show slides.</p>
+ * <p>JabberPoint.JabberPoint.SlideViewerComponent is a graphical component that can show slides.</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 2.0 2024/04/04 Caterina Aresti & Joey Kramer
@@ -91,7 +91,7 @@ public class SlideViewerComponent extends JComponent {
         }
         graphics.setFont(labelFont);
         graphics.setColor(Color.black);
-        graphics.drawString("JabberPoint.Slide " + (1 + presentation.getSlideNumber()) + " of " +
+        graphics.drawString("JabberPoint.JabberPoint.Slide " + (1 + presentation.getSlideNumber()) + " of " +
                 presentation.getSize(), XPOS, YPOS);
         Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
         slide.draw(graphics, area, this);

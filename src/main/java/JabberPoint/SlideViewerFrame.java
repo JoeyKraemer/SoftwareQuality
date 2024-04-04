@@ -36,7 +36,7 @@ public class SlideViewerFrame extends JFrame {
         getContentPane().add(slideViewerComponent);
         addKeyListener(new KeyController(presentation)); // add a controller
         setMenuBar(new MenuController(this, presentation));    // add another controller
-        setSize(new Dimension(1200, 800)); // Same sizes as JabberPoint.Slide has.
+        setSize(new Dimension(1200, 800)); // Same sizes as JabberPoint.JabberPoint.Slide has.
         setVisible(true);
     }
 }

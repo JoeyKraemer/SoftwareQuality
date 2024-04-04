@@ -18,7 +18,7 @@ import org.w3c.dom.NodeList;
 
 
 /**
- * JabberPoint.XMLAccessor, reads and writes XML files
+ * JabberPoint.JabberPoint.XMLAccessor, reads and writes XML files
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman

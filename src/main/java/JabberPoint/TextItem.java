@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 /**
  * <p>A tekst item.</p>
- * <p>A JabberPoint.TextItem has drawingfunctionality.</p>
+ * <p>A JabberPoint.JabberPoint.TextItem has drawingfunctionality.</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
@@ -106,6 +106,6 @@ public class TextItem extends SlideItem {
     }
 
     public String toString() {
-        return "JabberPoint.TextItem[" + getLevel() + "," + getText() + "]";
+        return "JabberPoint.JabberPoint.TextItem[" + getLevel() + "," + getText() + "]";
     }
 }
