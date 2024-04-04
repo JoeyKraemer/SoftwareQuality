@@ -1,3 +1,5 @@
+name: Code coverage check
+
 on: pull_request
 
 jobs:
