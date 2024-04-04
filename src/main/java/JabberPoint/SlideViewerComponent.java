@@ -93,20 +93,20 @@ public class SlideViewerComponent extends JComponent {
 	}
 
 // draw the slide
-	public void paintComponent(Graphics g) {
-		int XPOS = 1100;
-		int YPOS = 20;
+	public void paintComponent(Graphics graphics) {
+		final int XPOS = 1100;
+		final int YPOS = 20;
 
-		g.setColor(Color.white);
-		g.fillRect(0, 0, getSize().width, getSize().height);
+		graphics.setColor(Color.white);
+		graphics.fillRect(0, 0, getSize().width, getSize().height);
 		if (presentation.getSlideNumber() < 0 || slide == null) {
 			return;
 		}
-		g.setFont(labelFont);
-		g.setColor(Color.black);
-        g.drawString("JabberPoint.Slide " + (1 + presentation.getSlideNumber()) + " of " +
+		graphics.setFont(labelFont);
+		graphics.setColor(Color.black);
+        graphics.drawString("JabberPoint.Slide " + (1 + presentation.getSlideNumber()) + " of " +
                  presentation.getSize(), XPOS, YPOS);
 		Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
-		slide.draw(g, area, this);
+		slide.draw(graphics, area, this);
 	}
 }
