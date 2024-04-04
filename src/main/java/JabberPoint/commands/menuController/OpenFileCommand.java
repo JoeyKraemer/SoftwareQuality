@@ -12,18 +12,16 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 
-public class OpenFileCommand extends Command
-{
+public class OpenFileCommand extends Command {
     private Frame frame;
-    public OpenFileCommand(Presentation presentation,Frame frame)
-    {
+
+    public OpenFileCommand(Presentation presentation, Frame frame) {
         super(presentation);
         this.frame = frame;
     }
 
     @Override
-    public void execute()
-    {
+    public void execute() {
         this.presentation.clear();
         Accessor xmlAccessor = new XMLAccessor();
         try {

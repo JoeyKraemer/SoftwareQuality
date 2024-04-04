@@ -5,16 +5,13 @@ import JabberPoint.commands.Command;
 
 import java.awt.event.KeyEvent;
 
-public class QuitCommand extends Command
-{
-    public QuitCommand(Presentation presentation)
-    {
+public class QuitCommand extends Command {
+    public QuitCommand(Presentation presentation) {
         super(presentation);
     }
 
     @Override
-    public void execute()
-    {
+    public void execute() {
         System.exit(0);
     }
 }

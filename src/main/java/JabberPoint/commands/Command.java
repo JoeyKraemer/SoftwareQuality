@@ -2,12 +2,10 @@ package JabberPoint.commands;
 
 import JabberPoint.Presentation;
 
-public abstract class Command
-{
+public abstract class Command {
     public Presentation presentation;
 
-    public Command(Presentation presentation)
-    {
+    public Command(Presentation presentation) {
         this.presentation = presentation;
     }
 

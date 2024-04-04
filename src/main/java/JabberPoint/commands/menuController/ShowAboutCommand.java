@@ -6,18 +6,16 @@ import JabberPoint.commands.Command;
 
 import java.awt.Frame;
 
-public class ShowAboutCommand extends Command
-{
+public class ShowAboutCommand extends Command {
     private Frame frame;
-    public ShowAboutCommand(Presentation presentation, Frame frame)
-    {
+
+    public ShowAboutCommand(Presentation presentation, Frame frame) {
         super(presentation);
         this.frame = frame;
     }
 
     @Override
-    public void execute()
-    {
+    public void execute() {
         AboutBox.show(frame);
     }
 }
