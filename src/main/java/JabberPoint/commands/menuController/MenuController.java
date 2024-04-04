@@ -1,5 +1,7 @@
-package JabberPoint;
+package JabberPoint.commands.menuController;
 
+import JabberPoint.Presentation;
+import JabberPoint.commands.Command;
 import JabberPoint.commands.keyController.*;
 
 import java.awt.MenuBar;
@@ -37,24 +39,27 @@ public class MenuController extends MenuBar {
 		this.viewMenu = new Menu("View");
 		this.helpMenu = new Menu("Help");
 
-		this.fileMenu.add(this.menuItem = mkMenuItem("OPEN"));
+		this.fileMenu.add(this.menuItem = mkMenuItem("Open"));
 		this.menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				new OpenFileCommand(presentation,frame);
+				Command action = new OpenFileCommand(presentation,frame);
+				action.execute();
 			}
 		} );
 
 		this.fileMenu.add(this.menuItem = mkMenuItem("New"));
 		this.menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				new NewFileCommand(presentation,frame);
+				Command action = new NewFileCommand(presentation,frame);
+				action.execute();
 			}
 		});
 
 		this.fileMenu.add(this.menuItem = mkMenuItem("Save"));
 		this.menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new SaveFileCommand(presentation,frame);
+				Command action = new SaveFileCommand(presentation,frame);
+				action.execute();
 			}
 		});
 
@@ -63,7 +68,8 @@ public class MenuController extends MenuBar {
 		this.fileMenu.add(this.menuItem = mkMenuItem("Exit"));
 		this.menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				new ExitCommand(presentation);
+				Command action = new ExitCommand(presentation);
+				action.execute();
 			}
 		});
 
@@ -71,21 +77,24 @@ public class MenuController extends MenuBar {
 		this.viewMenu.add(this.menuItem = mkMenuItem("Next"));
 		this.menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				new NextSlideCommand(presentation);
+				Command action = new NextSlideCommand(presentation);
+				action.execute();
 			}
 		});
 
 		this.viewMenu.add(this.menuItem = mkMenuItem("Previous"));
 		this.menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				new PreviousSlideCommand(presentation);
+				Command action = new PreviousSlideCommand(presentation);
+				action.execute();
 			}
 		});
 
 		this.viewMenu.add(this.menuItem = mkMenuItem("Go-To"));
 		this.menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				new GoToSlideCommand(presentation);
+				Command action = new GoToSlideCommand(presentation);
+				action.execute();
 			}
 		});
 
@@ -94,7 +103,8 @@ public class MenuController extends MenuBar {
 		this.helpMenu.add(this.menuItem = mkMenuItem("About"));
 		this.menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				new ShowAboutCommand(presentation,frame);
+				Command action = new ShowAboutCommand(presentation,frame);
+				action.execute();
 			}
 		});
 		setHelpMenu(this.helpMenu);		// needed for portability (Motif, etc.).

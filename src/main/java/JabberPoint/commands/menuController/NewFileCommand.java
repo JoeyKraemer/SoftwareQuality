@@ -1,15 +1,14 @@
-package JabberPoint.commands.keyController;
+package JabberPoint.commands.menuController;
 
-import JabberPoint.AboutBox;
 import JabberPoint.Presentation;
 import JabberPoint.commands.Command;
 
 import java.awt.Frame;
 
-public class ShowAboutCommand extends Command
+public class NewFileCommand extends Command
 {
     private Frame frame;
-    public ShowAboutCommand(Presentation presentation, Frame frame)
+    public NewFileCommand(Presentation presentation, Frame frame)
     {
         super(presentation);
         this.frame = frame;
@@ -18,6 +17,8 @@ public class ShowAboutCommand extends Command
     @Override
     public void execute()
     {
-        AboutBox.show(frame);
+        this.presentation.clear();
+        this.frame.repaint();
     }
+
 }

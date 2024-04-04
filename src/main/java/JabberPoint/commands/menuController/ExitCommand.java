@@ -1,4 +1,4 @@
-package JabberPoint.commands.keyController;
+package JabberPoint.commands.menuController;
 
 import JabberPoint.Presentation;
 import JabberPoint.commands.Command;
