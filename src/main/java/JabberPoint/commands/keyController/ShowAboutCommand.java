@@ -5,20 +5,19 @@ import JabberPoint.Presentation;
 import JabberPoint.commands.Command;
 
 import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 
-public class AboutCommand extends Command
+public class ShowAboutCommand extends Command
 {
-    private Frame parent;
-    public AboutCommand(Presentation presentation)
+    private Frame frame;
+    public ShowAboutCommand(Presentation presentation, Frame frame)
     {
         super(presentation);
+        this.frame = frame;
     }
 
     @Override
     public void execute()
     {
-        AboutBox.show(parent);
+        AboutBox.show(frame);
     }
 }
