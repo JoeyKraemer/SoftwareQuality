@@ -10,7 +10,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Run check style
-      uses: dbelyaev/action-checkstyle@master
+      uses: dbelyaev/action-checkstyle@v1.8.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         reporter: github-pr-review
