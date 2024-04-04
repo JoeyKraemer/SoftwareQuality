@@ -1,17 +1,15 @@
-name: Code coverage check
+name: reviewdog
 
-on: pull_request
+on: [pull_request]
 
 jobs:
   checkstyle:
+    name: checkstyle
     runs-on: ubuntu-latest
-    name: Checkstyle
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Run check style
-      uses: dbelyaev/action-checkstyle@v1.8.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        reporter: github-pr-review
-        checkstyle_config: ./properties/joey_checks.xml
+      - uses: actions/checkout@v4
+      - uses: dbelyaev/action-checkstyle@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          checkstyle_config: ./properties_file/test_checks.xml
