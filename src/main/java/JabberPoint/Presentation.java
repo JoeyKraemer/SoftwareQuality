@@ -1,8 +1,10 @@
+package JabberPoint;
+
 import java.util.ArrayList;
 
 
 /**
- * <p>Presentation maintains the slides in the presentation.</p>
+ * <p>JabberPoint.Presentation maintains the slides in the presentation.</p>
  * <p>There is only instance of this class.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 public class Presentation {
 	private String showTitle; // title of the presentation
 	private ArrayList<Slide> showList = null; // an ArrayList with Slides
-	private int currentSlideNumber = 0; // the slidenummer of the current Slide
+	private int currentSlideNumber = 0; // the slidenummer of the current JabberPoint.Slide
 	private SlideViewerComponent slideViewComponent = null; // the viewcomponent of the Slides
 
 	public Presentation() {

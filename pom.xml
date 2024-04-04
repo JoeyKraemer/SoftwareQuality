@@ -30,7 +30,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        JabberPoint
+                                        JabberPoint.JabberPoint
                                     </mainClass>
                                 </manifest>
                             </archive>

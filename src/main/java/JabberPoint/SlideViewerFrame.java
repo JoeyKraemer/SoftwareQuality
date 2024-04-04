@@ -1,3 +1,5 @@
+package JabberPoint;
+
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
@@ -40,7 +42,7 @@ public class SlideViewerFrame extends JFrame {
 		getContentPane().add(slideViewerComponent);
 		addKeyListener(new KeyController(presentation)); // add a controller
 		setMenuBar(new MenuController(this, presentation));	// add another controller
-		setSize(new Dimension(WIDTH, HEIGHT)); // Same sizes as Slide has.
+		setSize(new Dimension(WIDTH, HEIGHT)); // Same sizes as JabberPoint.Slide has.
 		setVisible(true);
 	}
 }
