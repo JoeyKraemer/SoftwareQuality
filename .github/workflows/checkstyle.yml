@@ -3,16 +3,16 @@ name: Code coverage check
 on: pull_request
 
 jobs:
-  checkstyle_job:
+  checkstyle:
     runs-on: ubuntu-latest
-    name: Checkstyle job
+    name: Checkstyle
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Run check style
-      uses: nikitasavinov/checkstyle-action@master
+      uses: dbelyaev/action-checkstyle@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        reporter: 'github-pr-check'
+        reporter: github-pr-review
         tool_name: 'testtool'
-        checkstyle_config: ./joey_checks.xml
+        checkstyle_config: ./properties/joey_checks.xml
