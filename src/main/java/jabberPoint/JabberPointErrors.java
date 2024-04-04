@@ -1,4 +1,4 @@
-package JabberPoint;
+package jabberPoint;
 
 public enum JabberPointErrors {
     IOERR,

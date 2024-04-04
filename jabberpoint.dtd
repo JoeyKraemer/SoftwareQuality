@@ -1,5 +1,5 @@
 <!--
- Document Type Definition voor JabberPoint.JabberPoint.JabberPoint.JabberPoint presentatties
+ Document Type Definition voor jabberPoint.jabberPoint.jabberPoint.jabberPoint presentatties
  $Id$
  -->
 <!ELEMENT showtitle (#PCDATA)>

@@ -1,7 +1,7 @@
-package JabberPoint.commands.keyController;
+package jabberPoint.commands.keyController;
 
-import JabberPoint.Presentation;
-import JabberPoint.commands.Command;
+import jabberPoint.Presentation;
+import jabberPoint.commands.Command;
 
 public class NextSlideCommand extends Command {
     public NextSlideCommand(Presentation presentation) {

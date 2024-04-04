@@ -1,8 +1,8 @@
-package JabberPoint.commands.menuController;
+package jabberPoint.commands.menuController;
 
-import JabberPoint.AboutBox;
-import JabberPoint.Presentation;
-import JabberPoint.commands.Command;
+import jabberPoint.AboutBox;
+import jabberPoint.Presentation;
+import jabberPoint.commands.Command;
 
 import java.awt.Frame;
 

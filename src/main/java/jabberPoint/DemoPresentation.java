@@ -1,4 +1,4 @@
-package JabberPoint;
+package jabberPoint;
 
 /**
  * A built in demo-presentation
@@ -13,7 +13,7 @@ class DemoPresentation extends Accessor {
         presentation.setTitle("Demo JabberPoint.JabberPoint.Presentation");
         Slide slide;
         slide = new Slide();
-        slide.setTitle("JabberPoint");
+        slide.setTitle("jabberPoint");
         slide.append(1, "The Java JabberPoint.JabberPoint.Presentation Tool");
         slide.append(2, "Copyright (c) 1996-2000: Ian Darwin");
         slide.append(2, "Copyright (c) 2000-now:");

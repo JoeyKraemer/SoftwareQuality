@@ -1,9 +1,9 @@
-package JabberPoint.commands.menuController;
+package jabberPoint.commands.menuController;
 
-import JabberPoint.Accessor;
-import JabberPoint.Presentation;
-import JabberPoint.XMLAccessor;
-import JabberPoint.commands.Command;
+import jabberPoint.Accessor;
+import jabberPoint.Presentation;
+import jabberPoint.XMLAccessor;
+import jabberPoint.commands.Command;
 
 import java.awt.Frame;
 import java.io.IOException;
