@@ -1,6 +1,8 @@
+package jabberpoint.style;
+
 import java.awt.*;
 
-/** <p>Style is for Indent, Color, Font and Leading.</p>
+/** <p>jabberpoint.style.Style is for Indent, Color, Font and Leading.</p>
  * <p>Direct relation between style-number and item-level:
  * in Slide style if fetched for an item
  * with style-number as item-level.</p>

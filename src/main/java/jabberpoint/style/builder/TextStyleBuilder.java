@@ -1,22 +1,26 @@
+package jabberpoint.style.builder;
+
+import jabberpoint.style.Style;
+import jabberpoint.style.StyleBuilder;
+import jabberpoint.style.styles.TextStyle;
+
 import java.awt.*;
 
-public class SubtitleStyleBuilder implements StyleBuilder{
-
+public class TextStyleBuilder implements StyleBuilder {
     private int indent;
     private Color color;
     private int fontSize;
     private int leading;
 
-    public SubtitleStyleBuilder() {
-        this.indent = 20;
-        this.color = Color.blue;
-        this.fontSize = 40;
+    public TextStyleBuilder() {
+        this.indent = 50;
+        this.color = Color.black;
+        this.fontSize = 36;
         this.leading = 10;
     }
-
     @Override
     public void setIndent(int indent) {
-       this.indent = indent;
+        this.indent = indent;
     }
 
     @Override
@@ -36,6 +40,6 @@ public class SubtitleStyleBuilder implements StyleBuilder{
 
     @Override
     public Style createStyle() {
-        return new TitleStyle(this.indent, this.color, this.fontSize, this.leading);
+        return new TextStyle(this.indent, this.color, this.fontSize, this.leading);
     }
 }

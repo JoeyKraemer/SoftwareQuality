@@ -1,3 +1,5 @@
+package jabberpoint.style;
+
 import java.awt.*;
 
 public abstract class Style {
