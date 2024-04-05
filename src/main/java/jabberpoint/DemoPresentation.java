@@ -1,5 +1,7 @@
 package jabberpoint;
 
+import jabberpoint.slideitem.items.BitmapItem;
+
 /**
  * A built in demo-presentation
  *

@@ -1,5 +1,7 @@
 package jabberpoint;
 
+import jabberpoint.slideitem.items.TextItem;
+
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;

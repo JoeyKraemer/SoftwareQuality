@@ -1,8 +1,8 @@
-package jabberpoint.commands.menucontroller;
+package jabberpoint.controller.menucontroller;
 
 import jabberpoint.Presentation;
-import jabberpoint.commands.Command;
-import jabberpoint.commands.keycontroller.*;
+import jabberpoint.controller.Command;
+import jabberpoint.controller.keycontroller.*;
 
 import java.awt.MenuBar;
 import java.awt.Frame;
