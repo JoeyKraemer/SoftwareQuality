@@ -1,8 +1,5 @@
 package jabberpoint.slideitem;
 
-import jabberpoint.Style;
-import jabberpoint.slide.iterator.Iterator;
-
 import java.awt.*;
 import java.awt.image.ImageObserver;
 

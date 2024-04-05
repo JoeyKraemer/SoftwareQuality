@@ -1,13 +1,9 @@
 package jabberpoint.slide;
 
-import jabberpoint.Style;
-import jabberpoint.slide.iterator.Iterator;
 import jabberpoint.slide.iterator.SlideItemIterator;
 import jabberpoint.slideitem.SlideItem;
-import jabberpoint.slideitem.creator.BitmapItemCreator;
 import jabberpoint.slideitem.items.BitmapItem;
 import jabberpoint.slideitem.items.TextItem;
-import org.w3c.dom.Text;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;

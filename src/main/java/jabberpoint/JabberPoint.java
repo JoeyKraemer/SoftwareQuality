@@ -1,5 +1,7 @@
 package jabberpoint;
 
+import jabberpoint.slideviewer.SlideViewerFrame;
+
 import javax.swing.JOptionPane;
 
 import java.io.IOException;

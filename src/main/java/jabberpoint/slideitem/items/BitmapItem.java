@@ -1,7 +1,5 @@
 package jabberpoint.slideitem.items;
 
-import jabberpoint.Style;
-import jabberpoint.slide.iterator.Iterator;
 import jabberpoint.slideitem.SlideItem;
 
 import java.awt.Rectangle;
