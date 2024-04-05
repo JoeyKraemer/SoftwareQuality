@@ -1,5 +1,7 @@
 package jabberpoint;
 
+import jabberpoint.slide.Slide;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Dimension;
@@ -13,7 +15,7 @@ import javax.swing.JFrame;
  * <p>JabberPoint.JabberPoint.SlideViewerComponent is a graphical component that can show slides.</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 2.0 2024/04/04 Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
 public class SlideViewerComponent extends JComponent {

@@ -10,6 +10,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import jabberpoint.slide.Slide;
+import jabberpoint.slideitem.items.BitmapItem;
+import jabberpoint.slideitem.items.TextItem;
 import org.xml.sax.SAXException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -22,6 +25,7 @@ import org.w3c.dom.NodeList;
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
+ * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
 public class XMLAccessor extends Accessor {

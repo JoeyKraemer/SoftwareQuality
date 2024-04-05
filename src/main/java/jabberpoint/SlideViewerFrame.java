@@ -1,7 +1,7 @@
 package jabberpoint;
 
-import jabberpoint.commands.keycontroller.KeyController;
-import jabberpoint.commands.menucontroller.MenuController;
+import jabberpoint.controller.keycontroller.KeyController;
+import jabberpoint.controller.menucontroller.MenuController;
 
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;
@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  * <p>The application window for a slideviewcomponent</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 2.0 2024/04/04 Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
 public class SlideViewerFrame extends JFrame {

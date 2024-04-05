@@ -16,7 +16,7 @@ import java.io.IOException;
  * @version 1.4 2007/07/16 Sylvia Stuurman
  * @version 1.5 2010/03/03 Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
- * @version  2.0 2024/04/04 Caterina Aresti & Joey Kramer
+ * @version  2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
 public class JabberPoint {
@@ -25,7 +25,7 @@ public class JabberPoint {
 	/** The Main Program */
 	public static void main(String argv[]) {
 		
-		Style.createStyles();
+		//jabberpoint.style.builder.StyleBuilder.createStyle();
 		Presentation presentation = new Presentation();
 		new SlideViewerFrame(JABVERSION, presentation);
 		try {
