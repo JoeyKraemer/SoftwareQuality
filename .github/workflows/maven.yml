@@ -26,12 +26,3 @@ jobs:
 
     - name: Test project with Maven
       run: mvn -B test --file pom.xml
-
-    #No idea where to deploy it to
-    #- name: Deploy project with Maven
-    #  run: mvn -B deploy --file pom.xml
-
-
-
-
-
