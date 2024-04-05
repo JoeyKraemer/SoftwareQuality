@@ -1,7 +1,7 @@
 package jabberpoint;
 
-import jabberpoint.commands.keycontroller.KeyController;
-import jabberpoint.commands.menucontroller.MenuController;
+import jabberpoint.controller.keycontroller.KeyController;
+import jabberpoint.controller.menucontroller.MenuController;
 
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;

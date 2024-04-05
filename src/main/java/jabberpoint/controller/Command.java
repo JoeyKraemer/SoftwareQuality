@@ -1,4 +1,4 @@
-package jabberpoint.commands;
+package jabberpoint.controller;
 
 import jabberpoint.Presentation;
 
