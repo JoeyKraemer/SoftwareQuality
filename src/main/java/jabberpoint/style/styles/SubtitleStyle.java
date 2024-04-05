@@ -1,8 +1,6 @@
 package jabberpoint.style.styles;
 
-import jabberpoint.style.Style;
-
-import java.awt.*;
+import java.awt.Color;
 
 public class SubtitleStyle extends Style {
     public SubtitleStyle(int indent, Color color, int fontSize, int leading) {

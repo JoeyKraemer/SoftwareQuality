@@ -1,8 +1,8 @@
-package jabberpoint.style;
+package jabberpoint.style.builder;
 
 import java.awt.*;
 
-/** <p>jabberpoint.style.Style is for Indent, Color, Font and Leading.</p>
+/** <p>jabberpoint.style.styles.Style is for Indent, Color, Font and Leading.</p>
  * <p>Direct relation between style-number and item-level:
  * in Slide style if fetched for an item
  * with style-number as item-level.</p>
@@ -13,13 +13,14 @@ import java.awt.*;
  * @version 1.4 2007/07/16 Sylvia Stuurman
  * @version 1.5 2010/03/03 Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
+ * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
 public interface StyleBuilder {
 
-	public void setIndent(int indent);
-	public void setColor(Color color);
-	public void setFontSize(int fontSize);
-	public void setLeading(int leading);
-	public Style createStyle();
+	 void setIndent(int indent);
+	 void setColor(Color color);
+	 void setFontSize(int fontSize);
+	 void setLeading(int leading);
+
 }

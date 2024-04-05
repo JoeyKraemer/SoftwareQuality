@@ -19,13 +19,14 @@ import java.util.Vector;
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
+ * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
 public class Slide {
     public final static int WIDTH = 1200;
     public final static int HEIGHT = 800;
-    protected String title; // title is saved separately
-    protected Vector<SlideItem> slideItems; // slide items are saved in a Vector
+    private String title; // title is saved separately
+    private Vector<SlideItem> slideItems; // slide items are saved in a Vector
     private SlideItemIterator iterator;
 
     public Slide() {
@@ -68,7 +69,7 @@ public class Slide {
     // draw the slide
     public void draw(Graphics graphics, Rectangle area, ImageObserver observer) {
         float scale = getScale(area);
-        
+
         SlideItem item = new TextItem();
         item.createSlideItem(0, this.title);
 

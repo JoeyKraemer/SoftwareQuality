@@ -1,8 +1,6 @@
 package jabberpoint.style.styles;
 
-import jabberpoint.style.Style;
-
-import java.awt.*;
+import java.awt.Color;
 
 public class TextStyle extends Style {
     public TextStyle(int indent, Color color, int fontSize, int leading) {
