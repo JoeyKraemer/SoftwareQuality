@@ -5,6 +5,9 @@ import jabberpoint.slideitem.SlideItem;
 import jabberpoint.slideitem.items.BitmapItem;
 import jabberpoint.slideitem.items.TextItem;
 
+import jabberpoint.style.*;
+import jabberpoint.style.styles.Style;
+
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
@@ -48,34 +51,35 @@ public class Slide {
     }
 
     // Add a slide item
-    private void append(SlideItem anItem) {
+    private void appendTextItem(SlideItem anItem) {
         this.slideItems.addElement(anItem);
     }
 
     public void appendBitMapItem(int level, String imageName) {
         SlideItem item = new BitmapItem();
-        append(item.createSlideItem(level, imageName));
+        appendTextItem(item.createSlideItem(level, imageName));
     }
 
     public void appendTextItem(int level, String text) {
         SlideItem item = new TextItem();
-        append(item.createSlideItem(level, text));
+        appendTextItem(item.createSlideItem(level, text));
     }
 
     // draw the slide
     public void draw(Graphics graphics, Rectangle area, ImageObserver observer) {
         float scale = getScale(area);
 
-        SlideItem item = new TextItem();
-        item.createSlideItem(0, this.title);
+        SlideItem titleItem = new TextItem();
+        titleItem.createSlideItem(0, this.title);
 
-        Style style = Style.getStyle(item.getLevel());
-        item.draw(area.x, area.y, scale, graphics, style, observer);
-        area.y += item.getBoundingBox(graphics, observer, scale, style).height;
+        Style style = StyleOptions.getStyle(titleItem.getLevel());
+        titleItem.draw(area.x, area.y, scale, graphics, style, observer);
+        area.y += titleItem.getBoundingBox(graphics, observer, scale, style).height;
 
         //iterator
+
         while(iterator.hasNext()){
-            item = iterator.next();
+            SlideItem item = iterator.next();
             style = Style.getStyle(item.getLevel());
             item.draw(area.x, area.y, scale, graphics, style, observer);
             area.y += item.getBoundingBox(graphics, observer, scale, style).height;

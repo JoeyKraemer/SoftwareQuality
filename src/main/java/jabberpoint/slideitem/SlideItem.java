@@ -1,10 +1,11 @@
 package jabberpoint.slideitem;
 
+import jabberpoint.style.styles.Style;
+
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
 public interface SlideItem {
-
 
     SlideItem createSlideItem();
 
@@ -16,4 +17,6 @@ public interface SlideItem {
 
     int getLevel();
 
+    // give the bounding box of the item
+    Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style myStyle);
 }

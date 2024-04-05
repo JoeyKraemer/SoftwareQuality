@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import jabberpoint.slide.Slide;
+import jabberpoint.slideitem.SlideItem;
 import jabberpoint.slideitem.items.BitmapItem;
 import jabberpoint.slideitem.items.TextItem;
 import org.xml.sax.SAXException;
@@ -106,10 +107,10 @@ public class XMLAccessor extends Accessor {
         }
         String type = attributes.getNamedItem(KIND).getTextContent();
         if (TEXT.equals(type)) {
-            slide.append(new TextItem(level, item.getTextContent()));
+            slide.appendTextItem(level, item.getTextContent());
         } else {
             if (IMAGE.equals(type)) {
-                slide.append(new BitmapItem(level, item.getTextContent()));
+                slide.appendBitMapItem(level, item.getTextContent());
             } else {
                 System.err.println(UNKNOWNTYPE);
             }
@@ -138,7 +139,7 @@ public class XMLAccessor extends Accessor {
                 } else {
                     if (slideItem instanceof BitmapItem) {
                         out.print("\"image\" level=\"" + slideItem.getLevel() + "\">");
-                        out.print(((BitmapItem) slideItem).getName());
+                        out.print(((BitmapItem) slideItem).getImageName());
                     } else {
                         System.out.println("Ignoring " + slideItem);
                     }

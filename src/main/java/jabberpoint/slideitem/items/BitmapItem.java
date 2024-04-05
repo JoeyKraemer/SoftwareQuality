@@ -1,6 +1,7 @@
 package jabberpoint.slideitem.items;
 
 import jabberpoint.slideitem.SlideItem;
+import jabberpoint.style.styles.Style;
 
 import java.awt.Rectangle;
 import java.awt.Graphics;
@@ -50,7 +51,7 @@ public class BitmapItem implements SlideItem {
         }
 
         if (imageName.length() < 4){
-            throw new IllegalArgumentException("Image needs to be at least 4 character long")
+            throw new IllegalArgumentException("Image needs to be at least 4 character long");
         }
         this.level = level;
         this.imageName = imageName;
@@ -75,19 +76,19 @@ public class BitmapItem implements SlideItem {
 
     // give the  bounding box of the image
     @Override
-    public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) {
-        return new Rectangle((int) (myStyle.indent * scale), 0,
+    public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style style) {
+        return new Rectangle((int) (style.getIndent() * scale), 0,
                 (int) (bufferedImage.getWidth(observer) * scale),
-                ((int) (myStyle.leading * scale)) +
+                ((int) (style.getLeading() * scale)) +
                         (int) (bufferedImage.getHeight(observer) * scale));
     }
 
     // draw the image
     @Override
-    public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer) {
-        int width = x + (int) (myStyle.indent * scale);
-        int height = y + (int) (myStyle.leading * scale);
-        g.drawImage(bufferedImage, width, height, (int) (bufferedImage.getWidth(observer) * scale),
+    public void draw(int x, int y, float scale, Graphics graphics, Style style, ImageObserver observer) {
+        int width = x + (int) (style.getIndent() * scale);
+        int height = y + (int) (style.getLeading() * scale);
+        graphics.drawImage(bufferedImage, width, height, (int) (bufferedImage.getWidth(observer) * scale),
                 (int) (bufferedImage.getHeight(observer) * scale), observer);
     }
 
