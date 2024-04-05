@@ -14,6 +14,8 @@ import jabberpoint.slide.Slide;
 import jabberpoint.slideitem.SlideItem;
 import jabberpoint.slideitem.items.BitmapItem;
 import jabberpoint.slideitem.items.TextItem;
+import jabberpoint.style.StyleOptions;
+import jabberpoint.style.styles.Style;
 import org.xml.sax.SAXException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -96,6 +98,8 @@ public class XMLAccessor extends Accessor {
 
     protected void loadSlideItem(Slide slide, Element item) {
         int level = 1; // default
+        StyleOptions styleOptions = new StyleOptions();
+        Style style = styleOptions.getText();
         NamedNodeMap attributes = item.getAttributes();
         String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
         if (leveltext != null) {
@@ -107,10 +111,10 @@ public class XMLAccessor extends Accessor {
         }
         String type = attributes.getNamedItem(KIND).getTextContent();
         if (TEXT.equals(type)) {
-            slide.appendTextItem(level, item.getTextContent());
+            slide.appendTextItem(style, item.getTextContent());
         } else {
             if (IMAGE.equals(type)) {
-                slide.appendBitMapItem(level, item.getTextContent());
+                slide.appendBitMapItem(style, item.getTextContent());
             } else {
                 System.err.println(UNKNOWNTYPE);
             }
@@ -134,11 +138,11 @@ public class XMLAccessor extends Accessor {
                 SlideItem slideItem = (SlideItem) slideItems.elementAt(itemNumber);
                 out.print("<item kind=");
                 if (slideItem instanceof TextItem) {
-                    out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");
+                    out.print("\"text\" style=\"" + slideItem.getStyle() + "\">");
                     out.print(((TextItem) slideItem).getText());
                 } else {
                     if (slideItem instanceof BitmapItem) {
-                        out.print("\"image\" level=\"" + slideItem.getLevel() + "\">");
+                        out.print("\"image\" style=\"" + slideItem.getStyle() + "\">");
                         out.print(((BitmapItem) slideItem).getImageName());
                     } else {
                         System.out.println("Ignoring " + slideItem);

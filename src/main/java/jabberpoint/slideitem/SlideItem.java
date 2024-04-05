@@ -9,14 +9,11 @@ public interface SlideItem {
 
     SlideItem createSlideItem();
 
-    SlideItem createSlideItem(int level, String string);
+    SlideItem createSlideItem(Style style, String string);
 
-    Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style style);
+    Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale);
 
-    void draw(int x, int y, float scale, Graphics graphics, Style style, ImageObserver observer);
+    void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer);
 
-    int getLevel();
-
-    // give the bounding box of the item
-    Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style myStyle);
+    Style getStyle();
 }

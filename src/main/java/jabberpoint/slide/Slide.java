@@ -27,11 +27,13 @@ public class Slide {
     private String title; // title is saved separately
     private Vector<SlideItem> slideItems; // slide items are saved in a Vector
     private SlideItemIterator iterator;
+    private StyleOptions styleOptions;
 
     public Slide() {
         this.slideItems = new Vector<SlideItem>();
         this.title = "Example Name";
         this.iterator = new SlideItemIterator(this.slideItems);
+        this.styleOptions = new StyleOptions();
     }
 
     public String getTitle() {
@@ -55,34 +57,34 @@ public class Slide {
         this.slideItems.addElement(anItem);
     }
 
-    public void appendBitMapItem(int level, String imageName) {
+    public void appendBitMapItem(Style style, String imageName) {
         SlideItem item = new BitmapItem();
-        appendTextItem(item.createSlideItem(level, imageName));
+        appendTextItem(item.createSlideItem(style, imageName));
     }
 
-    public void appendTextItem(int level, String text) {
+    public void appendTextItem(Style style, String text) {
         SlideItem item = new TextItem();
-        appendTextItem(item.createSlideItem(level, text));
+        appendTextItem(item.createSlideItem(style, text));
     }
 
     // draw the slide
     public void draw(Graphics graphics, Rectangle area, ImageObserver observer) {
         float scale = getScale(area);
 
+        Style titleStyle = styleOptions.getTitle();
         SlideItem titleItem = new TextItem();
-        titleItem.createSlideItem(0, this.title);
+        titleItem.createSlideItem(titleStyle, this.title);
 
-        Style style = StyleOptions.getStyle(titleItem.getLevel());
-        titleItem.draw(area.x, area.y, scale, graphics, style, observer);
-        area.y += titleItem.getBoundingBox(graphics, observer, scale, style).height;
+        titleItem.draw(area.x, area.y, scale, graphics, observer);
+        area.y += titleItem.getBoundingBox(graphics, observer, scale).height;
 
         //iterator
 
         while(iterator.hasNext()){
             SlideItem item = iterator.next();
-            style = Style.getStyle(item.getLevel());
-            item.draw(area.x, area.y, scale, graphics, style, observer);
-            area.y += item.getBoundingBox(graphics, observer, scale, style).height;
+
+            item.draw(area.x, area.y, scale, graphics, observer);
+            area.y += item.getBoundingBox(graphics, observer, scale).height;
         }
     }
 

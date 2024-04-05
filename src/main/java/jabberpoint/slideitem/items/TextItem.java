@@ -2,6 +2,7 @@ package jabberpoint.slideitem.items;
 
 import jabberpoint.slide.Slide;
 import jabberpoint.slideitem.SlideItem;
+import jabberpoint.style.StyleOptions;
 import jabberpoint.style.styles.Style;
 
 import java.awt.Rectangle;
@@ -29,30 +30,31 @@ import java.util.ArrayList;
 
 public class TextItem implements SlideItem {
     private String text;
-    private int level;
+    private Style style;
 
     // "Constructor" without parameters
     @Override
     public SlideItem createSlideItem() {
         this.text = "text";
-        this.level = 0;
+
+        StyleOptions tempStyle = new StyleOptions();
+        this.style = tempStyle.getText();
 
         return this;
     }
 
     //"Constructor" with parameters
     @Override
-    public SlideItem createSlideItem(int level, String text) {
-        if (level < 0 || level > 5) {
-            throw new IllegalArgumentException("Level must be between 0-5");
-        }
-
+    public SlideItem createSlideItem(Style style, String text) {
         if (text.isEmpty()){
-            throw new IllegalArgumentException("Image needs to be at least 1 character long")
+            throw new IllegalArgumentException("Image needs to be at least 1 character long");
         }
 
         this.text = text;
-        this.level = level;
+
+        StyleOptions tempStyle = new StyleOptions();
+        this.style = tempStyle.getText();
+
         return this;
     }
 
@@ -60,16 +62,11 @@ public class TextItem implements SlideItem {
         return text;
     }
 
-    @Override
-    public int getLevel() {
-        return level;
-    }
-    
     // give the bounding box of the item
     @Override
-    public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style style) {
-        List<TextLayout> layouts = getLayouts(graphics, style, scale);
-        int xsize = 0, ysize = (int) (style.getLeading() * scale);
+    public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale) {
+        List<TextLayout> layouts = getLayouts(graphics, this.style, scale);
+        int xsize = 0, ysize = (int) (this.style.getLeading() * scale);
         java.util.Iterator<TextLayout> iterator = layouts.iterator();
         while (iterator.hasNext()) {
             TextLayout layout = iterator.next();
@@ -87,13 +84,13 @@ public class TextItem implements SlideItem {
 
     // draw the item
     @Override
-    public void draw(int x, int y, float scale, Graphics graphics, Style style, ImageObserver observer) {
+    public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer) {
 
-        List<TextLayout> layouts = getLayouts(graphics, style, scale);
+        List<TextLayout> layouts = getLayouts(graphics, this.style, scale);
 
-        Point pen = new Point(x + (int) (style.getIndent() * scale), y + (int) (style.getLeading() * scale));
+        Point pen = new Point(x + (int) (this.style.getIndent() * scale), y + (int) (this.style.getLeading() * scale));
         Graphics2D g2d = (Graphics2D) graphics;
-        g2d.setColor(style.getColor());
+        g2d.setColor(this.style.getColor());
         java.util.Iterator<TextLayout> it = layouts.iterator();
 
         while (it.hasNext()) {
@@ -102,6 +99,11 @@ public class TextItem implements SlideItem {
             layout.draw(g2d, pen.x, pen.y);
             pen.y += layout.getDescent();
         }
+    }
+
+    @Override
+    public Style getStyle() {
+        return this.style;
     }
 
     // geef de AttributedString voor het item

@@ -2,6 +2,7 @@ package jabberpoint.slideitem.creator;
 
 import jabberpoint.slideitem.items.BitmapItem;
 import jabberpoint.slideitem.SlideItem;
+import jabberpoint.style.styles.Style;
 
 public class BitmapItemCreator extends SlideItemCreator {
 
@@ -13,9 +14,9 @@ public class BitmapItemCreator extends SlideItemCreator {
     }
 
     @Override
-    public SlideItem createSlideItem(int level, String string) {
+    public SlideItem createSlideItem(Style style, String string) {
         SlideItem item = new BitmapItem();
 
-        return item.createSlideItem(level, string);
+        return item.createSlideItem(style, string);
     }
 }
