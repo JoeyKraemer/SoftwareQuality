@@ -25,6 +25,7 @@ import java.util.ArrayList;
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
+ * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
 public class TextItem implements SlideItem {
@@ -64,12 +65,7 @@ public class TextItem implements SlideItem {
     public int getLevel() {
         return level;
     }
-
-    @Override
-    public Iterator createIterator() {
-        return null;
-    }
-
+    
     // give the bounding box of the item
     @Override
     public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style myStyle) {

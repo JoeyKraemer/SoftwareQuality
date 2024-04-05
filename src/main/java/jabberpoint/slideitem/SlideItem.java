@@ -18,6 +18,5 @@ public interface SlideItem {
     void draw(int x, int y, float scale, Graphics graphics, Style style, ImageObserver observer);
 
     int getLevel();
-    Iterator createIterator();
 
 }

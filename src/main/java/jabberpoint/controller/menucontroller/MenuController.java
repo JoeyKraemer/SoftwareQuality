@@ -16,13 +16,12 @@ import java.awt.event.ActionEvent;
  * <p>The controller for the menu</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 2.0 2024/04/04 Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 public class MenuController extends MenuBar {
 
     private Frame frame; // the frame, only used as parent for the Dialogs
     private Presentation presentation; // Commands are given to the presentation
-    private MenuItem menuItem;
     private Menu fileMenu;
     private Menu viewMenu;
     private Menu helpMenu;
@@ -35,79 +34,40 @@ public class MenuController extends MenuBar {
         this.viewMenu = new Menu("View");
         this.helpMenu = new Menu("Help");
 
-        this.fileMenu.add(this.menuItem = mkMenuItem("Open"));
-        this.menuItem.addActionListener(new ActionListener() {
+        //adding menu items for file operations
+        addMenuItem(fileMenu, "Open", new OpenFileCommand(presentation, frame));
+        addMenuItem(fileMenu, "New", new NewFileCommand(presentation, frame));
+        addMenuItem(fileMenu, "Save", new SaveFileCommand(presentation, frame));
+        fileMenu.addSeparator();
+        addMenuItem(fileMenu, "Exit", new ExitCommand(presentation));
+
+        //adding menu items for navigation
+        addMenuItem(viewMenu, "Next", new NextSlideCommand(presentation));
+        addMenuItem(viewMenu, "Previous", new PreviousSlideCommand(presentation));
+        addMenuItem(viewMenu, "Go-To", new GoToSlideCommand(presentation));
+
+        //adding menu item to show info about the application
+        addMenuItem(helpMenu, "About", new ShowAboutCommand(presentation, frame));
+
+        // adding and setting menus to the menu bar
+        add(fileMenu);
+        add(viewMenu);
+        setHelpMenu(helpMenu);
+    }
+
+    // add a menu item
+    private void addMenuItem(Menu menu, String name, Command command) {
+        MenuItem menuItem = makeMenuItem(name);
+        menuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                Command action = new OpenFileCommand(presentation, frame);
-                action.execute();
+                command.execute();
             }
         });
-
-        this.fileMenu.add(this.menuItem = mkMenuItem("New"));
-        this.menuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                Command action = new NewFileCommand(presentation, frame);
-                action.execute();
-            }
-        });
-
-        this.fileMenu.add(this.menuItem = mkMenuItem("Save"));
-        this.menuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Command action = new SaveFileCommand(presentation, frame);
-                action.execute();
-            }
-        });
-
-        this.fileMenu.addSeparator();
-
-        this.fileMenu.add(this.menuItem = mkMenuItem("Exit"));
-        this.menuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                Command action = new ExitCommand(presentation);
-                action.execute();
-            }
-        });
-
-        add(this.fileMenu);
-        this.viewMenu.add(this.menuItem = mkMenuItem("Next"));
-        this.menuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                Command action = new NextSlideCommand(presentation);
-                action.execute();
-            }
-        });
-
-        this.viewMenu.add(this.menuItem = mkMenuItem("Previous"));
-        this.menuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                Command action = new PreviousSlideCommand(presentation);
-                action.execute();
-            }
-        });
-
-        this.viewMenu.add(this.menuItem = mkMenuItem("Go-To"));
-        this.menuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                Command action = new GoToSlideCommand(presentation);
-                action.execute();
-            }
-        });
-
-        add(this.viewMenu);
-
-        this.helpMenu.add(this.menuItem = mkMenuItem("About"));
-        this.menuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                Command action = new ShowAboutCommand(presentation, frame);
-                action.execute();
-            }
-        });
-        setHelpMenu(this.helpMenu);        // needed for portability (Motif, etc.).
+        menu.add(menuItem);
     }
 
     // create a menu item
-    private MenuItem mkMenuItem(String name) {
+    private MenuItem makeMenuItem(String name) {
         return new MenuItem(name, new MenuShortcut(name.charAt(0)));
     }
 }

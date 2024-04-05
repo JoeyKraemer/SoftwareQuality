@@ -93,9 +93,4 @@ public class BitmapItem implements SlideItem {
                 (int) (bufferedImage.getHeight(observer) * scale), observer);
     }
 
-    @Override
-    public Iterator createIterator() {
-
-        return
-    }
 }
