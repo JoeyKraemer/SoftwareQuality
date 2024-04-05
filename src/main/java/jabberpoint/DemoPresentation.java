@@ -1,5 +1,6 @@
 package jabberpoint;
 
+import jabberpoint.slide.Slide;
 import jabberpoint.slideitem.items.BitmapItem;
 
 /**

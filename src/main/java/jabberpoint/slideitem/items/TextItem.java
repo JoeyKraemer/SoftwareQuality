@@ -1,8 +1,8 @@
 package jabberpoint.slideitem.items;
 
-import jabberpoint.Slide;
+import jabberpoint.slide.Slide;
 import jabberpoint.Style;
-import jabberpoint.slide.SlideIterator;
+import jabberpoint.slide.iterator.Iterator;
 import jabberpoint.slideitem.SlideItem;
 
 import java.awt.Rectangle;
@@ -17,7 +17,6 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.ImageObserver;
 import java.text.AttributedString;
 import java.util.List;
-import java.util.Iterator;
 import java.util.ArrayList;
 
 /**
@@ -61,12 +60,13 @@ public class TextItem implements SlideItem {
         return text;
     }
 
+    @Override
     public int getLevel() {
         return level;
     }
 
     @Override
-    public SlideIterator createIterator() {
+    public Iterator createIterator() {
         return null;
     }
 
@@ -75,7 +75,7 @@ public class TextItem implements SlideItem {
     public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style myStyle) {
         List<TextLayout> layouts = getLayouts(graphics, myStyle, scale);
         int xsize = 0, ysize = (int) (myStyle.leading * scale);
-        Iterator<TextLayout> iterator = layouts.iterator();
+        java.util.Iterator<TextLayout> iterator = layouts.iterator();
         while (iterator.hasNext()) {
             TextLayout layout = iterator.next();
             Rectangle2D bounds = layout.getBounds();
@@ -99,7 +99,7 @@ public class TextItem implements SlideItem {
                 y + (int) (myStyle.leading * scale));
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(myStyle.color);
-        Iterator<TextLayout> it = layouts.iterator();
+        java.util.Iterator<TextLayout> it = layouts.iterator();
         while (it.hasNext()) {
             TextLayout layout = it.next();
             pen.y += layout.getAscent();
