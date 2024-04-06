@@ -5,6 +5,13 @@ import jabberpoint.style.styles.Style;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
+/**
+ * <p>This is the SlideItem, it's implemented in its subclasses</p>
+ *
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
 public interface SlideItem {
 
     SlideItem createSlideItem();

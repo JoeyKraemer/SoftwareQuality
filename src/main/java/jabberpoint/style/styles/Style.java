@@ -2,6 +2,11 @@ package jabberpoint.style.styles;
 
 import java.awt.*;
 
+/** <p>This is a Style, it's an abstract class extended in multiple subclasses</p>
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
 public abstract class Style {
     protected final int indent;
     private final Color color;

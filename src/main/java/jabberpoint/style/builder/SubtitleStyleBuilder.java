@@ -4,6 +4,12 @@ import jabberpoint.style.styles.SubtitleStyle;
 
 import java.awt.*;
 
+
+/** <p>This is a SubtitleStyleBuilder, it implements StyleBuilder</p>
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
 public class SubtitleStyleBuilder implements StyleBuilder {
 
     private int indent;

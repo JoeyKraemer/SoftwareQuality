@@ -24,9 +24,9 @@ import org.w3c.dom.NodeList;
 
 
 /**
- * JabberPoint.JabberPoint.XMLAccessor, reads and writes XML files
+ * <p>This is the XMLAccessor, it reads and writes XML files</p>
  *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
@@ -38,9 +38,8 @@ public class XMLAccessor extends Accessor {
      */
     protected static final String DEFAULT_API_TO_USE = "dom";
 
-    /**
-     * namen van xml tags of attributen
-     */
+
+    // names of xml tags or attributes
     protected static final String SHOWTITLE = "showtitle";
     protected static final String SLIDETITLE = "title";
     protected static final String SLIDE = "slide";
@@ -50,9 +49,7 @@ public class XMLAccessor extends Accessor {
     protected static final String TEXT = "text";
     protected static final String IMAGE = "image";
 
-    /**
-     * tekst van messages
-     */
+     // text of messages
     protected static final String PCE = "Parser Configuration Exception";
     protected static final String UNKNOWNTYPE = "Unknown Element type";
     protected static final String NFE = "Number Format Exception";

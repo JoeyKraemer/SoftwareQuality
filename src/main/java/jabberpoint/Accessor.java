@@ -3,11 +3,10 @@ package jabberpoint;
 import java.io.IOException;
 
 /**
- * <p>Een JabberPoint.JabberPoint.Accessor maakt het mogelijk om gegevens voor een presentatie
- * te lezen of te schrijven.</p>
- * <p>Niet-abstracte subklassen moeten de load en de save methode implementeren.</p>
+ * <p>This is the Accessor. It makes it possible to transfer data for a presentation
+ *  to read or write.</p>
  *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */

@@ -6,9 +6,9 @@ import jabberpoint.style.StyleOptions;
 import jabberpoint.style.styles.Style;
 
 /**
- * A built in demo-presentation
+ * <p>This is a built-in demo presentation</p>
  *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */

@@ -4,6 +4,11 @@ import jabberpoint.style.styles.TextStyle;
 
 import java.awt.*;
 
+/** <p>This is a TextStyleBuilder, it implements StyleBuilder</p>
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
 public class TextStyleBuilder implements StyleBuilder {
     private int indent;
     private Color color;

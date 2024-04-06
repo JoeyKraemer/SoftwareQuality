@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 
 
 /**
- * <p>JabberPoint.JabberPoint.SlideViewerComponent is a graphical component that can show slides.</p>
+ * <p>THis is a SlideViewerComponent. It is a graphical component that can show slides.</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer

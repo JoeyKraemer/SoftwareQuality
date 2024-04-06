@@ -5,6 +5,13 @@ import jabberpoint.controller.Command;
 
 import javax.swing.JOptionPane;
 
+/**
+ * <p>This is the GoToSlideCommand, it's used in MenuController</p>
+ *
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
 public class GoToSlideCommand extends Command {
     public GoToSlideCommand(Presentation presentation) {
         super(presentation);

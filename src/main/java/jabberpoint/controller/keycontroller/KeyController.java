@@ -7,10 +7,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
 
 /**
- * <p>This is the JabberPoint.JabberPoint.commands.keyController.KeyController (KeyListener)</p>
+ * <p>This is the KeyController, it executes commands when keys are pressed</p>
  *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
  */
 
 public class KeyController extends KeyAdapter {

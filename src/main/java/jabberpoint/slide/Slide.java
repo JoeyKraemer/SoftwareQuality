@@ -14,7 +14,7 @@ import java.awt.image.ImageObserver;
 import java.util.Vector;
 
 /**
- * <p>A slide. This class has a drawing functionality.</p>
+ * <p>This is a slide. This class has a drawing functionality.</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman

@@ -13,10 +13,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * <p>The controller for the menu</p>
+ * <p>This is the MenuController, it contains all the menus</p>
  *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
  */
 public class MenuController extends MenuBar {
 

@@ -5,6 +5,11 @@ import jabberpoint.style.builder.StyleBuilder;
 
 import java.awt.Color;
 
+/** <p>This is the Director, through this class the creation of styles is requested</p>
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
 public class Director {
 
     public void constructSubtitleStyle(StyleBuilder builder){

@@ -5,6 +5,11 @@ import jabberpoint.style.builder.SubtitleStyleBuilder;
 import jabberpoint.style.builder.TextStyleBuilder;
 import jabberpoint.style.builder.TitleStyleBuilder;
 
+/** <p>This is StyleOptions, it requests the creation of styles</p>
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
 public class StyleOptions {
     private final Director director;
     private final SubtitleStyleBuilder subtitleStyleBuilder;
