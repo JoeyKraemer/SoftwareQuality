@@ -47,7 +47,7 @@ public class StyleOptions {
     public Style getSubtitleTwo() {
         return subtitleTwo;
     }
-    
+
     public Style getTitleOne() {
         return titleOne;
     }
