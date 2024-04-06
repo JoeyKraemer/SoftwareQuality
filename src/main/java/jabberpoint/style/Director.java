@@ -14,7 +14,7 @@ public class Director {
         builder.setLeading(10);
     }
 
-    public void constructTitleStyle(StyleBuilder builder){
+    public void constructTitleOneStyle(StyleBuilder builder){
         builder.setIndent(0);
         builder.setColor(Color.green);
         builder.setFontSize(48);
