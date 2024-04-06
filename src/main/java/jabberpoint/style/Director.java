@@ -21,13 +21,13 @@ public class Director {
         builder.setLeading(20);
     }
 
-    public void constructSubtitleStyle(StyleBuilder builder){
+    public void constructSubtitleOneStyle(StyleBuilder builder){
         builder.setIndent(20);
         builder.setColor(Color.blue);
         builder.setFontSize(40);
         builder.setLeading(10);
     }
-    
+
     public void constructTextStyle(StyleBuilder builder){
         builder.setIndent(50);
         builder.setColor(Color.black);

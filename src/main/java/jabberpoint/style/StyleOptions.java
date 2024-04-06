@@ -2,30 +2,30 @@ package jabberpoint.style;
 
 import jabberpoint.style.builder.TitleTwoStyleBuilder;
 import jabberpoint.style.styles.Style;
-import jabberpoint.style.builder.SubtitleStyleBuilder;
+import jabberpoint.style.builder.SubtitleOneStyleBuilder;
 import jabberpoint.style.builder.TextStyleBuilder;
 import jabberpoint.style.builder.TitleOneStyleBuilder;
 
 public class StyleOptions {
     private final Director director;
-    private final SubtitleStyleBuilder subtitleStyleBuilder;
+    private final SubtitleOneStyleBuilder subtitleOneStyleBuilder;
     private final TitleOneStyleBuilder titleOneStyleBuilder;
     private final TitleTwoStyleBuilder titleTwoStyleBuilder;
     private final TextStyleBuilder textStyleBuilder;
-    private final Style subtitle;
+    private final Style subtitleOne;
     private final Style titleOne;
     private final Style titleTwo;
     private final Style text;
 
     public StyleOptions() {
         this.director = new Director();
-        this.subtitleStyleBuilder = new SubtitleStyleBuilder();
+        this.subtitleOneStyleBuilder = new SubtitleOneStyleBuilder();
         this.titleOneStyleBuilder = new TitleOneStyleBuilder();
         this.titleTwoStyleBuilder = new TitleTwoStyleBuilder();
         this.textStyleBuilder = new TextStyleBuilder();
 
-        this.director.constructSubtitleStyle(this.subtitleStyleBuilder);
-        this.subtitle = this.subtitleStyleBuilder.getResult();
+        this.director.constructSubtitleOneStyle(this.subtitleOneStyleBuilder);
+        this.subtitleOne = this.subtitleOneStyleBuilder.getResult();
 
         this.director.constructTitleOneStyle(this.titleOneStyleBuilder);
         this.titleOne = this.titleOneStyleBuilder.getResult();
@@ -38,11 +38,15 @@ public class StyleOptions {
     }
 
     public Style getSubtitle() {
-        return subtitle;
+        return subtitleOne;
     }
 
-    public Style getTitle() {
+    public Style getTitleOne() {
         return titleOne;
+    }
+
+    public Style getTitleTwo() {
+        return titleTwo;
     }
 
     public Style getText() {
