@@ -1,5 +1,6 @@
 package jabberpoint.style;
 
+import jabberpoint.style.builder.TitleTwoStyleBuilder;
 import jabberpoint.style.styles.Style;
 import jabberpoint.style.builder.SubtitleStyleBuilder;
 import jabberpoint.style.builder.TextStyleBuilder;
@@ -9,15 +10,18 @@ public class StyleOptions {
     private final Director director;
     private final SubtitleStyleBuilder subtitleStyleBuilder;
     private final TitleOneStyleBuilder titleOneStyleBuilder;
+    private final TitleTwoStyleBuilder titleTwoStyleBuilder;
     private final TextStyleBuilder textStyleBuilder;
     private final Style subtitle;
     private final Style titleOne;
+    private final Style titleTwo;
     private final Style text;
 
     public StyleOptions() {
         this.director = new Director();
         this.subtitleStyleBuilder = new SubtitleStyleBuilder();
         this.titleOneStyleBuilder = new TitleOneStyleBuilder();
+        this.titleTwoStyleBuilder = new TitleTwoStyleBuilder();
         this.textStyleBuilder = new TextStyleBuilder();
 
         this.director.constructSubtitleStyle(this.subtitleStyleBuilder);
@@ -25,6 +29,9 @@ public class StyleOptions {
 
         this.director.constructTitleOneStyle(this.titleOneStyleBuilder);
         this.titleOne = this.titleOneStyleBuilder.getResult();
+
+        this.director.constructTitleTwoStyle(this.titleTwoStyleBuilder);
+        this.titleTwo = this.titleTwoStyleBuilder.getResult();
 
         this.director.constructTextStyle(this.textStyleBuilder);
         this.text = this.textStyleBuilder.getResult();
