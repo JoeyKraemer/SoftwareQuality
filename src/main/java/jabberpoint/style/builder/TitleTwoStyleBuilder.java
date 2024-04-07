@@ -17,6 +17,9 @@ public class TitleTwoStyleBuilder implements StyleBuilder {
     private int leading;
     @Override
     public void setIndent(int indent) {
+        if (indent < 0) {
+            throw new IllegalArgumentException("The indent can not be negative");
+        }
         this.indent = indent;
     }
 
@@ -27,11 +30,17 @@ public class TitleTwoStyleBuilder implements StyleBuilder {
 
     @Override
     public void setFontSize(int fontSize) {
+        if (fontSize <= 0) {
+            throw new IllegalArgumentException("The font size can not be zero or negative");
+        }
         this.fontSize = fontSize;
     }
 
     @Override
     public void setLeading(int leading) {
+        if (leading < 0) {
+            throw new IllegalArgumentException("The leading can not be negative");
+        }
         this.leading = leading;
     }
 
