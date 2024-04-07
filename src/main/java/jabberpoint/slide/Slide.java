@@ -1,13 +1,12 @@
 package jabberpoint.slide;
 
-import jabberpoint.Style;
-import jabberpoint.slide.iterator.Iterator;
 import jabberpoint.slide.iterator.SlideItemIterator;
 import jabberpoint.slideitem.SlideItem;
-import jabberpoint.slideitem.creator.BitmapItemCreator;
 import jabberpoint.slideitem.items.BitmapItem;
 import jabberpoint.slideitem.items.TextItem;
-import org.w3c.dom.Text;
+
+import jabberpoint.style.*;
+import jabberpoint.style.styles.Style;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -15,7 +14,7 @@ import java.awt.image.ImageObserver;
 import java.util.Vector;
 
 /**
- * <p>A slide. This class has a drawing functionality.</p>
+ * <p>This is a slide. This class has a drawing functionality.</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
@@ -27,12 +26,13 @@ public class Slide {
     public final static int HEIGHT = 800;
     private String title; // title is saved separately
     private Vector<SlideItem> slideItems; // slide items are saved in a Vector
-    private SlideItemIterator iterator;
+    private StyleOptions styleOptions;
 
     public Slide() {
         this.slideItems = new Vector<SlideItem>();
         this.title = "Example Name";
-        this.iterator = new SlideItemIterator(this.slideItems);
+
+        this.styleOptions = new StyleOptions();
     }
 
     public String getTitle() {
@@ -51,42 +51,40 @@ public class Slide {
         return this.slideItems;
     }
 
-    // Add a slide item
-    private void append(SlideItem anItem) {
+    private void appendTextItem(SlideItem anItem) {
         this.slideItems.addElement(anItem);
     }
 
-    public void appendBitMapItem(int level, String imageName) {
+    public void appendBitMapItem(Style style, String imageName) {
         SlideItem item = new BitmapItem();
-        append(item.createSlideItem(level, imageName));
+        appendTextItem(item.createSlideItem(style, imageName));
     }
 
-    public void appendTextItem(int level, String text) {
+    public void appendTextItem(Style style, String text) {
         SlideItem item = new TextItem();
-        append(item.createSlideItem(level, text));
+        appendTextItem(item.createSlideItem(style, text));
     }
 
-    // draw the slide
     public void draw(Graphics graphics, Rectangle area, ImageObserver observer) {
         float scale = getScale(area);
+        SlideItemIterator iterator = new SlideItemIterator(this.slideItems);
 
-        SlideItem item = new TextItem();
-        item.createSlideItem(0, this.title);
+        Style titleStyle = styleOptions.getTitleOne();
+        SlideItem titleItem = new TextItem();
+        titleItem.createSlideItem(titleStyle, this.title);
 
-        Style style = Style.getStyle(item.getLevel());
-        item.draw(area.x, area.y, scale, graphics, style, observer);
-        area.y += item.getBoundingBox(graphics, observer, scale, style).height;
+        titleItem.draw(area.x, area.y, scale, graphics, observer);
+        area.y += titleItem.getBoundingBox(graphics, observer, scale).height;
 
         //iterator
         while(iterator.hasNext()){
-            item = iterator.next();
-            style = Style.getStyle(item.getLevel());
-            item.draw(area.x, area.y, scale, graphics, style, observer);
-            area.y += item.getBoundingBox(graphics, observer, scale, style).height;
+            SlideItem item = iterator.next();
+
+            item.draw(area.x, area.y, scale, graphics, observer);
+            area.y += item.getBoundingBox(graphics, observer, scale).height;
         }
     }
 
-    // Give the scale for drawing
     private float getScale(Rectangle area) {
         return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));
     }

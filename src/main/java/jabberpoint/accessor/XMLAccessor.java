@@ -1,4 +1,4 @@
-package jabberpoint;
+package jabberpoint.accessor;
 
 import java.util.Vector;
 import java.io.File;
@@ -10,9 +10,13 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import jabberpoint.presentation.Presentation;
 import jabberpoint.slide.Slide;
+import jabberpoint.slideitem.SlideItem;
 import jabberpoint.slideitem.items.BitmapItem;
 import jabberpoint.slideitem.items.TextItem;
+import jabberpoint.style.StyleOptions;
+import jabberpoint.style.styles.Style;
 import org.xml.sax.SAXException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -21,23 +25,18 @@ import org.w3c.dom.NodeList;
 
 
 /**
- * JabberPoint.JabberPoint.XMLAccessor, reads and writes XML files
+ * <p>This is the XMLAccessor, it reads and writes XML files</p>
  *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
 public class XMLAccessor extends Accessor {
-
-    /**
-     * Default API to use.
-     */
     protected static final String DEFAULT_API_TO_USE = "dom";
 
-    /**
-     * namen van xml tags of attributen
-     */
+
+    // names of xml tags or attributes
     protected static final String SHOWTITLE = "showtitle";
     protected static final String SLIDETITLE = "title";
     protected static final String SLIDE = "slide";
@@ -47,9 +46,7 @@ public class XMLAccessor extends Accessor {
     protected static final String TEXT = "text";
     protected static final String IMAGE = "image";
 
-    /**
-     * tekst van messages
-     */
+     // text of messages
     protected static final String PCE = "Parser Configuration Exception";
     protected static final String UNKNOWNTYPE = "Unknown Element type";
     protected static final String NFE = "Number Format Exception";
@@ -95,6 +92,8 @@ public class XMLAccessor extends Accessor {
 
     protected void loadSlideItem(Slide slide, Element item) {
         int level = 1; // default
+        StyleOptions styleOptions = new StyleOptions();
+        Style style = styleOptions.getText();
         NamedNodeMap attributes = item.getAttributes();
         String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
         if (leveltext != null) {
@@ -106,10 +105,10 @@ public class XMLAccessor extends Accessor {
         }
         String type = attributes.getNamedItem(KIND).getTextContent();
         if (TEXT.equals(type)) {
-            slide.append(new TextItem(level, item.getTextContent()));
+            slide.appendTextItem(style, item.getTextContent());
         } else {
             if (IMAGE.equals(type)) {
-                slide.append(new BitmapItem(level, item.getTextContent()));
+                slide.appendBitMapItem(style, item.getTextContent());
             } else {
                 System.err.println(UNKNOWNTYPE);
             }
@@ -133,12 +132,12 @@ public class XMLAccessor extends Accessor {
                 SlideItem slideItem = (SlideItem) slideItems.elementAt(itemNumber);
                 out.print("<item kind=");
                 if (slideItem instanceof TextItem) {
-                    out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");
+                    out.print("\"text\" style=\"" + slideItem.getStyle() + "\">");
                     out.print(((TextItem) slideItem).getText());
                 } else {
                     if (slideItem instanceof BitmapItem) {
-                        out.print("\"image\" level=\"" + slideItem.getLevel() + "\">");
-                        out.print(((BitmapItem) slideItem).getName());
+                        out.print("\"image\" style=\"" + slideItem.getStyle() + "\">");
+                        out.print(((BitmapItem) slideItem).getImageName());
                     } else {
                         System.out.println("Ignoring " + slideItem);
                     }

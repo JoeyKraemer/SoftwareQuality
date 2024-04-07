@@ -1,5 +1,6 @@
-package jabberpoint;
+package jabberpoint.slideviewer;
 
+import jabberpoint.presentation.Presentation;
 import jabberpoint.slide.Slide;
 
 import java.awt.Color;
@@ -12,7 +13,7 @@ import javax.swing.JFrame;
 
 
 /**
- * <p>JabberPoint.JabberPoint.SlideViewerComponent is a graphical component that can show slides.</p>
+ * <p>THis is a SlideViewerComponent. It is a graphical component that can show slides.</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
@@ -20,9 +21,9 @@ import javax.swing.JFrame;
 
 public class SlideViewerComponent extends JComponent {
 
-    private Slide slide; // current slide
-    private Font labelFont; // font for labels
-    private Presentation presentation; // the presentation
+    private Slide slide;
+    private Font labelFont;
+    private Presentation presentation;
     private JFrame frame;
 
     public SlideViewerComponent(Presentation presentation, JFrame frame) {
@@ -73,6 +74,7 @@ public class SlideViewerComponent extends JComponent {
     public void update(Presentation presentation, Slide data) {
         if (data == null) {
             repaint();
+
             return;
         }
         this.presentation = presentation;
@@ -81,7 +83,6 @@ public class SlideViewerComponent extends JComponent {
         frame.setTitle(presentation.getTitle());
     }
 
-    // draw the slide
     public void paintComponent(Graphics graphics) {
         final int XPOS = 1100;
         final int YPOS = 20;

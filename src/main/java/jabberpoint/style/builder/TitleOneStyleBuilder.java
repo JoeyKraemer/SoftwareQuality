@@ -1,15 +1,16 @@
 package jabberpoint.style.builder;
 
-import jabberpoint.style.styles.TextStyle;
+import jabberpoint.style.builder.StyleBuilder;
+import jabberpoint.style.styles.TitleOneStyle;
 
 import java.awt.*;
 
-/** <p>This is a TextStyleBuilder, it implements StyleBuilder</p>
+/** <p>This is a TitleOneStyleBuilder, it implements StyleBuilder</p>
  * @author Caterina Aresti & Joey Kramer
  * @version 2.0 2024/04/07
  */
 
-public class TextStyleBuilder implements StyleBuilder {
+public class TitleOneStyleBuilder implements StyleBuilder {
     private int indent;
     private Color color;
     private int fontSize;
@@ -44,7 +45,8 @@ public class TextStyleBuilder implements StyleBuilder {
         this.leading = leading;
     }
 
-    public TextStyle getResult() {
-        return new TextStyle(this.indent, this.color, this.fontSize, this.leading);
+
+    public TitleOneStyle getResult() {
+        return new TitleOneStyle(this.indent, this.color, this.fontSize, this.leading);
     }
 }

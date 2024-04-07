@@ -1,41 +1,64 @@
 package jabberpoint.style;
 
+import jabberpoint.style.builder.*;
 import jabberpoint.style.styles.Style;
-import jabberpoint.style.builder.SubtitleStyleBuilder;
-import jabberpoint.style.builder.TextStyleBuilder;
-import jabberpoint.style.builder.TitleStyleBuilder;
+
+/** <p>This is StyleOptions, it requests the creation of styles</p>
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
 
 public class StyleOptions {
     private final Director director;
-    private final SubtitleStyleBuilder subtitleStyleBuilder;
-    private final TitleStyleBuilder titleStyleBuilder;
+    private final SubtitleOneStyleBuilder subtitleOneStyleBuilder;
+    private final SubtitleTwoStyleBuilder subtitleTwoStyleBuilder;
+    private final TitleOneStyleBuilder titleOneStyleBuilder;
+    private final TitleTwoStyleBuilder titleTwoStyleBuilder;
     private final TextStyleBuilder textStyleBuilder;
-    private final Style subtitle;
-    private final Style title;
+    private final Style subtitleOne;
+    private final Style subtitleTwo;
+    private final Style titleOne;
+    private final Style titleTwo;
     private final Style text;
 
     public StyleOptions() {
         this.director = new Director();
-        this.subtitleStyleBuilder = new SubtitleStyleBuilder();
-        this.titleStyleBuilder = new TitleStyleBuilder();
+        this.subtitleOneStyleBuilder = new SubtitleOneStyleBuilder();
+        this.subtitleTwoStyleBuilder = new SubtitleTwoStyleBuilder();
+        this.titleOneStyleBuilder = new TitleOneStyleBuilder();
+        this.titleTwoStyleBuilder = new TitleTwoStyleBuilder();
         this.textStyleBuilder = new TextStyleBuilder();
 
-        this.director.constructSubtitleStyle(this.subtitleStyleBuilder);
-        this.subtitle = this.subtitleStyleBuilder.getResult();
+        this.director.constructSubtitleOneStyle(this.subtitleOneStyleBuilder);
+        this.subtitleOne = this.subtitleOneStyleBuilder.getResult();
 
-        this.director.constructTitleStyle(this.titleStyleBuilder);
-        this.title = this.titleStyleBuilder.getResult();
+        this.director.constructSubtitleTwoStyle(this.subtitleTwoStyleBuilder);
+        this.subtitleTwo = this.subtitleTwoStyleBuilder.getResult();
+
+        this.director.constructTitleOneStyle(this.titleOneStyleBuilder);
+        this.titleOne = this.titleOneStyleBuilder.getResult();
+
+        this.director.constructTitleTwoStyle(this.titleTwoStyleBuilder);
+        this.titleTwo = this.titleTwoStyleBuilder.getResult();
 
         this.director.constructTextStyle(this.textStyleBuilder);
         this.text = this.textStyleBuilder.getResult();
     }
 
-    public Style getSubtitle() {
-        return subtitle;
+    public Style getSubtitleOne() {
+        return subtitleOne;
     }
 
-    public Style getTitle() {
-        return title;
+    public Style getSubtitleTwo() {
+        return subtitleTwo;
+    }
+
+    public Style getTitleOne() {
+        return titleOne;
+    }
+
+    public Style getTitleTwo() {
+        return titleTwo;
     }
 
     public Style getText() {

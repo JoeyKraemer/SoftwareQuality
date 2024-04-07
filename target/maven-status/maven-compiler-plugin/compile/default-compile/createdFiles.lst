@@ -1,0 +1,12 @@
+jabberpoint\presentation\DemoPresentation.class
+jabberpoint\style\builder\TitleOneStyleBuilder.class
+jabberpoint\style\styles\TitleOneStyle.class
+jabberpoint\style\styles\SubtitleTwoStyle.class
+jabberpoint\style\builder\SubtitleTwoStyleBuilder.class
+jabberpoint\accessor\Accessor.class
+jabberpoint\style\builder\TitleTwoStyleBuilder.class
+jabberpoint\accessor\XMLAccessor.class
+jabberpoint\style\styles\TitleTwoStyle.class
+jabberpoint\presentation\Presentation.class
+jabberpoint\style\builder\SubtitleOneStyleBuilder.class
+jabberpoint\style\styles\SubtitleOneStyle.class

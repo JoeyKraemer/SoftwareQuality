@@ -1,6 +1,6 @@
 package jabberpoint.controller.menucontroller;
 
-import jabberpoint.Presentation;
+import jabberpoint.presentation.Presentation;
 import jabberpoint.controller.Command;
 import jabberpoint.controller.keycontroller.*;
 
@@ -13,14 +13,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * <p>The controller for the menu</p>
+ * <p>This is the MenuController, it contains all the menus</p>
  *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
  */
 public class MenuController extends MenuBar {
 
-    private Frame frame; // the frame, only used as parent for the Dialogs
+    private Frame frame; // only used as parent for the Dialogs
     private Presentation presentation; // Commands are given to the presentation
     private Menu fileMenu;
     private Menu viewMenu;
@@ -55,7 +55,6 @@ public class MenuController extends MenuBar {
         setHelpMenu(helpMenu);
     }
 
-    // add a menu item
     private void addMenuItem(Menu menu, String name, Command command) {
         MenuItem menuItem = makeMenuItem(name);
         menuItem.addActionListener(new ActionListener() {
@@ -66,7 +65,6 @@ public class MenuController extends MenuBar {
         menu.add(menuItem);
     }
 
-    // create a menu item
     private MenuItem makeMenuItem(String name) {
         return new MenuItem(name, new MenuShortcut(name.charAt(0)));
     }
