@@ -26,13 +26,12 @@ public class Slide {
     public final static int HEIGHT = 800;
     private String title; // title is saved separately
     private Vector<SlideItem> slideItems; // slide items are saved in a Vector
-    private SlideItemIterator iterator;
     private StyleOptions styleOptions;
 
     public Slide() {
         this.slideItems = new Vector<SlideItem>();
         this.title = "Example Name";
-        this.iterator = new SlideItemIterator(this.slideItems);
+
         this.styleOptions = new StyleOptions();
     }
 
@@ -70,6 +69,7 @@ public class Slide {
     // draw the slide
     public void draw(Graphics graphics, Rectangle area, ImageObserver observer) {
         float scale = getScale(area);
+        SlideItemIterator iterator = new SlideItemIterator(this.slideItems);
 
         Style titleStyle = styleOptions.getTitleOne();
         SlideItem titleItem = new TextItem();
@@ -79,7 +79,6 @@ public class Slide {
         area.y += titleItem.getBoundingBox(graphics, observer, scale).height;
 
         //iterator
-
         while(iterator.hasNext()){
             SlideItem item = iterator.next();
 

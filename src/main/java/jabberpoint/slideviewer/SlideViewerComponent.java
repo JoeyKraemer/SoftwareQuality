@@ -74,6 +74,7 @@ public class SlideViewerComponent extends JComponent {
     public void update(Presentation presentation, Slide data) {
         if (data == null) {
             repaint();
+
             return;
         }
         this.presentation = presentation;
