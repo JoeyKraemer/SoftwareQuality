@@ -1,15 +1,15 @@
 package jabberpoint;
 
 import jabberpoint.slide.Slide;
+import jabberpoint.slideviewer.SlideViewerComponent;
 
 import java.util.ArrayList;
 
 
 /**
- * <p>JabberPoint.JabberPoint.Presentation maintains the slides in the presentation.</p>
- * <p>There is only instance of this class.</p>
+ * <p>This is the Presentation. It maintains the slides in the presentation.</p>
  *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */

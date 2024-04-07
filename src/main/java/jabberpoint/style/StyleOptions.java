@@ -3,6 +3,11 @@ package jabberpoint.style;
 import jabberpoint.style.builder.*;
 import jabberpoint.style.styles.Style;
 
+/** <p>This is StyleOptions, it requests the creation of styles</p>
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
 public class StyleOptions {
     private final Director director;
     private final SubtitleOneStyleBuilder subtitleOneStyleBuilder;

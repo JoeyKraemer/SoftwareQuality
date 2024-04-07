@@ -1,22 +1,26 @@
 package jabberpoint.slideitem;
 
-import jabberpoint.Style;
-import jabberpoint.slide.iterator.Iterator;
+import jabberpoint.style.styles.Style;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
-public interface SlideItem {
+/**
+ * <p>This is the SlideItem, it's implemented in its subclasses</p>
+ *
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
 
+public interface SlideItem {
 
     SlideItem createSlideItem();
 
-    SlideItem createSlideItem(int level, String string);
+    SlideItem createSlideItem(Style style, String string);
 
-    Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style style);
+    Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale);
 
-    void draw(int x, int y, float scale, Graphics graphics, Style style, ImageObserver observer);
+    void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer);
 
-    int getLevel();
-
+    Style getStyle();
 }

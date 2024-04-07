@@ -10,6 +10,12 @@ import javax.swing.JOptionPane;
 import java.awt.Frame;
 import java.io.IOException;
 
+/**
+ * <p>This is the OpenFileCommand, it's used in MenuController</p>
+ *
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
 
 public class OpenFileCommand extends Command {
     private Frame frame;

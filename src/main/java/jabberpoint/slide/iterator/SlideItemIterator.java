@@ -7,6 +7,13 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Vector;
 
+/**
+ * <p>This is the SlideItemIterator, it iterates through a Slide's slideItems</p>
+ *
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
 public class SlideItemIterator implements Iterator {
 
     private int currentPosition;

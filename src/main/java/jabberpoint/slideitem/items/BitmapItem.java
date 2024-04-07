@@ -1,8 +1,8 @@
 package jabberpoint.slideitem.items;
 
-import jabberpoint.Style;
-import jabberpoint.slide.iterator.Iterator;
 import jabberpoint.slideitem.SlideItem;
+import jabberpoint.style.StyleOptions;
+import jabberpoint.style.styles.Style;
 
 import java.awt.Rectangle;
 import java.awt.Graphics;
@@ -16,24 +16,25 @@ import java.io.IOException;
 
 
 /**
- * <p>De klasse voor een Bitmap item</p>
+ * <p>This is a  BitmapItem</p>
  * <p>Bitmap items have the responsibility to draw themselves.</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
+ * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
-
 public class BitmapItem implements SlideItem {
     private BufferedImage bufferedImage;
     private String imageName; //path to file
-    private int level;
-
+    private Style style;
 
     // "Constructor" without parameters
     @Override
     public SlideItem createSlideItem() {
-        this.level = 0;
         this.imageName = "Default.png";
+
+        StyleOptions tempStyle = new StyleOptions();
+        this.style = tempStyle.getText();
 
         try {
             this.bufferedImage = ImageIO.read(new File("./bitmapimage/" + this.imageName));
@@ -46,15 +47,11 @@ public class BitmapItem implements SlideItem {
 
     //"Constructor" with parameters
     @Override
-    public SlideItem createSlideItem(int level, String imageName) {
-        if (level < 0 || level > 5) {
-            throw new IllegalArgumentException("Level must be between 0-5");
-        }
-
+    public SlideItem createSlideItem(Style style, String imageName) {
+        this.style = style;
         if (imageName.length() < 4){
-            throw new IllegalArgumentException("Image needs to be at least 4 character long")
+            throw new IllegalArgumentException("Image needs to be at least 4 character long");
         }
-        this.level = level;
         this.imageName = imageName;
 
         try {
@@ -70,27 +67,28 @@ public class BitmapItem implements SlideItem {
         return imageName;
     }
 
-    @Override
-    public int getLevel() {
-        return level;
-    }
 
     // give the  bounding box of the image
     @Override
-    public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) {
-        return new Rectangle((int) (myStyle.indent * scale), 0,
+    public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale) {
+        return new Rectangle((int) (this.style.getIndent() * scale), 0,
                 (int) (bufferedImage.getWidth(observer) * scale),
-                ((int) (myStyle.leading * scale)) +
+                ((int) (this.style.getLeading() * scale)) +
                         (int) (bufferedImage.getHeight(observer) * scale));
     }
 
     // draw the image
     @Override
-    public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer) {
-        int width = x + (int) (myStyle.indent * scale);
-        int height = y + (int) (myStyle.leading * scale);
-        g.drawImage(bufferedImage, width, height, (int) (bufferedImage.getWidth(observer) * scale),
+    public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer) {
+        int width = x + (int) (this.style.getIndent() * scale);
+        int height = y + (int) (this.style.getLeading() * scale);
+        graphics.drawImage(bufferedImage, width, height, (int) (bufferedImage.getWidth(observer) * scale),
                 (int) (bufferedImage.getHeight(observer) * scale), observer);
+    }
+
+    @Override
+    public Style getStyle() {
+        return this.style;
     }
 
 }
