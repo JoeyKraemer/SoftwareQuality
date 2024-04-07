@@ -5,6 +5,11 @@ import jabberpoint.style.styles.TitleTwoStyle;
 
 import java.awt.*;
 
+/** <p>This is a TitleTwoStyleBuilder, it implements StyleBuilder</p>
+ * @author Caterina Aresti & Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
 public class TitleTwoStyleBuilder implements StyleBuilder {
     private int indent;
     private Color color;

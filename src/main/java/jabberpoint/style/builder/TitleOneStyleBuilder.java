@@ -5,7 +5,7 @@ import jabberpoint.style.styles.TitleOneStyle;
 
 import java.awt.*;
 
-/** <p>This is a TitleStyleBuilder, it implements StyleBuilder</p>
+/** <p>This is a TitleOneStyleBuilder, it implements StyleBuilder</p>
  * @author Caterina Aresti & Joey Kramer
  * @version 2.0 2024/04/07
  */
