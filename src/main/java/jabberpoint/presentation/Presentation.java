@@ -1,4 +1,4 @@
-package jabberpoint;
+package jabberpoint.presentation;
 
 import jabberpoint.slide.Slide;
 import jabberpoint.slideviewer.SlideViewerComponent;

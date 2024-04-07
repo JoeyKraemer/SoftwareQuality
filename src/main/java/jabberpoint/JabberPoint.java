@@ -1,5 +1,8 @@
 package jabberpoint;
 
+import jabberpoint.accessor.Accessor;
+import jabberpoint.accessor.XMLAccessor;
+import jabberpoint.presentation.Presentation;
 import jabberpoint.slideviewer.SlideViewerFrame;
 
 import javax.swing.JOptionPane;
@@ -36,7 +39,7 @@ public class JabberPoint {
 			presentation.setSlideNumber(0);
 		} catch (IOException ex) {
 			JOptionPane.showMessageDialog(null,
-					 JabberPointErrors.IOERR.name() + ex, JabberPointErrors.JABBER.name(),
+					 JabberPointErrors.IOERR.name()  + ex, JabberPointErrors.JABBER.name(),
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}

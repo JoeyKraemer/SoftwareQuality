@@ -1,6 +1,6 @@
 package jabberpoint.controller.keycontroller;
 
-import jabberpoint.Presentation;
+import jabberpoint.presentation.Presentation;
 import jabberpoint.controller.Command;
 
 import java.awt.event.KeyEvent;

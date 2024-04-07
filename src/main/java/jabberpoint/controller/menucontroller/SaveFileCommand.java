@@ -1,8 +1,8 @@
 package jabberpoint.controller.menucontroller;
 
-import jabberpoint.Accessor;
-import jabberpoint.Presentation;
-import jabberpoint.XMLAccessor;
+import jabberpoint.accessor.Accessor;
+import jabberpoint.presentation.Presentation;
+import jabberpoint.accessor.XMLAccessor;
 import jabberpoint.controller.Command;
 
 import java.awt.Frame;

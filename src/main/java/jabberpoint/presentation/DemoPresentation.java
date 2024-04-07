@@ -1,7 +1,7 @@
-package jabberpoint;
+package jabberpoint.presentation;
 
+import jabberpoint.accessor.Accessor;
 import jabberpoint.slide.Slide;
-import jabberpoint.slideitem.items.BitmapItem;
 import jabberpoint.style.StyleOptions;
 import jabberpoint.style.styles.Style;
 
@@ -22,6 +22,8 @@ class DemoPresentation extends Accessor {
         Style subtitleOne = styleOptions.getSubtitleOne();
         Style subtitleTwo = styleOptions.getSubtitleTwo();
         Style text = styleOptions.getText();
+
+        System.out.println(titleOne.getFontSize());
 
         presentation.setTitle("Demo Presentation");
         Slide slide;

@@ -49,10 +49,12 @@ public class TextItem implements SlideItem {
             throw new IllegalArgumentException("Image needs to be at least 1 character long");
         }
 
-        this.text = text;
+        if (style == null) {
+            throw new IllegalArgumentException("Style cant be null");
+        }
 
-        StyleOptions tempStyle = new StyleOptions();
-        this.style = tempStyle.getText();
+        this.text = text;
+        this.style = style;
 
         return this;
     }

@@ -1,7 +1,7 @@
 package jabberpoint.controller.menucontroller;
 
 import jabberpoint.AboutBox;
-import jabberpoint.Presentation;
+import jabberpoint.presentation.Presentation;
 import jabberpoint.controller.Command;
 
 import java.awt.Frame;
