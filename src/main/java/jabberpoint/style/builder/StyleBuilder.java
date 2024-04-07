@@ -19,5 +19,4 @@ public interface StyleBuilder {
 	 void setColor(Color color);
 	 void setFontSize(int fontSize);
 	 void setLeading(int leading);
-
 }
