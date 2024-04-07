@@ -3,7 +3,9 @@
         "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 <module name="Checker">
     <property name="severity" value="error"/>
-    <module name="TreeWalker">
+    <module name="TreeWalker"/>
+        <module name="FileTabCharacter"/>
+        <module name="Header"/>
         <module name="RegexpSingleline"/>
         <module name="WhitespaceAround"/>
         <module name="NoTrailingSpaces"/>
@@ -27,7 +29,4 @@
         <module name="DesignForExtension"/>
         <module name="VisibilityModifier"/>
         <module name="CyclomaticComplexity"/>
-    </module>
-    <module name="FileTabCharacter"/>
-    <module name="Header"/>
 </module>
