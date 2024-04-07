@@ -124,5 +124,4 @@ public class TextItem implements SlideItem {
 
         return layouts;
     }
-
 }
