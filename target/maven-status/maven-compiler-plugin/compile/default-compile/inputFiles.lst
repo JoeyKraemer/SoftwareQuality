@@ -1,25 +1,44 @@
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/keyController/PreviousSlideCommand.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/keyController/KeyController.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/menuController/GoToSlideCommand.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/SlideViewerComponent.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/AboutBox.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/Slide.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/keyController/QuitCommand.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/TextItem.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/BitmapItem.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/Style.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/Command.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/SlideItem.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/menuController/OpenFileCommand.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/keyController/NextSlideCommand.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/JabberPoint.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/menuController/MenuController.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/XMLAccessor.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/DemoPresentation.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/menuController/SaveFileCommand.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/Accessor.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/Presentation.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/menuController/ExitCommand.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/SlideViewerFrame.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/menuController/ShowAboutCommand.java
-/Users/joey/Desktop/NHLStenden/Software Quality/Jabber/src/main/java/JabberPoint/commands/menuController/NewFileCommand.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\AboutBox.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\Director.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\menucontroller\GoToSlideCommand.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\menucontroller\MenuController.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\keycontroller\KeyController.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slideitem\items\BitmapItem.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\menucontroller\NewFileCommand.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\menucontroller\OpenFileCommand.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slideitem\SlideItem.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\builder\SubtitleOneStyleBuilder.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\styles\TitleTwoStyle.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\accessor\XMLAccessor.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\keycontroller\QuitCommand.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slide\iterator\SlideItemIterator.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\styles\Style.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\styles\SubtitleTwoStyle.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slideviewer\SlideViewerComponent.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slideitem\creator\BitmapItemCreator.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\builder\SubtitleTwoStyleBuilder.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\StyleOptions.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\Command.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slideitem\creator\SlideItemCreator.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\styles\TitleOneStyle.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\menucontroller\ShowAboutCommand.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\styles\SubtitleOneStyle.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\menucontroller\ExitCommand.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\styles\TextStyle.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\accessor\Accessor.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\keycontroller\PreviousSlideCommand.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\presentation\DemoPresentation.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slide\iterator\Iterator.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\builder\TitleOneStyleBuilder.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slideitem\items\TextItem.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\builder\TitleTwoStyleBuilder.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\JabberPoint.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slide\Slide.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\builder\StyleBuilder.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\JabberPointErrors.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\keycontroller\NextSlideCommand.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slideitem\creator\TextItemCreator.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\slideviewer\SlideViewerFrame.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\controller\menucontroller\SaveFileCommand.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\presentation\Presentation.java
+C:\Users\Caterina\Desktop\YEAR 2\Software Quality\SoftwareQuality\src\main\java\jabberpoint\style\builder\TextStyleBuilder.java
