@@ -71,7 +71,7 @@ public class Slide {
     public void draw(Graphics graphics, Rectangle area, ImageObserver observer) {
         float scale = getScale(area);
 
-        Style titleStyle = styleOptions.getTitle();
+        Style titleStyle = styleOptions.getTitleOne();
         SlideItem titleItem = new TextItem();
         titleItem.createSlideItem(titleStyle, this.title);
 
