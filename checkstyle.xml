@@ -3,7 +3,7 @@
         "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 <module name="Checker">
     <property name="severity" value="error"/>
-    <module name="TreeWalker">
+        <module name="TreeWalker">
         <module name="Header"/>
 
         <module name="FileTabCharacter"/>
