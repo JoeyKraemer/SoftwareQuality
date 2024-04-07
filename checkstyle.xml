@@ -4,7 +4,6 @@
 <module name="Checker">
     <property name="severity" value="error"/>
     <module name="TreeWalker">
-        <module name="FileTabCharacter"/>
         <module name="RegexpSingleline"/>
         <module name="WhitespaceAround"/>
         <module name="NoTrailingSpaces"/>
@@ -29,5 +28,6 @@
         <module name="VisibilityModifier"/>
         <module name="CyclomaticComplexity"/>
     </module>
+    <module name="FileTabCharacter"/>
     <module name="Header"/>
 </module>
