@@ -31,7 +31,6 @@ public class TextItem implements SlideItem {
     private String text;
     private Style style;
 
-    // "Constructor" without parameters
     @Override
     public SlideItem createSlideItem() {
         this.text = "text";
@@ -42,7 +41,6 @@ public class TextItem implements SlideItem {
         return this;
     }
 
-    //"Constructor" with parameters
     @Override
     public SlideItem createSlideItem(Style style, String text) {
         if (text.isEmpty()){
@@ -63,7 +61,6 @@ public class TextItem implements SlideItem {
         return text;
     }
 
-    // give the bounding box of the item
     @Override
     public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale) {
         List<TextLayout> layouts = getLayouts(graphics, this.style, scale);
@@ -83,7 +80,6 @@ public class TextItem implements SlideItem {
         return new Rectangle((int) (style.getIndent() * scale), 0, xsize, ysize);
     }
 
-    // draw the item
     @Override
     public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer) {
 
@@ -107,7 +103,6 @@ public class TextItem implements SlideItem {
         return this.style;
     }
 
-    // geef de AttributedString voor het item
     public AttributedString getAttributedString(Style style, float scale) {
         AttributedString attrStr = new AttributedString(getText());
         attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, this.text.length());

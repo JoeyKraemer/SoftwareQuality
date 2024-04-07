@@ -25,9 +25,7 @@ public class SlideViewerFrame extends JFrame {
         setupWindow(slideViewerComponent, presentation);
     }
 
-    // Setup GUI
-    public void setupWindow(SlideViewerComponent
-                                    slideViewerComponent, Presentation presentation) {
+    public void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation) {
         setTitle("Jabberpoint 2.0 - OU");
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -35,9 +33,9 @@ public class SlideViewerFrame extends JFrame {
             }
         });
         getContentPane().add(slideViewerComponent);
-        addKeyListener(new KeyController(presentation)); // add a controller
-        setMenuBar(new MenuController(this, presentation));    // add another controller
-        setSize(new Dimension(1200, 800)); // Same sizes as JabberPoint.JabberPoint.Slide has.
+        addKeyListener(new KeyController(presentation));
+        setMenuBar(new MenuController(this, presentation));
+        setSize(new Dimension(1200, 800));
         setVisible(true);
     }
 }

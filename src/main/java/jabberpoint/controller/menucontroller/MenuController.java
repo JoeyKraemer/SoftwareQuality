@@ -20,7 +20,7 @@ import java.awt.event.ActionEvent;
  */
 public class MenuController extends MenuBar {
 
-    private Frame frame; // the frame, only used as parent for the Dialogs
+    private Frame frame; // only used as parent for the Dialogs
     private Presentation presentation; // Commands are given to the presentation
     private Menu fileMenu;
     private Menu viewMenu;
@@ -55,7 +55,6 @@ public class MenuController extends MenuBar {
         setHelpMenu(helpMenu);
     }
 
-    // add a menu item
     private void addMenuItem(Menu menu, String name, Command command) {
         MenuItem menuItem = makeMenuItem(name);
         menuItem.addActionListener(new ActionListener() {
@@ -66,7 +65,6 @@ public class MenuController extends MenuBar {
         menu.add(menuItem);
     }
 
-    // create a menu item
     private MenuItem makeMenuItem(String name) {
         return new MenuItem(name, new MenuShortcut(name.charAt(0)));
     }

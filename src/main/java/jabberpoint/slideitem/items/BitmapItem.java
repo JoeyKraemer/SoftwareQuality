@@ -28,7 +28,6 @@ public class BitmapItem implements SlideItem {
     private String imageName; //path to file
     private Style style;
 
-    // "Constructor" without parameters
     @Override
     public SlideItem createSlideItem() {
         this.imageName = "Default.png";
@@ -45,7 +44,6 @@ public class BitmapItem implements SlideItem {
         return this;
     }
 
-    //"Constructor" with parameters
     @Override
     public SlideItem createSlideItem(Style style, String imageName) {
         this.style = style;
@@ -67,8 +65,6 @@ public class BitmapItem implements SlideItem {
         return imageName;
     }
 
-
-    // give the  bounding box of the image
     @Override
     public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale) {
         return new Rectangle((int) (this.style.getIndent() * scale), 0,
@@ -77,7 +73,6 @@ public class BitmapItem implements SlideItem {
                         (int) (bufferedImage.getHeight(observer) * scale));
     }
 
-    // draw the image
     @Override
     public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer) {
         int width = x + (int) (this.style.getIndent() * scale);

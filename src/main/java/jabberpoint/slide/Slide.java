@@ -51,7 +51,6 @@ public class Slide {
         return this.slideItems;
     }
 
-    // Add a slide item
     private void appendTextItem(SlideItem anItem) {
         this.slideItems.addElement(anItem);
     }
@@ -66,7 +65,6 @@ public class Slide {
         appendTextItem(item.createSlideItem(style, text));
     }
 
-    // draw the slide
     public void draw(Graphics graphics, Rectangle area, ImageObserver observer) {
         float scale = getScale(area);
         SlideItemIterator iterator = new SlideItemIterator(this.slideItems);
@@ -87,7 +85,6 @@ public class Slide {
         }
     }
 
-    // Give the scale for drawing
     private float getScale(Rectangle area) {
         return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));
     }

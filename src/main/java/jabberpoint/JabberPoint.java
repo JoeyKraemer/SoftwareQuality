@@ -24,13 +24,12 @@ import java.io.IOException;
 public class JabberPoint {
 	protected static final String JABVERSION = "Jabberpoint 2.0 - OU version";
 
-	/** The Main Program */
 	public static void main(String argv[]) {
 		
 		Presentation presentation = new Presentation();
 		new SlideViewerFrame(JABVERSION, presentation);
 		try {
-			if (argv.length == 0) { // a demo presentation
+			if (argv.length == 0) {
 				Accessor.getDemoAccessor().loadFile(presentation, "");
 			} else {
 				new XMLAccessor().loadFile(presentation, argv[0]);
