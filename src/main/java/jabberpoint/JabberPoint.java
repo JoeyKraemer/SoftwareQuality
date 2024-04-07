@@ -25,7 +25,7 @@ public class JabberPoint {
 	protected static final String JABVERSION = "Jabberpoint 2.0 - OU version";
 
 	public static void main(String argv[]) {
-		
+
 		Presentation presentation = new Presentation();
 		new SlideViewerFrame(JABVERSION, presentation);
 		try {
