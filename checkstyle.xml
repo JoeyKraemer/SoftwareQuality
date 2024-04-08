@@ -1,0 +1,32 @@
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+<module name="Checker">
+    <property name="severity" value="error"/>
+    <module name="TreeWalker"/>
+        <module name="FileTabCharacter"/>
+        <module name="Header"/>
+        <module name="RegexpSingleline"/>
+        <module name="WhitespaceAround"/>
+        <module name="NoTrailingSpaces"/>
+        <module name="NoWhitespaceBefore"/>
+        <module name="NoWhitespaceAfter"/>
+        <module name="NameConvention"/>
+        <module name="LineLength">
+            <property name="max" value="120"/>
+        </module>
+        <module name="AvoidStarImport"/>
+        <module name="UnusedImports"/>
+        <module name="UnusedPrivateField"/>
+        <module name="UnusedPrivateMethod"/>
+        <module name="UnusedVariable"/>
+        <module name="JavadocMethod"/>
+        <module name="JavadocType"/>
+        <module name="JavadocVariable"/>
+        <module name="JavadocStyle"/>
+        <module name="NeedBraces"/>
+        <module name="MultipleVariableDeclarations"/>
+        <module name="DesignForExtension"/>
+        <module name="VisibilityModifier"/>
+        <module name="CyclomaticComplexity"/>
+</module>
