@@ -8,7 +8,7 @@ import java.awt.*;
  */
 
 public abstract class Style {
-    protected final int indent;
+    private final int indent;
     private final Color color;
     private final int fontSize;
     private final Font font;
