@@ -48,5 +48,5 @@ public abstract class StyleBuilder {
 		this.leading = leading;
 	}
 
-	abstract Style getResult();
+	public abstract Style getResult();
 }
