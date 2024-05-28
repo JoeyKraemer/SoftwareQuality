@@ -7,7 +7,8 @@ package jabberpoint.controller;
  * @version 2.0 2024/05/28
  */
 
-public interface Receiver  {
+public interface Receiver
+{
 
-    public void executeCommand(Command command);
+    void executeCommand(Command command);
 }

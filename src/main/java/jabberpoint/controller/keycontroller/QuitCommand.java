@@ -1,7 +1,7 @@
 package jabberpoint.controller.keycontroller;
 
-import jabberpoint.presentation.Presentation;
 import jabberpoint.controller.Command;
+import jabberpoint.presentation.Presentation;
 
 /**
  * <p>This is the QuitCommand, its used in KeyController</p>
@@ -10,13 +10,16 @@ import jabberpoint.controller.Command;
  * @version 2.0 2024/04/07
  */
 
-public class QuitCommand extends Command {
-    public QuitCommand(Presentation presentation) {
+public class QuitCommand extends Command
+{
+    public QuitCommand(Presentation presentation)
+    {
         super(presentation);
     }
 
     @Override
-    public void execute() {
+    public void execute()
+    {
         System.exit(0);
     }
 }

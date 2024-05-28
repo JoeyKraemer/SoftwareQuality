@@ -9,10 +9,12 @@ import jabberpoint.presentation.Presentation;
  * @version 2.0 2024/04/07
  */
 
-public abstract class Command {
+public abstract class Command
+{
     public Presentation presentation;
 
-    public Command(Presentation presentation) {
+    public Command(Presentation presentation)
+    {
         this.presentation = presentation;
     }
 

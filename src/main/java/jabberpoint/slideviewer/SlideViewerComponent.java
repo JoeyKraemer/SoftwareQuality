@@ -3,13 +3,8 @@ package jabberpoint.slideviewer;
 import jabberpoint.presentation.Presentation;
 import jabberpoint.slide.Slide;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 
 /**
@@ -19,14 +14,16 @@ import javax.swing.JFrame;
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
-public class SlideViewerComponent extends JComponent {
+public class SlideViewerComponent extends JComponent
+{
 
     private Slide slide;
     private Font labelFont;
     private Presentation presentation;
     private JFrame frame;
 
-    public SlideViewerComponent(Presentation presentation, JFrame frame) {
+    public SlideViewerComponent(Presentation presentation, JFrame frame)
+    {
         this.slide = null;
         this.labelFont = new Font("Dialog", Font.BOLD, 10);
         this.presentation = presentation;
@@ -35,44 +32,55 @@ public class SlideViewerComponent extends JComponent {
         setBackground(Color.white);
     }
 
-    public Slide getSlide() {
+    public Slide getSlide()
+    {
         return slide;
     }
 
-    public void setSlide(Slide slide) {
+    public void setSlide(Slide slide)
+    {
         this.slide = slide;
     }
 
-    public Font getLabelFont() {
+    public Font getLabelFont()
+    {
         return labelFont;
     }
 
-    public void setLabelFont(Font labelFont) {
+    public void setLabelFont(Font labelFont)
+    {
         this.labelFont = labelFont;
     }
 
-    public Presentation getPresentation() {
+    public Presentation getPresentation()
+    {
         return presentation;
     }
 
-    public void setPresentation(Presentation presentation) {
+    public void setPresentation(Presentation presentation)
+    {
         this.presentation = presentation;
     }
 
-    public JFrame getFrame() {
+    public JFrame getFrame()
+    {
         return frame;
     }
 
-    public void setFrame(JFrame frame) {
+    public void setFrame(JFrame frame)
+    {
         this.frame = frame;
     }
 
-    public Dimension getPreferredSize() {
+    public Dimension getPreferredSize()
+    {
         return new Dimension(Slide.WIDTH, Slide.HEIGHT);
     }
 
-    public void update(Presentation presentation, Slide data) {
-        if (data == null) {
+    public void update(Presentation presentation, Slide data)
+    {
+        if (data == null)
+        {
             repaint();
 
             return;
@@ -83,13 +91,15 @@ public class SlideViewerComponent extends JComponent {
         frame.setTitle(presentation.getTitle());
     }
 
-    public void paintComponent(Graphics graphics) {
+    public void paintComponent(Graphics graphics)
+    {
         final int XPOS = 1100;
         final int YPOS = 20;
 
         graphics.setColor(Color.white);
         graphics.fillRect(0, 0, getSize().width, getSize().height);
-        if (presentation.getSlideNumber() < 0 || slide == null) {
+        if (presentation.getSlideNumber() < 0 || slide == null)
+        {
             return;
         }
         graphics.setFont(labelFont);

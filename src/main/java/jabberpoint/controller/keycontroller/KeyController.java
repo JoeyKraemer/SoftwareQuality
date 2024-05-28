@@ -1,11 +1,11 @@
 package jabberpoint.controller.keycontroller;
 
+import jabberpoint.controller.Command;
 import jabberpoint.controller.Receiver;
 import jabberpoint.presentation.Presentation;
-import jabberpoint.controller.Command;
 
-import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
  * <p>This is the KeyController, it executes commands when keys are pressed</p>
@@ -14,7 +14,8 @@ import java.awt.event.KeyAdapter;
  * @version 2.0 2024/04/07
  */
 
-public class KeyController extends KeyAdapter implements Receiver {
+public class KeyController extends KeyAdapter implements Receiver
+{
     private final Presentation presentation; // Commands are given to the presentation
     private final NextSlideCommand nextSlideCommand;
     private final PreviousSlideCommand previousSlideCommand;
@@ -29,13 +30,16 @@ public class KeyController extends KeyAdapter implements Receiver {
     }
 
     @Override
-    public void executeCommand(Command command){
+    public void executeCommand(Command command)
+    {
         command.execute();
     }
 
-    public void keyPressed(KeyEvent keyEvent) {
+    public void keyPressed(KeyEvent keyEvent)
+    {
 
-        switch (keyEvent.getKeyCode()) {
+        switch (keyEvent.getKeyCode())
+        {
             case KeyEvent.VK_PAGE_DOWN:
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_ENTER:
@@ -55,6 +59,5 @@ public class KeyController extends KeyAdapter implements Receiver {
                 break;
         }
     }
-
 
 }

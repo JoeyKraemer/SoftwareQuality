@@ -9,13 +9,14 @@ import jabberpoint.style.styles.Style;
  * <p>This is a built-in demo presentation</p>
  *
  * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
-public class DemoPresentation extends Accessor {
+public class DemoPresentation extends Accessor
+{
 
-    public void loadFile(Presentation presentation, String unusedFilename) {
+    public void loadFile(Presentation presentation, String unusedFilename)
+    {
         StyleOptions styleOptions = new StyleOptions();
         Style titleOne = styleOptions.getTitleOne();
         Style titleTwo = styleOptions.getTitleTwo();
@@ -59,7 +60,8 @@ public class DemoPresentation extends Accessor {
         presentation.append(slide);
     }
 
-    public void saveFile(Presentation presentation, String unusedFilename) {
+    public void saveFile(Presentation presentation, String unusedFilename)
+    {
         throw new IllegalStateException("Save As->Demo! called");
     }
 }
