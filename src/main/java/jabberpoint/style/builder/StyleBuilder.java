@@ -53,6 +53,7 @@ public abstract class StyleBuilder
         }
         this.leading = leading;
     }
+    
+	public abstract Style getResult();
 
-    abstract Style getResult();
 }
