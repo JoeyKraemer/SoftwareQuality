@@ -16,9 +16,16 @@ import java.awt.event.KeyAdapter;
 
 public class KeyController extends KeyAdapter implements Receiver {
     private final Presentation presentation; // Commands are given to the presentation
+    private final NextSlideCommand nextSlideCommand;
+    private final PreviousSlideCommand previousSlideCommand;
+    private final QuitCommand quitCommand;
 
-    public KeyController(Presentation presentation) {
+    public KeyController(Presentation presentation)
+    {
         this.presentation = presentation;
+        this.nextSlideCommand = new NextSlideCommand(this.presentation);
+        this.previousSlideCommand = new PreviousSlideCommand(this.presentation);
+        this.quitCommand = new QuitCommand(this.presentation);
     }
 
     @Override
@@ -33,16 +40,16 @@ public class KeyController extends KeyAdapter implements Receiver {
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_ENTER:
             case '+':
-                executeCommand(new NextSlideCommand(this.presentation));
+                executeCommand(this.nextSlideCommand);
                 break;
             case KeyEvent.VK_PAGE_UP:
             case KeyEvent.VK_UP:
             case '-':
-                executeCommand(new PreviousSlideCommand(this.presentation));
+                executeCommand(this.previousSlideCommand);
                 break;
             case 'q':
             case 'Q':
-                executeCommand(new QuitCommand(this.presentation));
+                executeCommand(this.quitCommand);
                 break; // Probably never reached!!
             default:
                 break;
