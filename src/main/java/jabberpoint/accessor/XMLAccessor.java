@@ -50,7 +50,7 @@ public class XMLAccessor extends Accessor {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document document = builder.parse(new File(filename)); // Create a JDOM document
             Element doc = document.getDocumentElement();
-            presentation.setTitle(getTitle(doc, "Show Title"));
+            presentation.setTitle(getTitle(doc, "showtitle"));
 
             NodeList slides = doc.getElementsByTagName("slide");
             max = slides.getLength();

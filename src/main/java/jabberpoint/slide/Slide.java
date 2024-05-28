@@ -2,6 +2,9 @@ package jabberpoint.slide;
 
 import jabberpoint.slide.iterator.SlideItemIterator;
 import jabberpoint.slideitem.SlideItem;
+import jabberpoint.slideitem.creator.BitmapItemCreator;
+import jabberpoint.slideitem.creator.SlideItemCreator;
+import jabberpoint.slideitem.creator.TextItemCreator;
 import jabberpoint.slideitem.items.BitmapItem;
 import jabberpoint.slideitem.items.TextItem;
 
@@ -56,12 +59,12 @@ public class Slide {
     }
 
     public void appendBitMapItem(Style style, String imageName) {
-        SlideItem item = new BitmapItem();
+        SlideItemCreator item = new BitmapItemCreator();
         appendTextItem(item.createSlideItem(style, imageName));
     }
 
     public void appendTextItem(Style style, String text) {
-        SlideItem item = new TextItem();
+        SlideItemCreator item = new TextItemCreator();
         appendTextItem(item.createSlideItem(style, text));
     }
 
@@ -70,11 +73,11 @@ public class Slide {
         SlideItemIterator iterator = new SlideItemIterator(this.slideItems);
 
         Style titleStyle = styleOptions.getTitleOne();
-        SlideItem titleItem = new TextItem();
-        titleItem.createSlideItem(titleStyle, this.title);
+        SlideItemCreator titleItem = new TextItemCreator();
+        SlideItem title = titleItem.createSlideItem(titleStyle, this.title);
 
-        titleItem.draw(area.x, area.y, scale, graphics, observer);
-        area.y += titleItem.getBoundingBox(graphics, observer, scale).height;
+        title.draw(area.x, area.y, scale, graphics, observer);
+        area.y += title.getBoundingBox(graphics, observer, scale).height;
 
         //iterator
         while(iterator.hasNext()){
