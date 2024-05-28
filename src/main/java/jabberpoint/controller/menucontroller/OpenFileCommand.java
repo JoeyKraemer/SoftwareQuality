@@ -1,13 +1,12 @@
 package jabberpoint.controller.menucontroller;
 
 import jabberpoint.accessor.Accessor;
-import jabberpoint.presentation.Presentation;
 import jabberpoint.accessor.XMLAccessor;
 import jabberpoint.controller.Command;
+import jabberpoint.presentation.Presentation;
 
-
-import javax.swing.JOptionPane;
-import java.awt.Frame;
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 /**
@@ -17,22 +16,27 @@ import java.io.IOException;
  * @version 2.0 2024/04/07
  */
 
-public class OpenFileCommand extends Command {
-    private Frame frame;
+public class OpenFileCommand extends Command
+{
+    private final Frame frame;
 
-    public OpenFileCommand(Presentation presentation, Frame frame) {
+    public OpenFileCommand(Presentation presentation, Frame frame)
+    {
         super(presentation);
         this.frame = frame;
     }
 
     @Override
-    public void execute() {
+    public void execute()
+    {
         this.presentation.clear();
         Accessor xmlAccessor = new XMLAccessor();
-        try {
+        try
+        {
             xmlAccessor.loadFile(this.presentation, "test.xml");
             this.presentation.setSlideNumber(0);
-        } catch (IOException exc) {
+        } catch (IOException exc)
+        {
             JOptionPane.showMessageDialog(this.frame, "IO Exception: " + exc, "Load Error", JOptionPane.ERROR_MESSAGE);
         }
         this.frame.repaint();

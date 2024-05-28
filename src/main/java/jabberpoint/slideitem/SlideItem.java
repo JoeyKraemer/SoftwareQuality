@@ -12,7 +12,8 @@ import java.awt.image.ImageObserver;
  * @version 2.0 2024/04/07
  */
 
-public interface SlideItem {
+public interface SlideItem
+{
 
     SlideItem createSlideItem();
 

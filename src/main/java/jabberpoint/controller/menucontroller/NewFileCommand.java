@@ -1,9 +1,9 @@
 package jabberpoint.controller.menucontroller;
 
-import jabberpoint.presentation.Presentation;
 import jabberpoint.controller.Command;
+import jabberpoint.presentation.Presentation;
 
-import java.awt.Frame;
+import java.awt.*;
 
 /**
  * <p>This is the NewFileCommand, it's used in MenuController</p>
@@ -12,16 +12,19 @@ import java.awt.Frame;
  * @version 2.0 2024/04/07
  */
 
-public class NewFileCommand extends Command {
-    private Frame frame;
+public class NewFileCommand extends Command
+{
+    private final Frame frame;
 
-    public NewFileCommand(Presentation presentation, Frame frame) {
+    public NewFileCommand(Presentation presentation, Frame frame)
+    {
         super(presentation);
         this.frame = frame;
     }
 
     @Override
-    public void execute() {
+    public void execute()
+    {
         this.presentation.clear();
         this.frame.repaint();
     }

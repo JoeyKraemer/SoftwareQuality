@@ -3,12 +3,15 @@ package jabberpoint.style;
 import jabberpoint.style.builder.*;
 import jabberpoint.style.styles.Style;
 
-/** <p>This is StyleOptions, it requests the creation of styles</p>
+/**
+ * <p>This is StyleOptions, it requests the creation of styles</p>
+ *
  * @author Caterina Aresti & Joey Kramer
  * @version 2.0 2024/04/07
  */
 
-public class StyleOptions {
+public class StyleOptions
+{
     private final Director director;
     private final SubtitleOneStyleBuilder subtitleOneStyleBuilder;
     private final SubtitleTwoStyleBuilder subtitleTwoStyleBuilder;
@@ -21,7 +24,8 @@ public class StyleOptions {
     private final Style titleTwo;
     private final Style text;
 
-    public StyleOptions() {
+    public StyleOptions()
+    {
         this.director = new Director();
         this.subtitleOneStyleBuilder = new SubtitleOneStyleBuilder();
         this.subtitleTwoStyleBuilder = new SubtitleTwoStyleBuilder();
@@ -45,23 +49,28 @@ public class StyleOptions {
         this.text = this.textStyleBuilder.getResult();
     }
 
-    public Style getSubtitleOne() {
+    public Style getSubtitleOne()
+    {
         return subtitleOne;
     }
 
-    public Style getSubtitleTwo() {
+    public Style getSubtitleTwo()
+    {
         return subtitleTwo;
     }
 
-    public Style getTitleOne() {
+    public Style getTitleOne()
+    {
         return titleOne;
     }
 
-    public Style getTitleTwo() {
+    public Style getTitleTwo()
+    {
         return titleTwo;
     }
 
-    public Style getText() {
+    public Style getText()
+    {
         return text;
     }
 }

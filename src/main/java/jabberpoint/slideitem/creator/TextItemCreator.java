@@ -11,16 +11,19 @@ import jabberpoint.style.styles.Style;
  * @version 2.0 2024/04/07
  */
 
-public class TextItemCreator extends SlideItemCreator {
+public class TextItemCreator extends SlideItemCreator
+{
     @Override
-    public SlideItem createSlideItem() {
+    public SlideItem createSlideItem()
+    {
         SlideItem item = new TextItem();
 
         return item.createSlideItem();
     }
 
     @Override
-    public SlideItem createSlideItem(Style style, String string) {
+    public SlideItem createSlideItem(Style style, String string)
+    {
         SlideItem item = new TextItem();
 
         return item.createSlideItem(style, string);

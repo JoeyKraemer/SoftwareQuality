@@ -1,18 +1,19 @@
 package jabberpoint;
 
-import java.awt.Frame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * THis is the About-box. It shows information about the program
  *
  * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
-public class AboutBox {
-    public static void show(Frame parent) {
+public class AboutBox
+{
+    public static void show(Frame parent)
+    {
         JOptionPane.showMessageDialog(parent,
                 "JabberPoint.JabberPoint.JabberPoint.JabberPoint is a primitive slide-show program in Java(tm). It\n" +
                         "is freely copyable as long as you keep this notice and\n" +

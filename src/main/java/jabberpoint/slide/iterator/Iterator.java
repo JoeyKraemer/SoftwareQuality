@@ -9,8 +9,10 @@ import jabberpoint.slideitem.SlideItem;
  * @version 2.0 2024/04/07
  */
 
-public interface Iterator<SlideItems> {
+public interface Iterator<SlideItems>
+{
 
     boolean hasNext();
+
     SlideItem next();
 }

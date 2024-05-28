@@ -7,25 +7,27 @@ import java.io.IOException;
 
 /**
  * <p>This is the Accessor. It makes it possible to transfer data for a presentation
- *  to read or write.</p>
+ * to read or write.</p>
  *
  * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
  */
 
-public abstract class Accessor {
+public abstract class Accessor
+{
 
-    public Accessor() {
+    public Accessor()
+    {
 
     }
 
-    public static Accessor getDemoAccessor() {
+    public static Accessor getDemoAccessor()
+    {
         return new DemoPresentation();
     }
 
-    public abstract  void loadFile(Presentation p, String fn) throws IOException;
+    public abstract void loadFile(Presentation p, String fn) throws IOException;
 
-    public abstract  void saveFile(Presentation p, String fn) throws IOException;
+    public abstract void saveFile(Presentation p, String fn) throws IOException;
 
 }
