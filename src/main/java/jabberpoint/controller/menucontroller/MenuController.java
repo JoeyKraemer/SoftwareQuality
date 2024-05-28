@@ -20,14 +20,6 @@ public class MenuController extends MenuBar implements Receiver
 {
 
     private final Presentation presentation; // Commands are given to the presentation
-    private final OpenFileCommand openFileCommand;
-    private final NewFileCommand newFileCommand;
-    private final SaveFileCommand saveFileCommand;
-    private final ExitCommand exitCommand;
-    private final NextSlideCommand nextSlideCommand;
-    private final PreviousSlideCommand previousSlideCommand;
-    private final GoToSlideCommand goToSlideCommand;
-    private final ShowAboutCommand showAboutCommand;
     private final Menu fileMenu;
     private final Menu viewMenu;
     private final Menu helpMenu;
@@ -43,30 +35,30 @@ public class MenuController extends MenuBar implements Receiver
         this.helpMenu = new Menu("Help");
 
         //list of commands
-        this.openFileCommand = new OpenFileCommand(this.presentation, frame);
-        this.newFileCommand = new NewFileCommand(this.presentation, frame);
-        this.saveFileCommand = new SaveFileCommand(this.presentation, frame);
-        this.exitCommand = new ExitCommand(this.presentation);
-        this.nextSlideCommand = new NextSlideCommand(this.presentation);
-        this.previousSlideCommand = new PreviousSlideCommand(this.presentation);
-        this.goToSlideCommand = new GoToSlideCommand(this.presentation);
-        this.showAboutCommand = new ShowAboutCommand(this.presentation, frame);
+        OpenFileCommand openFileCommand = new OpenFileCommand(this.presentation, frame);
+        NewFileCommand newFileCommand = new NewFileCommand(this.presentation, frame);
+        SaveFileCommand saveFileCommand = new SaveFileCommand(this.presentation, frame);
+        ExitCommand exitCommand = new ExitCommand(this.presentation);
+        NextSlideCommand nextSlideCommand = new NextSlideCommand(this.presentation);
+        PreviousSlideCommand previousSlideCommand = new PreviousSlideCommand(this.presentation);
+        GoToSlideCommand goToSlideCommand = new GoToSlideCommand(this.presentation);
+        ShowAboutCommand showAboutCommand = new ShowAboutCommand(this.presentation, frame);
 
 
         //adding menu items for file operations
-        addMenuItem(fileMenu, "Open", this.openFileCommand);
-        addMenuItem(fileMenu, "New", this.newFileCommand);
-        addMenuItem(fileMenu, "Save", this.saveFileCommand);
+        addMenuItem(fileMenu, "Open", openFileCommand);
+        addMenuItem(fileMenu, "New", newFileCommand);
+        addMenuItem(fileMenu, "Save", saveFileCommand);
         fileMenu.addSeparator();
-        addMenuItem(fileMenu, "Exit", this.exitCommand);
+        addMenuItem(fileMenu, "Exit", exitCommand);
 
         //adding menu items for navigation
-        addMenuItem(viewMenu, "Next", this.nextSlideCommand);
-        addMenuItem(viewMenu, "Previous", this.previousSlideCommand);
-        addMenuItem(viewMenu, "Go-To", this.goToSlideCommand);
+        addMenuItem(viewMenu, "Next", nextSlideCommand);
+        addMenuItem(viewMenu, "Previous", previousSlideCommand);
+        addMenuItem(viewMenu, "Go-To", goToSlideCommand);
 
         //adding menu item to show info about the application
-        addMenuItem(helpMenu, "About", this.showAboutCommand);
+        addMenuItem(helpMenu, "About", showAboutCommand);
 
         // adding and setting menus to the menu bar
         add(fileMenu);
