@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class KeyControllerTest
 {
 
-    private static class TestPresentation extends Presentation
+    private static class PresentationStub extends Presentation
     {
         int nextSlideCalls = 0;
         int previousSlideCalls = 0;
@@ -34,12 +34,12 @@ public class KeyControllerTest
 
     }
 
-    private TestPresentation presentation;
+    private PresentationStub presentation;
     private KeyController keyController;
 
     @BeforeEach
     void setup() {
-        presentation = new TestPresentation();
+        presentation = new PresentationStub();
         keyController = new KeyController(presentation);
     }
 

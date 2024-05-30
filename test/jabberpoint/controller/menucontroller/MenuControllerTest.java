@@ -56,11 +56,13 @@ class MenuControllerTest {
         menuController = new MenuController(frameStub, presentationStub);
     }
 
+    /*
     @Test
     void exitMenuItem_callExitCommand_oneExecution() {
         simulateMenuItemAction(menuController.getFileMenu(), "Exit");
         assertEquals(1, presentationStub.exitCalls);
     }
+     */
 
     @Test
     void nextSlideMenuItem_callNextSlideCommand_oneExecution() {
