@@ -20,6 +20,6 @@ public class ExitCommand extends Command
     @Override
     public void execute()
     {
-        this.presentation.exit(0);
+        this.presentation.exit();
     }
 }
