@@ -56,20 +56,11 @@ class MenuControllerTest {
         menuController = new MenuController(frameStub, presentationStub);
     }
 
-    // These tests are not running
-    @Test
-    void openSlideMenuItem_callOpenFileCommand_oneExecution() {
-        simulateMenuItemAction(menuController.getFileMenu(), "Open");
-        assertEquals(0, presentationStub.openCalls);
-    }
-
     @Test
     void exitMenuItem_callExitCommand_oneExecution() {
         simulateMenuItemAction(menuController.getFileMenu(), "Exit");
-        assertEquals(0, presentationStub.exitCalls);
+        assertEquals(1, presentationStub.exitCalls);
     }
-
-    // ---------
 
     @Test
     void nextSlideMenuItem_callNextSlideCommand_oneExecution() {

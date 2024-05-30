@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0.007" tests="9" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2023.3.4"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -68,9 +68,9 @@
   <testcase name="setLeading_one_expectNoException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0"/>
   <testcase name="setFontSize_zero_expectException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0"/>
   <testcase name="setIndent_zero_expectNoException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0"/>
-  <testcase name="setLeading_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0.001"/>
-  <testcase name="setIndent_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0.001"/>
-  <testcase name="setFontSize_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0.001"/>
+  <testcase name="setLeading_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0"/>
+  <testcase name="setIndent_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0"/>
+  <testcase name="setFontSize_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0"/>
   <testcase name="setIndent_one_expectNoException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0"/>
-  <testcase name="setFontSize_one_expectNoException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0.001"/>
+  <testcase name="setFontSize_one_expectNoException" classname="jabberpoint.style.builder.SubtitleOneStyleBuilderTest" time="0"/>
 </testsuite>
