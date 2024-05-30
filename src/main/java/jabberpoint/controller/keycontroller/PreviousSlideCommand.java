@@ -20,6 +20,6 @@ public class PreviousSlideCommand extends Command
     @Override
     public void execute()
     {
-        this.presentation.prevSlide();
+        this.presentation.previousSlide();
     }
 }

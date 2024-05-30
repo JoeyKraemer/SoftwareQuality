@@ -66,7 +66,7 @@ public class Presentation
         }
     }
 
-    public void prevSlide()
+    public void previousSlide()
     {
         if (currentSlideNumber > 0)
         {
@@ -107,8 +107,8 @@ public class Presentation
         return getSlide(currentSlideNumber);
     }
 
-    public void exit(int n)
+    public void exit()
     {
-        System.exit(n);
+        System.exit(0);
     }
 }
