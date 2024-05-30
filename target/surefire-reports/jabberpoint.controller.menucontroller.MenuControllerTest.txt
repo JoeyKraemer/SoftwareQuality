@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: jabberpoint.controller.menucontroller.MenuControllerTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 2.908 sec <<< FAILURE! - in jabberpoint.controller.menucontroller.MenuControllerTest
+openSlideMenuItem_callOpenFileCommand_oneExecution  Time elapsed: 0.311 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
+	at jabberpoint.controller.menucontroller.MenuControllerTest.openSlideMenuItem_callOpenFileCommand_oneExecution(MenuControllerTest.java:62)
+
+exitMenuItem_callExitCommand_oneExecution  Time elapsed: 0.011 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
+	at jabberpoint.controller.menucontroller.MenuControllerTest.exitMenuItem_callExitCommand_oneExecution(MenuControllerTest.java:68)
+

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="MavenTest" time="0.013" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.controller.menucontroller.MenuControllerTest" time="2.908" tests="5" errors="0" skipped="0" failures="2">
   <properties>
     <property name="idea.version" value="2023.3.4"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="20.0.2+9-78"/>
     <property name="sun.boot.library.path" value="/Users/joey/Library/Java/JavaVirtualMachines/openjdk-20.0.2/Contents/Home/lib"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/joey/Desktop/NHLStenden/Software Quality/GitHub"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/joey/Desktop/NHLStenden/Software Quality/Jabber"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -14,7 +14,7 @@
     <property name="user.country" value="DE"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/joey/Desktop/NHLStenden/Software Quality/GitHub"/>
+    <property name="user.dir" value="/Users/joey/Desktop/NHLStenden/Software Quality/Jabber"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="20.0.2+9-78"/>
     <property name="os.arch" value="x86_64"/>
@@ -34,17 +34,17 @@
     <property name="java.class.version" value="64.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="14.4"/>
+    <property name="os.version" value="14.5"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/joey"/>
-    <property name="user.timezone" value="Europe/Amsterdam"/>
+    <property name="user.timezone" value="Europe/Berlin"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="20"/>
     <property name="user.name" value="joey"/>
     <property name="java.class.path" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/boot/plexus-classworlds.license:/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/boot/plexus-classworlds-2.7.0.jar"/>
     <property name="java.vm.specification.version" value="20"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2023.3.4 deploy"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2023.3.4 test"/>
     <property name="java.home" value="/Users/joey/Library/Java/JavaVirtualMachines/openjdk-20.0.2/Contents/Home"/>
     <property name="apple.awt.application.name" value="Launcher"/>
     <property name="user.language" value="en"/>
@@ -64,5 +64,17 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="iWantToTestMyPipeline" classname="MavenTest" time="0.011"/>
+  <testcase name="openSlideMenuItem_callOpenFileCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="0.311">
+    <failure message="expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
+	at jabberpoint.controller.menucontroller.MenuControllerTest.openSlideMenuItem_callOpenFileCommand_oneExecution(MenuControllerTest.java:62)
+]]></failure>
+  </testcase>
+  <testcase name="goToSlideMenuItem_callGoToSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="2.566"/>
+  <testcase name="exitMenuItem_callExitCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="0.011">
+    <failure message="expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
+	at jabberpoint.controller.menucontroller.MenuControllerTest.exitMenuItem_callExitCommand_oneExecution(MenuControllerTest.java:68)
+]]></failure>
+  </testcase>
+  <testcase name="nextSlideMenuItem_callNextSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="0.001"/>
+  <testcase name="previousSlideMenuItem_callPreviousSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="0.002"/>
 </testsuite>
