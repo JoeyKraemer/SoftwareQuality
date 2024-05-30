@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KeyController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JabberPoint</a> &gt; <a href="index.source.html" class="el_package">jabberpoint.controller.keycontroller</a> &gt; <span class="el_source">KeyController.java</span></div><h1>KeyController.java</h1><pre class="source lang-java linenums">package jabberpoint.controller.keycontroller;
+
+import jabberpoint.controller.Command;
+import jabberpoint.controller.Receiver;
+import jabberpoint.presentation.Presentation;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+/**
+ * &lt;p&gt;This is the KeyController, it executes commands when keys are pressed&lt;/p&gt;
+ *
+ * @author Caterina Aresti &amp; Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
+public class KeyController extends KeyAdapter implements Receiver
+{
+    private final Presentation presentation; // Commands are given to the presentation
+    private final NextSlideCommand nextSlideCommand;
+    private final PreviousSlideCommand previousSlideCommand;
+    private final QuitCommand quitCommand;
+
+    public KeyController(Presentation presentation)
+<span class="fc" id="L25">    {</span>
+<span class="fc" id="L26">        this.presentation = presentation;</span>
+<span class="fc" id="L27">        this.nextSlideCommand = new NextSlideCommand(this.presentation);</span>
+<span class="fc" id="L28">        this.previousSlideCommand = new PreviousSlideCommand(this.presentation);</span>
+<span class="fc" id="L29">        this.quitCommand = new QuitCommand(this.presentation);</span>
+<span class="fc" id="L30">    }</span>
+
+    @Override
+    public void executeCommand(Command command)
+    {
+<span class="fc" id="L35">        command.execute();</span>
+<span class="fc" id="L36">    }</span>
+
+    public void keyPressed(KeyEvent keyEvent)
+    {
+
+<span class="fc bfc" id="L41" title="All 4 branches covered.">        switch (keyEvent.getKeyCode())</span>
+        {
+            case KeyEvent.VK_PAGE_DOWN:
+            case KeyEvent.VK_DOWN:
+            case KeyEvent.VK_ENTER:
+<span class="fc" id="L46">                executeCommand(this.nextSlideCommand);</span>
+<span class="fc" id="L47">                break;</span>
+            case KeyEvent.VK_PAGE_UP:
+            case KeyEvent.VK_UP:
+<span class="fc" id="L50">                executeCommand(this.previousSlideCommand);</span>
+<span class="fc" id="L51">                break;</span>
+            case KeyEvent.VK_Q:
+<span class="fc" id="L53">                System.out.println(&quot;Q PRESSED&quot;); //NEEDS TO BE REMOVED</span>
+<span class="nc" id="L54">                executeCommand(this.quitCommand);</span>
+<span class="nc" id="L55">                break;</span>
+            default: // check for characters on any keyboard type. Note: .getKeyCode() only works on QWERTY
+<span class="pc bpc" id="L57" title="1 of 3 branches missed.">                switch (keyEvent.getKeyChar()) {</span>
+                    case '+':
+<span class="fc" id="L59">                        executeCommand(this.nextSlideCommand);</span>
+<span class="fc" id="L60">                        break;</span>
+                    case '-':
+<span class="fc" id="L62">                        executeCommand(this.previousSlideCommand);</span>
+<span class="fc" id="L63">                        break;</span>
+
+                    default:
+                        break; // Probably never reached!!
+                }
+                break;
+        }
+<span class="fc" id="L70">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

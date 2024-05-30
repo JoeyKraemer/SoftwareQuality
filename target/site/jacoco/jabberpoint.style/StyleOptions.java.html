@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StyleOptions.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JabberPoint</a> &gt; <a href="index.source.html" class="el_package">jabberpoint.style</a> &gt; <span class="el_source">StyleOptions.java</span></div><h1>StyleOptions.java</h1><pre class="source lang-java linenums">package jabberpoint.style;
+
+import jabberpoint.style.builder.*;
+import jabberpoint.style.styles.Style;
+
+/**
+ * &lt;p&gt;This is StyleOptions, it requests the creation of styles&lt;/p&gt;
+ *
+ * @author Caterina Aresti &amp; Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
+public class StyleOptions
+{
+    private final Director director;
+    private final SubtitleOneStyleBuilder subtitleOneStyleBuilder;
+    private final SubtitleTwoStyleBuilder subtitleTwoStyleBuilder;
+    private final TitleOneStyleBuilder titleOneStyleBuilder;
+    private final TitleTwoStyleBuilder titleTwoStyleBuilder;
+    private final TextStyleBuilder textStyleBuilder;
+    private final Style subtitleOne;
+    private final Style subtitleTwo;
+    private final Style titleOne;
+    private final Style titleTwo;
+    private final Style text;
+
+    public StyleOptions()
+<span class="nc" id="L28">    {</span>
+<span class="nc" id="L29">        this.director = new Director();</span>
+<span class="nc" id="L30">        this.subtitleOneStyleBuilder = new SubtitleOneStyleBuilder();</span>
+<span class="nc" id="L31">        this.subtitleTwoStyleBuilder = new SubtitleTwoStyleBuilder();</span>
+<span class="nc" id="L32">        this.titleOneStyleBuilder = new TitleOneStyleBuilder();</span>
+<span class="nc" id="L33">        this.titleTwoStyleBuilder = new TitleTwoStyleBuilder();</span>
+<span class="nc" id="L34">        this.textStyleBuilder = new TextStyleBuilder();</span>
+
+<span class="nc" id="L36">        this.director.constructSubtitleOneStyle(this.subtitleOneStyleBuilder);</span>
+<span class="nc" id="L37">        this.subtitleOne = this.subtitleOneStyleBuilder.getResult();</span>
+
+<span class="nc" id="L39">        this.director.constructSubtitleTwoStyle(this.subtitleTwoStyleBuilder);</span>
+<span class="nc" id="L40">        this.subtitleTwo = this.subtitleTwoStyleBuilder.getResult();</span>
+
+<span class="nc" id="L42">        this.director.constructTitleOneStyle(this.titleOneStyleBuilder);</span>
+<span class="nc" id="L43">        this.titleOne = this.titleOneStyleBuilder.getResult();</span>
+
+<span class="nc" id="L45">        this.director.constructTitleTwoStyle(this.titleTwoStyleBuilder);</span>
+<span class="nc" id="L46">        this.titleTwo = this.titleTwoStyleBuilder.getResult();</span>
+
+<span class="nc" id="L48">        this.director.constructTextStyle(this.textStyleBuilder);</span>
+<span class="nc" id="L49">        this.text = this.textStyleBuilder.getResult();</span>
+<span class="nc" id="L50">    }</span>
+
+    public Style getSubtitleOne()
+    {
+<span class="nc" id="L54">        return subtitleOne;</span>
+    }
+
+    public Style getSubtitleTwo()
+    {
+<span class="nc" id="L59">        return subtitleTwo;</span>
+    }
+
+    public Style getTitleOne()
+    {
+<span class="nc" id="L64">        return titleOne;</span>
+    }
+
+    public Style getTitleTwo()
+    {
+<span class="nc" id="L69">        return titleTwo;</span>
+    }
+
+    public Style getText()
+    {
+<span class="nc" id="L74">        return text;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

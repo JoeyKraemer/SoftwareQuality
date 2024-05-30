@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Presentation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JabberPoint</a> &gt; <a href="index.source.html" class="el_package">jabberpoint.presentation</a> &gt; <span class="el_source">Presentation.java</span></div><h1>Presentation.java</h1><pre class="source lang-java linenums">package jabberpoint.presentation;
+
+import jabberpoint.slide.Slide;
+import jabberpoint.slideviewer.SlideViewerComponent;
+
+import java.util.ArrayList;
+
+
+/**
+ * &lt;p&gt;This is the Presentation. It maintains the slides in the presentation.&lt;/p&gt;
+ *
+ * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
+ * @version 2.0 2024/04/07 Caterina Aresti &amp; Joey Kramer
+ */
+
+public class Presentation
+{
+    private String showTitle;
+<span class="pc" id="L19">    private ArrayList&lt;Slide&gt; showList = null;</span>
+<span class="pc" id="L20">    private int currentSlideNumber = 0;</span>
+<span class="pc" id="L21">    private SlideViewerComponent slideViewComponent = null;</span>
+
+    public Presentation()
+<span class="fc" id="L24">    {</span>
+<span class="fc" id="L25">        slideViewComponent = null;</span>
+<span class="fc" id="L26">        clear();</span>
+<span class="fc" id="L27">    }</span>
+
+    public Presentation(SlideViewerComponent slideViewerComponent)
+<span class="nc" id="L30">    {</span>
+<span class="nc" id="L31">        this.slideViewComponent = slideViewerComponent;</span>
+<span class="nc" id="L32">        clear();</span>
+<span class="nc" id="L33">    }</span>
+
+    public int getSize()
+    {
+<span class="nc" id="L37">        return showList.size();</span>
+    }
+
+    public String getTitle()
+    {
+<span class="nc" id="L42">        return showTitle;</span>
+    }
+
+    public void setTitle(String nt)
+    {
+<span class="nc" id="L47">        showTitle = nt;</span>
+<span class="nc" id="L48">    }</span>
+
+    public void setShowView(SlideViewerComponent slideViewerComponent)
+    {
+<span class="nc" id="L52">        this.slideViewComponent = slideViewerComponent;</span>
+<span class="nc" id="L53">    }</span>
+
+    public int getSlideNumber()
+    {
+<span class="nc" id="L57">        return currentSlideNumber;</span>
+    }
+
+    public void setSlideNumber(int number)
+    {
+<span class="fc" id="L62">        currentSlideNumber = number;</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if (slideViewComponent != null)</span>
+        {
+<span class="nc" id="L65">            slideViewComponent.update(this, getCurrentSlide());</span>
+        }
+<span class="fc" id="L67">    }</span>
+
+    public void previousSlide()
+    {
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (currentSlideNumber &gt; 0)</span>
+        {
+<span class="nc" id="L73">            setSlideNumber(currentSlideNumber - 1);</span>
+        }
+<span class="nc" id="L75">    }</span>
+
+    public void nextSlide()
+    {
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (currentSlideNumber &lt; (showList.size() - 1))</span>
+        {
+<span class="nc" id="L81">            setSlideNumber(currentSlideNumber + 1);</span>
+        }
+<span class="nc" id="L83">    }</span>
+
+    public void clear()
+    {
+<span class="fc" id="L87">        showList = new ArrayList&lt;Slide&gt;();</span>
+<span class="fc" id="L88">        setSlideNumber(-1);</span>
+<span class="fc" id="L89">    }</span>
+
+    public void append(Slide slide)
+    {
+<span class="nc" id="L93">        showList.add(slide);</span>
+<span class="nc" id="L94">    }</span>
+
+    public Slide getSlide(int number)
+    {
+<span class="nc bnc" id="L98" title="All 4 branches missed.">        if (number &lt; 0 || number &gt;= getSize())</span>
+        {
+<span class="nc" id="L100">            return null;</span>
+        }
+<span class="nc" id="L102">        return showList.get(number);</span>
+    }
+
+    public Slide getCurrentSlide()
+    {
+<span class="nc" id="L107">        return getSlide(currentSlideNumber);</span>
+    }
+
+    public void exit()
+    {
+<span class="nc" id="L112">        System.exit(0);</span>
+<span class="nc" id="L113">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
