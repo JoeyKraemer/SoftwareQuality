@@ -1,7 +1,12 @@
-name: Code coverage 
+name: Code coverage
 
 on:
   push:
+    branches: [ master ]
+    paths: [ '**.java', '.github/workflows/build.yml', 'pom.xml' ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build:
