@@ -25,29 +25,29 @@ public class StyleOptions
     private final Style text;
 
     public StyleOptions()
-<span class="nc" id="L28">    {</span>
-<span class="nc" id="L29">        this.director = new Director();</span>
-<span class="nc" id="L30">        this.subtitleOneStyleBuilder = new SubtitleOneStyleBuilder();</span>
-<span class="nc" id="L31">        this.subtitleTwoStyleBuilder = new SubtitleTwoStyleBuilder();</span>
-<span class="nc" id="L32">        this.titleOneStyleBuilder = new TitleOneStyleBuilder();</span>
-<span class="nc" id="L33">        this.titleTwoStyleBuilder = new TitleTwoStyleBuilder();</span>
-<span class="nc" id="L34">        this.textStyleBuilder = new TextStyleBuilder();</span>
+<span class="fc" id="L28">    {</span>
+<span class="fc" id="L29">        this.director = new Director();</span>
+<span class="fc" id="L30">        this.subtitleOneStyleBuilder = new SubtitleOneStyleBuilder();</span>
+<span class="fc" id="L31">        this.subtitleTwoStyleBuilder = new SubtitleTwoStyleBuilder();</span>
+<span class="fc" id="L32">        this.titleOneStyleBuilder = new TitleOneStyleBuilder();</span>
+<span class="fc" id="L33">        this.titleTwoStyleBuilder = new TitleTwoStyleBuilder();</span>
+<span class="fc" id="L34">        this.textStyleBuilder = new TextStyleBuilder();</span>
 
-<span class="nc" id="L36">        this.director.constructSubtitleOneStyle(this.subtitleOneStyleBuilder);</span>
-<span class="nc" id="L37">        this.subtitleOne = this.subtitleOneStyleBuilder.getResult();</span>
+<span class="fc" id="L36">        this.director.constructSubtitleOneStyle(this.subtitleOneStyleBuilder);</span>
+<span class="fc" id="L37">        this.subtitleOne = this.subtitleOneStyleBuilder.getResult();</span>
 
-<span class="nc" id="L39">        this.director.constructSubtitleTwoStyle(this.subtitleTwoStyleBuilder);</span>
-<span class="nc" id="L40">        this.subtitleTwo = this.subtitleTwoStyleBuilder.getResult();</span>
+<span class="fc" id="L39">        this.director.constructSubtitleTwoStyle(this.subtitleTwoStyleBuilder);</span>
+<span class="fc" id="L40">        this.subtitleTwo = this.subtitleTwoStyleBuilder.getResult();</span>
 
-<span class="nc" id="L42">        this.director.constructTitleOneStyle(this.titleOneStyleBuilder);</span>
-<span class="nc" id="L43">        this.titleOne = this.titleOneStyleBuilder.getResult();</span>
+<span class="fc" id="L42">        this.director.constructTitleOneStyle(this.titleOneStyleBuilder);</span>
+<span class="fc" id="L43">        this.titleOne = this.titleOneStyleBuilder.getResult();</span>
 
-<span class="nc" id="L45">        this.director.constructTitleTwoStyle(this.titleTwoStyleBuilder);</span>
-<span class="nc" id="L46">        this.titleTwo = this.titleTwoStyleBuilder.getResult();</span>
+<span class="fc" id="L45">        this.director.constructTitleTwoStyle(this.titleTwoStyleBuilder);</span>
+<span class="fc" id="L46">        this.titleTwo = this.titleTwoStyleBuilder.getResult();</span>
 
-<span class="nc" id="L48">        this.director.constructTextStyle(this.textStyleBuilder);</span>
-<span class="nc" id="L49">        this.text = this.textStyleBuilder.getResult();</span>
-<span class="nc" id="L50">    }</span>
+<span class="fc" id="L48">        this.director.constructTextStyle(this.textStyleBuilder);</span>
+<span class="fc" id="L49">        this.text = this.textStyleBuilder.getResult();</span>
+<span class="fc" id="L50">    }</span>
 
     public Style getSubtitleOne()
     {
@@ -71,7 +71,7 @@ public class StyleOptions
 
     public Style getText()
     {
-<span class="nc" id="L74">        return text;</span>
+<span class="fc" id="L74">        return text;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

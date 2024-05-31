@@ -23,7 +23,7 @@ import java.util.List;
  * @version 2.0 2024/04/07 Caterina Aresti &amp; Joey Kramer
  */
 
-<span class="nc" id="L26">public class TextItem implements SlideItem</span>
+<span class="fc" id="L26">public class TextItem implements SlideItem</span>
 {
     private String text;
     private Style style;
@@ -31,36 +31,36 @@ import java.util.List;
     @Override
     public SlideItem createSlideItem()
     {
-<span class="nc" id="L34">        this.text = &quot;text&quot;;</span>
+<span class="fc" id="L34">        this.text = &quot;text&quot;;</span>
 
-<span class="nc" id="L36">        StyleOptions tempStyle = new StyleOptions();</span>
-<span class="nc" id="L37">        this.style = tempStyle.getText();</span>
+<span class="fc" id="L36">        StyleOptions tempStyle = new StyleOptions();</span>
+<span class="fc" id="L37">        this.style = tempStyle.getText();</span>
 
-<span class="nc" id="L39">        return this;</span>
+<span class="fc" id="L39">        return this;</span>
     }
 
     @Override
     public SlideItem createSlideItem(Style style, String text)
     {
-<span class="nc bnc" id="L45" title="All 2 branches missed.">        if (text.isEmpty())</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (text.isEmpty())</span>
         {
 <span class="nc" id="L47">            throw new IllegalArgumentException(&quot;Image needs to be at least 1 character long&quot;);</span>
         }
 
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (style == null)</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        if (style == null)</span>
         {
 <span class="nc" id="L52">            throw new IllegalArgumentException(&quot;Style cant be null&quot;);</span>
         }
 
-<span class="nc" id="L55">        this.text = text;</span>
-<span class="nc" id="L56">        this.style = style;</span>
+<span class="fc" id="L55">        this.text = text;</span>
+<span class="fc" id="L56">        this.style = style;</span>
 
-<span class="nc" id="L58">        return this;</span>
+<span class="fc" id="L58">        return this;</span>
     }
 
     public String getText()
     {
-<span class="nc" id="L63">        return text;</span>
+<span class="fc" id="L63">        return text;</span>
     }
 
     @Override
@@ -109,7 +109,7 @@ import java.util.List;
     @Override
     public Style getStyle()
     {
-<span class="nc" id="L112">        return this.style;</span>
+<span class="fc" id="L112">        return this.style;</span>
     }
 
     public AttributedString getAttributedString(Style style, float scale)

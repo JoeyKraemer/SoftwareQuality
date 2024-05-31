@@ -80,6 +80,14 @@ public class BitmapItem implements SlideItem
     }
 
     @Override
+    public Style getStyle()
+    {
+        return this.style;
+    }
+
+
+
+    @Override
     public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer)
     {
         int width = x + (int) (this.style.getIndent() * scale);
@@ -88,10 +96,5 @@ public class BitmapItem implements SlideItem
                 (int) (bufferedImage.getHeight(observer) * scale), observer);
     }
 
-    @Override
-    public Style getStyle()
-    {
-        return this.style;
-    }
 
 }

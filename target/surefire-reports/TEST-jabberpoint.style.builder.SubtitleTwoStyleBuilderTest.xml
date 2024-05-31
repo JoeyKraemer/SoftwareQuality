@@ -64,13 +64,13 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="setLeading_zero_expectNoException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0"/>
+  <testcase name="setLeading_zero_expectNoException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.002"/>
   <testcase name="setLeading_one_expectNoException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.001"/>
-  <testcase name="setFontSize_zero_expectException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.002"/>
-  <testcase name="setIndent_zero_expectNoException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.002"/>
-  <testcase name="setLeading_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.001"/>
-  <testcase name="setIndent_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.002"/>
-  <testcase name="setFontSize_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.001"/>
-  <testcase name="setIndent_one_expectNoException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.001"/>
+  <testcase name="setFontSize_zero_expectException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0"/>
+  <testcase name="setIndent_zero_expectNoException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.001"/>
+  <testcase name="setLeading_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0"/>
+  <testcase name="setIndent_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.001"/>
+  <testcase name="setFontSize_negativeOne_expectException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.002"/>
+  <testcase name="setIndent_one_expectNoException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.003"/>
   <testcase name="setFontSize_one_expectNoException" classname="jabberpoint.style.builder.SubtitleTwoStyleBuilderTest" time="0.001"/>
 </testsuite>
