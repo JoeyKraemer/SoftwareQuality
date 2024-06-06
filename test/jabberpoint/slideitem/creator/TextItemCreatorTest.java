@@ -34,7 +34,7 @@ class TextItemCreatorTest {
 
         assertNotNull(slideItem, "SlideItem should not be null");
         assertInstanceOf(TextItem.class, slideItem, "SlideItem should be an instance of TextItem");
-        assertEquals(mockStyle, ((TextItem) slideItem).getStyle(), "The style should match the one provided");
-        assertEquals(testString, ((TextItem) slideItem).getText(), "The text should match the one provided");
+        assertEquals(mockStyle, slideItem.getStyle(), "The style should match the one provided");
+        assertEquals(testString, slideItem.getText(), "The text should match the one provided");
     }
 }

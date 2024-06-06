@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.controller.menucontroller.MenuControllerTest" time="3.956" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.controller.menucontroller.MenuControllerTest" time="16.686" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2023.3.4"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -37,7 +37,7 @@
     <property name="os.version" value="14.5"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/joey"/>
-    <property name="user.timezone" value="Europe/Berlin"/>
+    <property name="user.timezone" value="Europe/Amsterdam"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="20"/>
     <property name="user.name" value="joey"/>
@@ -64,7 +64,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="goToSlideMenuItem_callGoToSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="3.922"/>
-  <testcase name="nextSlideMenuItem_callNextSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="0.014"/>
-  <testcase name="previousSlideMenuItem_callPreviousSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="0.003"/>
+  <testcase name="goToSlideMenuItem_callGoToSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="16.644"/>
+  <testcase name="nextSlideMenuItem_callNextSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="0.006"/>
+  <testcase name="previousSlideMenuItem_callPreviousSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="0.004"/>
 </testsuite>

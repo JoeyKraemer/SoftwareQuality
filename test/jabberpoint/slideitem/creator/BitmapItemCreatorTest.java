@@ -28,7 +28,7 @@ class BitmapItemCreatorTest {
     @Test
     void createBitmapSlideItemWithStyle_createItem_slideItemExist() {
         Style mockStyle = mock(Style.class);
-        String testString = "Test String";
+        String testString = "Default.png";
 
         SlideItem slideItem = bitmapItemCreator.createSlideItem(mockStyle, testString);
 

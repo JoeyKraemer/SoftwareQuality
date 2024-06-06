@@ -19,7 +19,7 @@ import java.io.IOException;
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 2.0 2024/04/07 Caterina Aresti &amp; Joey Kramer
  */
-<span class="nc" id="L22">public class BitmapItem implements SlideItem</span>
+<span class="fc" id="L22">public class BitmapItem implements SlideItem</span>
 {
     private BufferedImage bufferedImage;
     private String imageName; //path to file
@@ -28,71 +28,75 @@ import java.io.IOException;
     @Override
     public SlideItem createSlideItem()
     {
-<span class="nc" id="L31">        this.imageName = &quot;Default.png&quot;;</span>
+<span class="fc" id="L31">        this.imageName = &quot;Default.png&quot;;</span>
 
-<span class="nc" id="L33">        StyleOptions tempStyle = new StyleOptions();</span>
-<span class="nc" id="L34">        this.style = tempStyle.getText();</span>
+<span class="fc" id="L33">        StyleOptions tempStyle = new StyleOptions();</span>
+<span class="fc" id="L34">        this.style = tempStyle.getText();</span>
 
         try
         {
-<span class="nc" id="L38">            this.bufferedImage = ImageIO.read(new File(&quot;./bitmapimage/&quot; + this.imageName));</span>
+<span class="fc" id="L38">            this.bufferedImage = ImageIO.read(new File(&quot;./bitmapimage/&quot; + this.imageName));</span>
 <span class="nc" id="L39">        } catch (IOException e)</span>
         {
 <span class="nc" id="L41">            System.err.println(&quot;File &quot; + this.imageName + &quot; not found&quot;);</span>
-<span class="nc" id="L42">        }</span>
+<span class="fc" id="L42">        }</span>
 
-<span class="nc" id="L44">        return this;</span>
+<span class="fc" id="L44">        return this;</span>
     }
 
     @Override
     public SlideItem createSlideItem(Style style, String imageName)
     {
-<span class="nc" id="L50">        this.style = style;</span>
-<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (imageName.length() &lt; 4)</span>
+<span class="fc" id="L50">        this.style = style;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (imageName.length() &lt; 4)</span>
         {
-<span class="nc" id="L53">            throw new IllegalArgumentException(&quot;Image needs to be at least 4 character long&quot;);</span>
+<span class="fc" id="L53">            throw new IllegalArgumentException(&quot;Image needs to be at least 4 character long&quot;);</span>
         }
-<span class="nc" id="L55">        this.imageName = imageName;</span>
+<span class="fc" id="L55">        this.imageName = imageName;</span>
 
         try
         {
-<span class="nc" id="L59">            this.bufferedImage = ImageIO.read(new File(&quot;./bitmapimage/&quot; + this.imageName));</span>
-<span class="nc" id="L60">        } catch (IOException e)</span>
+<span class="fc" id="L59">            this.bufferedImage = ImageIO.read(new File(&quot;./bitmapimage/&quot; + this.imageName));</span>
+<span class="fc" id="L60">        } catch (IOException e)</span>
         {
-<span class="nc" id="L62">            System.err.println(&quot;File &quot; + this.imageName + &quot; not found&quot;);</span>
-<span class="nc" id="L63">        }</span>
+<span class="fc" id="L62">            System.err.println(&quot;File &quot; + this.imageName + &quot; not found&quot;);</span>
+<span class="fc" id="L63">        }</span>
 
-<span class="nc" id="L65">        return this;</span>
+<span class="fc" id="L65">        return this;</span>
     }
 
     public String getImageName()
     {
-<span class="nc" id="L70">        return imageName;</span>
+<span class="fc" id="L70">        return imageName;</span>
     }
 
     @Override
     public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale)
     {
-<span class="nc" id="L76">        return new Rectangle((int) (this.style.getIndent() * scale), 0,</span>
-<span class="nc" id="L77">                (int) (bufferedImage.getWidth(observer) * scale),</span>
-<span class="nc" id="L78">                ((int) (this.style.getLeading() * scale)) +</span>
-<span class="nc" id="L79">                        (int) (bufferedImage.getHeight(observer) * scale));</span>
+<span class="fc" id="L76">        return new Rectangle((int) (this.style.getIndent() * scale), 0,</span>
+<span class="fc" id="L77">                (int) (bufferedImage.getWidth(observer) * scale),</span>
+<span class="fc" id="L78">                ((int) (this.style.getLeading() * scale)) +</span>
+<span class="fc" id="L79">                        (int) (bufferedImage.getHeight(observer) * scale));</span>
+    }
+
+    @Override
+    public Style getStyle()
+    {
+<span class="fc" id="L85">        return this.style;</span>
+    }
+
+    public BufferedImage getBufferedImage()
+    {
+<span class="nc" id="L90">        return bufferedImage;</span>
     }
 
     @Override
     public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer)
     {
-<span class="nc" id="L85">        int width = x + (int) (this.style.getIndent() * scale);</span>
-<span class="nc" id="L86">        int height = y + (int) (this.style.getLeading() * scale);</span>
-<span class="nc" id="L87">        graphics.drawImage(bufferedImage, width, height, (int) (bufferedImage.getWidth(observer) * scale),</span>
-<span class="nc" id="L88">                (int) (bufferedImage.getHeight(observer) * scale), observer);</span>
-<span class="nc" id="L89">    }</span>
-
-    @Override
-    public Style getStyle()
-    {
-<span class="nc" id="L94">        return this.style;</span>
-    }
-
+<span class="nc" id="L96">        int width = x + (int) (this.style.getIndent() * scale);</span>
+<span class="nc" id="L97">        int height = y + (int) (this.style.getLeading() * scale);</span>
+<span class="nc" id="L98">        graphics.drawImage(bufferedImage, width, height, (int) (bufferedImage.getWidth(observer) * scale),</span>
+<span class="nc" id="L99">                (int) (bufferedImage.getHeight(observer) * scale), observer);</span>
+<span class="nc" id="L100">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
