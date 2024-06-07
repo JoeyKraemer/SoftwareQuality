@@ -21,7 +21,7 @@ class BitmapItemTest {
     }
 
     @Test
-    void createBitmapSlideItem_createItem_slideItemExists() {
+    void createSlideItem_checkFileType_instanceOfBitmapItem() {
         SlideItem slideItem = bitmapItem.createSlideItem();
 
         assertNotNull(slideItem, "SlideItem should not be null");
@@ -30,7 +30,7 @@ class BitmapItemTest {
     }
 
     @Test
-    void createBitmapSlideItemWithStyleAndImageName_createItem_slideItemExists() {
+    void createSlideItem_checkFileTypeAndImage_instanceOfBitmapItem() {
         Style mockStyle = mock(Style.class);
         String testImageName = "Default.png";
 
@@ -43,7 +43,7 @@ class BitmapItemTest {
     }
 
     @Test
-    void createBitmapSlideItem_ShortImageName_throwsException() {
+    void createBitmapSlideItem_shortImageName_throwsException() {
         Style mockStyle = mock(Style.class);
         String shortImageName = "Img";
 
