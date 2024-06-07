@@ -37,7 +37,7 @@
     <property name="os.version" value="14.5"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/joey"/>
-    <property name="user.timezone" value="Europe/Amsterdam"/>
+    <property name="user.timezone" value="Europe/Brussels"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="20"/>
     <property name="user.name" value="joey"/>
@@ -64,6 +64,6 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="createTextSlideItem_createItem_slideItemExists" classname="jabberpoint.slideitem.creator.TextItemCreatorTest" time="0.104"/>
-  <testcase name="createTextSlideItemWithStyle_createItem_slideItemExist" classname="jabberpoint.slideitem.creator.TextItemCreatorTest" time="0.763"/>
+  <testcase name="createTextSlideItem_createItem_slideItemExists" classname="jabberpoint.slideitem.creator.TextItemCreatorTest" time="0.107"/>
+  <testcase name="createTextSlideItemWithStyle_createItem_slideItemExist" classname="jabberpoint.slideitem.creator.TextItemCreatorTest" time="0.758"/>
 </testsuite>
