@@ -31,17 +31,18 @@ public class Slide
     {
         this.slideItems = new Vector<SlideItem>();
         this.title = "Example Name";
+
         this.styleOptions = new StyleOptions();
     }
 
     public String getTitle()
     {
-        return this.title;
+        return title;
     }
 
     public void setTitle(String newTitle)
     {
-        this.title = newTitle;
+        title = newTitle;
     }
 
     public SlideItem getSpecificSlideItem(int number)
@@ -76,7 +77,7 @@ public class Slide
         float scale = getScale(area);
         SlideItemIterator iterator = new SlideItemIterator(this.slideItems);
 
-        Style titleStyle = this.styleOptions.getTitleOne();
+        Style titleStyle = styleOptions.getTitleOne();
         SlideItemCreator titleItem = new TextItemCreator();
         SlideItem title = titleItem.createSlideItem(titleStyle, this.title);
 

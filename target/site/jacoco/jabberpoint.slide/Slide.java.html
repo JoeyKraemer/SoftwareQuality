@@ -31,71 +31,72 @@ public class Slide
 <span class="nc" id="L31">    {</span>
 <span class="nc" id="L32">        this.slideItems = new Vector&lt;SlideItem&gt;();</span>
 <span class="nc" id="L33">        this.title = &quot;Example Name&quot;;</span>
-<span class="nc" id="L34">        this.styleOptions = new StyleOptions();</span>
-<span class="nc" id="L35">    }</span>
+
+<span class="nc" id="L35">        this.styleOptions = new StyleOptions();</span>
+<span class="nc" id="L36">    }</span>
 
     public String getTitle()
     {
-<span class="nc" id="L39">        return this.title;</span>
+<span class="nc" id="L40">        return title;</span>
     }
 
     public void setTitle(String newTitle)
     {
-<span class="nc" id="L44">        this.title = newTitle;</span>
-<span class="nc" id="L45">    }</span>
+<span class="nc" id="L45">        title = newTitle;</span>
+<span class="nc" id="L46">    }</span>
 
     public SlideItem getSpecificSlideItem(int number)
     {
-<span class="nc" id="L49">        return this.slideItems.elementAt(number);</span>
+<span class="nc" id="L50">        return this.slideItems.elementAt(number);</span>
     }
 
     public Vector&lt;SlideItem&gt; getSlideItems()
     {
-<span class="nc" id="L54">        return this.slideItems;</span>
+<span class="nc" id="L55">        return this.slideItems;</span>
     }
 
     private void appendTextItem(SlideItem anItem)
     {
-<span class="nc" id="L59">        this.slideItems.addElement(anItem);</span>
-<span class="nc" id="L60">    }</span>
+<span class="nc" id="L60">        this.slideItems.addElement(anItem);</span>
+<span class="nc" id="L61">    }</span>
 
     public void appendBitMapItem(Style style, String imageName)
     {
-<span class="nc" id="L64">        SlideItemCreator item = new BitmapItemCreator();</span>
-<span class="nc" id="L65">        appendTextItem(item.createSlideItem(style, imageName));</span>
-<span class="nc" id="L66">    }</span>
+<span class="nc" id="L65">        SlideItemCreator item = new BitmapItemCreator();</span>
+<span class="nc" id="L66">        appendTextItem(item.createSlideItem(style, imageName));</span>
+<span class="nc" id="L67">    }</span>
 
     public void appendTextItem(Style style, String text)
     {
-<span class="nc" id="L70">        SlideItemCreator item = new TextItemCreator();</span>
-<span class="nc" id="L71">        appendTextItem(item.createSlideItem(style, text));</span>
-<span class="nc" id="L72">    }</span>
+<span class="nc" id="L71">        SlideItemCreator item = new TextItemCreator();</span>
+<span class="nc" id="L72">        appendTextItem(item.createSlideItem(style, text));</span>
+<span class="nc" id="L73">    }</span>
 
     public void draw(Graphics graphics, Rectangle area, ImageObserver observer)
     {
-<span class="nc" id="L76">        float scale = getScale(area);</span>
-<span class="nc" id="L77">        SlideItemIterator iterator = new SlideItemIterator(this.slideItems);</span>
+<span class="nc" id="L77">        float scale = getScale(area);</span>
+<span class="nc" id="L78">        SlideItemIterator iterator = new SlideItemIterator(this.slideItems);</span>
 
-<span class="nc" id="L79">        Style titleStyle = this.styleOptions.getTitleOne();</span>
-<span class="nc" id="L80">        SlideItemCreator titleItem = new TextItemCreator();</span>
-<span class="nc" id="L81">        SlideItem title = titleItem.createSlideItem(titleStyle, this.title);</span>
+<span class="nc" id="L80">        Style titleStyle = styleOptions.getTitleOne();</span>
+<span class="nc" id="L81">        SlideItemCreator titleItem = new TextItemCreator();</span>
+<span class="nc" id="L82">        SlideItem title = titleItem.createSlideItem(titleStyle, this.title);</span>
 
-<span class="nc" id="L83">        title.draw(area.x, area.y, scale, graphics, observer);</span>
-<span class="nc" id="L84">        area.y += title.getBoundingBox(graphics, observer, scale).height;</span>
+<span class="nc" id="L84">        title.draw(area.x, area.y, scale, graphics, observer);</span>
+<span class="nc" id="L85">        area.y += title.getBoundingBox(graphics, observer, scale).height;</span>
 
         //iterator
-<span class="nc bnc" id="L87" title="All 2 branches missed.">        while (iterator.hasNext())</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        while (iterator.hasNext())</span>
         {
-<span class="nc" id="L89">            SlideItem item = iterator.next();</span>
+<span class="nc" id="L90">            SlideItem item = iterator.next();</span>
 
-<span class="nc" id="L91">            item.draw(area.x, area.y, scale, graphics, observer);</span>
-<span class="nc" id="L92">            area.y += item.getBoundingBox(graphics, observer, scale).height;</span>
-<span class="nc" id="L93">        }</span>
-<span class="nc" id="L94">    }</span>
+<span class="nc" id="L92">            item.draw(area.x, area.y, scale, graphics, observer);</span>
+<span class="nc" id="L93">            area.y += item.getBoundingBox(graphics, observer, scale).height;</span>
+<span class="nc" id="L94">        }</span>
+<span class="nc" id="L95">    }</span>
 
     private float getScale(Rectangle area)
     {
-<span class="nc" id="L98">        return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));</span>
+<span class="nc" id="L99">        return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

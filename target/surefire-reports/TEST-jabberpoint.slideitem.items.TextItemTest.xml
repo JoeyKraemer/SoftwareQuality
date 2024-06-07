@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.slideitem.items.TextItemTest" time="0.009" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.slideitem.items.TextItemTest" time="0.741" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2023.3.4"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -64,8 +64,9 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="createSlideItemWithEmptyTextThrowsException_createWithoutStyle_exceptionThrown" classname="jabberpoint.slideitem.items.TextItemTest" time="0.001"/>
-  <testcase name="createSlideItemWithStyleAndText_checkFileTypeAndContent_instanceOfTextItemAndContentMatches" classname="jabberpoint.slideitem.items.TextItemTest" time="0.002"/>
-  <testcase name="createSlideItemWithEmptyTextThrowsException_createWithoutText_exceptionThrown" classname="jabberpoint.slideitem.items.TextItemTest" time="0.001"/>
-  <testcase name="createSlideItem_checkFileTypeAndText_instanceOfTextItem" classname="jabberpoint.slideitem.items.TextItemTest" time="0"/>
+  <testcase name="testDraw" classname="jabberpoint.slideitem.items.TextItemTest" time="0.724"/>
+  <testcase name="testCreateSlideItemWithEmptyTextThrowsException" classname="jabberpoint.slideitem.items.TextItemTest" time="0.004"/>
+  <testcase name="testCreateSlideItemWithStyleAndText" classname="jabberpoint.slideitem.items.TextItemTest" time="0.003"/>
+  <testcase name="testCreateSlideItemWithNullStyleThrowsException" classname="jabberpoint.slideitem.items.TextItemTest" time="0.003"/>
+  <testcase name="createSlideItem" classname="jabberpoint.slideitem.items.TextItemTest" time="0.001"/>
 </testsuite>
