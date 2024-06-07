@@ -37,12 +37,12 @@ public class Slide
 
     public String getTitle()
     {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String newTitle)
     {
-        title = newTitle;
+        this.title = newTitle;
     }
 
     public SlideItem getSpecificSlideItem(int number)
@@ -77,7 +77,7 @@ public class Slide
         float scale = getScale(area);
         SlideItemIterator iterator = new SlideItemIterator(this.slideItems);
 
-        Style titleStyle = styleOptions.getTitleOne();
+        Style titleStyle = this.styleOptions.getTitleOne();
         SlideItemCreator titleItem = new TextItemCreator();
         SlideItem title = titleItem.createSlideItem(titleStyle, this.title);
 
