@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: jabberpoint.style.builder.TitleOneStyleBuilderTest
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in jabberpoint.style.builder.TitleOneStyleBuilderTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in jabberpoint.style.builder.TitleOneStyleBuilderTest

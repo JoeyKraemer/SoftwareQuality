@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.slide.SlideTest" time="0.896" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.slide.SlideTest" time="0.883" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2023.3.4"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -64,11 +64,10 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="setTitle_newTitle_titleUpdated" classname="jabberpoint.slide.SlideTest" time="0.001"/>
-  <testcase name="getTitle_defaultTitle_correctTitleReturned" classname="jabberpoint.slide.SlideTest" time="0.001"/>
-  <testcase name="appendBitMapItem_addItem_itemAddedToSlide" classname="jabberpoint.slide.SlideTest" time="0.057"/>
-  <testcase name="getSpecificSlideItem_validIndex_returnsCorrectItem" classname="jabberpoint.slide.SlideTest" time="0.001"/>
-  <testcase name="appendTextItem_addItem_itemAddedToSlide" classname="jabberpoint.slide.SlideTest" time="0.001"/>
+  <testcase name="setTitle_newTitle_titleUpdated" classname="jabberpoint.slide.SlideTest" time="0"/>
+  <testcase name="appendBitMapItem_addItem_itemAddedToSlide" classname="jabberpoint.slide.SlideTest" time="0.056"/>
+  <testcase name="getSpecificSlideItem_validIndex_returnsCorrectItem" classname="jabberpoint.slide.SlideTest" time="0.002"/>
+  <testcase name="appendTextItem_addItem_itemAddedToSlide" classname="jabberpoint.slide.SlideTest" time="0.002"/>
   <testcase name="getSpecificSlideItem_invalidIndex_throwsException" classname="jabberpoint.slide.SlideTest" time="0.002"/>
-  <testcase name="draw_slideWithItems_itemsDrawnCorrectly" classname="jabberpoint.slide.SlideTest" time="0.823"/>
+  <testcase name="draw_slideWithItems_itemsDrawnCorrectly" classname="jabberpoint.slide.SlideTest" time="0.811"/>
 </testsuite>

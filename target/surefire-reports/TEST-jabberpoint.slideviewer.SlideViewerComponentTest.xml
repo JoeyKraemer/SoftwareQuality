@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.controller.menucontroller.MenuControllerTest" time="1.952" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="jabberpoint.slideviewer.SlideViewerComponentTest" time="0.021" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2023.3.4"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -64,7 +64,10 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="goToSlideMenuItem_callGoToSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="1.917"/>
-  <testcase name="nextSlideMenuItem_callNextSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="0.008"/>
-  <testcase name="previousSlideMenuItem_callPreviousSlideCommand_oneExecution" classname="jabberpoint.controller.menucontroller.MenuControllerTest" time="0.001"/>
+  <testcase name="update_withValidPresentationAndSlide_updatesComponents" classname="jabberpoint.slideviewer.SlideViewerComponentTest" time="0.004"/>
+  <testcase name="setAndGetSlide_updatesAndReturnsSlide" classname="jabberpoint.slideviewer.SlideViewerComponentTest" time="0.001"/>
+  <testcase name="setAndGetLabelFont_updatesAndReturnsFont" classname="jabberpoint.slideviewer.SlideViewerComponentTest" time="0.001"/>
+  <testcase name="setAndGetPresentation_updatesAndReturnsPresentation" classname="jabberpoint.slideviewer.SlideViewerComponentTest" time="0.003"/>
+  <testcase name="setAndGetFrame_updatesAndReturnsFrame" classname="jabberpoint.slideviewer.SlideViewerComponentTest" time="0.004"/>
+  <testcase name="getPreferredSize_defaultSize_correctDimensions" classname="jabberpoint.slideviewer.SlideViewerComponentTest" time="0.002"/>
 </testsuite>

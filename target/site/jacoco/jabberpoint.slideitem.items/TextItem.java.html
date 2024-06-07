@@ -74,24 +74,24 @@ import java.util.List;
     @Override
     public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale)
     {
-<span class="nc" id="L77">        List&lt;TextLayout&gt; layouts = getLayouts(graphics, this.style, scale);</span>
-<span class="nc" id="L78">        int xsize = 0, ysize = (int) (this.style.getLeading() * scale);</span>
-<span class="nc" id="L79">        java.util.Iterator&lt;TextLayout&gt; iterator = layouts.iterator();</span>
-<span class="nc bnc" id="L80" title="All 2 branches missed.">        while (iterator.hasNext())</span>
+<span class="fc" id="L77">        List&lt;TextLayout&gt; layouts = getLayouts(graphics, this.style, scale);</span>
+<span class="fc" id="L78">        int xsize = 0, ysize = (int) (this.style.getLeading() * scale);</span>
+<span class="fc" id="L79">        java.util.Iterator&lt;TextLayout&gt; iterator = layouts.iterator();</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        while (iterator.hasNext())</span>
         {
-<span class="nc" id="L82">            TextLayout layout = iterator.next();</span>
-<span class="nc" id="L83">            Rectangle2D bounds = layout.getBounds();</span>
-<span class="nc bnc" id="L84" title="All 2 branches missed.">            if (bounds.getWidth() &gt; xsize)</span>
+<span class="fc" id="L82">            TextLayout layout = iterator.next();</span>
+<span class="fc" id="L83">            Rectangle2D bounds = layout.getBounds();</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">            if (bounds.getWidth() &gt; xsize)</span>
             {
-<span class="nc" id="L86">                xsize = (int) bounds.getWidth();</span>
+<span class="fc" id="L86">                xsize = (int) bounds.getWidth();</span>
             }
-<span class="nc bnc" id="L88" title="All 2 branches missed.">            if (bounds.getHeight() &gt; 0)</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">            if (bounds.getHeight() &gt; 0)</span>
             {
-<span class="nc" id="L90">                ysize += bounds.getHeight();</span>
+<span class="fc" id="L90">                ysize += bounds.getHeight();</span>
             }
-<span class="nc" id="L92">            ysize += layout.getLeading() + layout.getDescent();</span>
-<span class="nc" id="L93">        }</span>
-<span class="nc" id="L94">        return new Rectangle((int) (style.getIndent() * scale), 0, xsize, ysize);</span>
+<span class="fc" id="L92">            ysize += layout.getLeading() + layout.getDescent();</span>
+<span class="fc" id="L93">        }</span>
+<span class="fc" id="L94">        return new Rectangle((int) (style.getIndent() * scale), 0, xsize, ysize);</span>
     }
 
     @Override
