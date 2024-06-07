@@ -9,8 +9,8 @@ JabberPoint,jabberpoint.controller.keycontroller,QuitCommand,3,4,0,0,2,2,1,1,1,1
 JabberPoint,jabberpoint.controller.keycontroller,NextSlideCommand,0,8,0,0,0,4,0,2,0,2
 JabberPoint,jabberpoint.controller.keycontroller,KeyController,5,60,1,6,2,20,1,7,0,3
 JabberPoint,jabberpoint.controller.keycontroller,PreviousSlideCommand,0,8,0,0,0,4,0,2,0,2
-JabberPoint,jabberpoint.slideitem.items,BitmapItem,62,121,0,2,8,22,2,7,2,6
-JabberPoint,jabberpoint.slideitem.items,TextItem,228,35,12,2,41,12,11,5,4,5
+JabberPoint,jabberpoint.slideitem.items,BitmapItem,76,107,0,2,10,20,2,7,2,6
+JabberPoint,jabberpoint.slideitem.items,TextItem,79,186,6,8,14,40,5,12,2,8
 JabberPoint,jabberpoint.slideviewer,SlideViewerFrame.new WindowAdapter() {...},9,0,0,0,3,0,2,0,2,0
 JabberPoint,jabberpoint.slideviewer,SlideViewerComponent,149,0,6,0,41,0,15,0,12,0
 JabberPoint,jabberpoint.slideviewer,SlideViewerFrame,55,0,0,0,13,0,2,0,2,0
@@ -42,4 +42,4 @@ JabberPoint,jabberpoint.slideitem.creator,BitmapItemCreator,0,19,0,0,0,5,0,3,0,3
 JabberPoint,jabberpoint.slideitem.creator,SlideItemCreator,0,3,0,0,0,1,0,1,0,1
 JabberPoint,jabberpoint.slideitem.creator,TextItemCreator,0,19,0,0,0,5,0,3,0,3
 JabberPoint,jabberpoint.accessor,Accessor,7,0,0,0,3,0,2,0,2,0
-JabberPoint,jabberpoint.accessor,XMLAccessor,307,0,18,0,75,0,14,0,5,0
+JabberPoint,jabberpoint.accessor,XMLAccessor,297,0,18,0,71,0,14,0,5,0
