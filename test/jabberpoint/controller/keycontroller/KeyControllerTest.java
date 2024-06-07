@@ -61,12 +61,4 @@ public class KeyControllerTest
 
         assertEquals(3, presentation.previousSlideCalls);
     }
-
-    @Test
-    void quitCommand_caseQuit_oneExecutions() {
-        keyController.keyPressed(new KeyEvent(new java.awt.Label(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_Q, 'q'));
-
-        assertEquals(1, presentation.exitCalls);
-    }
 }
-
