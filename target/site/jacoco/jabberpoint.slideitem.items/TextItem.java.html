@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TextItem.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JabberPoint</a> &gt; <a href="index.source.html" class="el_package">jabberpoint.slideitem.items</a> &gt; <span class="el_source">TextItem.java</span></div><h1>TextItem.java</h1><pre class="source lang-java linenums">package jabberpoint.slideitem.items;
+
+import jabberpoint.slide.Slide;
+import jabberpoint.slideitem.SlideItem;
+import jabberpoint.style.StyleOptions;
+import jabberpoint.style.styles.Style;
+
+import java.awt.*;
+import java.awt.font.FontRenderContext;
+import java.awt.font.LineBreakMeasurer;
+import java.awt.font.TextAttribute;
+import java.awt.font.TextLayout;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
+import java.text.AttributedString;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * &lt;p&gt;This is a textItem&lt;/p&gt;
+ *
+ * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ * @version 2.0 2024/04/07 Caterina Aresti &amp; Joey Kramer
+ */
+
+<span class="fc" id="L27">public class TextItem implements SlideItem</span>
+{
+    private String text;
+    private Style style;
+
+    @Override
+    public SlideItem createSlideItem()
+    {
+<span class="fc" id="L35">        this.text = &quot;text&quot;;</span>
+
+<span class="fc" id="L37">        StyleOptions tempStyle = new StyleOptions();</span>
+<span class="fc" id="L38">        this.style = tempStyle.getText();</span>
+
+<span class="fc" id="L40">        return this;</span>
+    }
+
+    @Override
+    public SlideItem createSlideItem(Style style, String text)
+    {
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (text.isEmpty())</span>
+        {
+<span class="fc" id="L48">            throw new IllegalArgumentException(&quot;Image needs to be at least 1 character long&quot;);</span>
+        }
+
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (style == null)</span>
+        {
+<span class="fc" id="L53">            throw new IllegalArgumentException(&quot;Style cant be null&quot;);</span>
+        }
+
+<span class="fc" id="L56">        this.text = text;</span>
+<span class="fc" id="L57">        this.style = style;</span>
+
+<span class="fc" id="L59">        return this;</span>
+    }
+
+    @Override
+    public String getText()
+    {
+<span class="fc" id="L65">        return text;</span>
+    }
+
+    @Override
+    public BufferedImage getBufferedImage()
+    {
+<span class="nc" id="L71">        return null;</span>
+    }
+
+    @Override
+    public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale)
+    {
+<span class="fc" id="L77">        List&lt;TextLayout&gt; layouts = getLayouts(graphics, this.style, scale);</span>
+<span class="fc" id="L78">        int xsize = 0, ysize = (int) (this.style.getLeading() * scale);</span>
+<span class="fc" id="L79">        java.util.Iterator&lt;TextLayout&gt; iterator = layouts.iterator();</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        while (iterator.hasNext())</span>
+        {
+<span class="fc" id="L82">            TextLayout layout = iterator.next();</span>
+<span class="fc" id="L83">            Rectangle2D bounds = layout.getBounds();</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">            if (bounds.getWidth() &gt; xsize)</span>
+            {
+<span class="fc" id="L86">                xsize = (int) bounds.getWidth();</span>
+            }
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">            if (bounds.getHeight() &gt; 0)</span>
+            {
+<span class="fc" id="L90">                ysize += bounds.getHeight();</span>
+            }
+<span class="fc" id="L92">            ysize += layout.getLeading() + layout.getDescent();</span>
+<span class="fc" id="L93">        }</span>
+<span class="fc" id="L94">        return new Rectangle((int) (style.getIndent() * scale), 0, xsize, ysize);</span>
+    }
+
+    @Override
+    public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer)
+    {
+
+<span class="fc" id="L101">        List&lt;TextLayout&gt; layouts = getLayouts(graphics, this.style, scale);</span>
+
+<span class="fc" id="L103">        Point pen = new Point(x + (int) (this.style.getIndent() * scale), y + (int) (this.style.getLeading() * scale));</span>
+<span class="fc" id="L104">        Graphics2D g2d = (Graphics2D) graphics;</span>
+<span class="fc" id="L105">        g2d.setColor(this.style.getColor());</span>
+<span class="fc" id="L106">        java.util.Iterator&lt;TextLayout&gt; it = layouts.iterator();</span>
+
+<span class="fc bfc" id="L108" title="All 2 branches covered.">        while (it.hasNext())</span>
+        {
+<span class="fc" id="L110">            TextLayout layout = it.next();</span>
+<span class="fc" id="L111">            pen.y += layout.getAscent();</span>
+<span class="fc" id="L112">            layout.draw(g2d, pen.x, pen.y);</span>
+<span class="fc" id="L113">            pen.y += layout.getDescent();</span>
+<span class="fc" id="L114">        }</span>
+<span class="fc" id="L115">    }</span>
+
+    @Override
+    public Style getStyle()
+    {
+<span class="fc" id="L120">        return this.style;</span>
+    }
+
+    public AttributedString getAttributedString(Style style, float scale)
+    {
+<span class="fc" id="L125">        AttributedString attrStr = new AttributedString(getText());</span>
+<span class="fc" id="L126">        attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, this.text.length());</span>
+<span class="fc" id="L127">        return attrStr;</span>
+    }
+
+    private List&lt;TextLayout&gt; getLayouts(Graphics graphics, Style style, float scale)
+    {
+<span class="fc" id="L132">        List&lt;TextLayout&gt; layouts = new ArrayList&lt;TextLayout&gt;();</span>
+<span class="fc" id="L133">        AttributedString attrStr = getAttributedString(style, scale);</span>
+<span class="fc" id="L134">        Graphics2D g2d = (Graphics2D) graphics;</span>
+<span class="fc" id="L135">        FontRenderContext frc = g2d.getFontRenderContext();</span>
+<span class="fc" id="L136">        LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), frc);</span>
+<span class="fc" id="L137">        float wrappingWidth = (Slide.WIDTH - style.getIndent()) * scale;</span>
+
+<span class="fc bfc" id="L139" title="All 2 branches covered.">        while (measurer.getPosition() &lt; getText().length())</span>
+        {
+<span class="fc" id="L141">            TextLayout layout = measurer.nextLayout(wrappingWidth);</span>
+<span class="fc" id="L142">            layouts.add(layout);</span>
+<span class="fc" id="L143">        }</span>
+
+<span class="fc" id="L145">        return layouts;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

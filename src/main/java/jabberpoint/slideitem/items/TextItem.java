@@ -11,6 +11,7 @@ import java.awt.font.LineBreakMeasurer;
 import java.awt.font.TextAttribute;
 import java.awt.font.TextLayout;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.text.AttributedString;
 import java.util.ArrayList;
@@ -58,9 +59,16 @@ public class TextItem implements SlideItem
         return this;
     }
 
+    @Override
     public String getText()
     {
         return text;
+    }
+
+    @Override
+    public BufferedImage getBufferedImage()
+    {
+        return null;
     }
 
     @Override

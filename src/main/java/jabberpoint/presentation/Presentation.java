@@ -22,7 +22,7 @@ public class Presentation
 
     public Presentation()
     {
-        slideViewComponent = null;
+        this.slideViewComponent = null;
         clear();
     }
 
@@ -34,17 +34,17 @@ public class Presentation
 
     public int getSize()
     {
-        return showList.size();
+        return this.showList.size();
     }
 
     public String getTitle()
     {
-        return showTitle;
+        return this.showTitle;
     }
 
-    public void setTitle(String nt)
+    public void setTitle(String title)
     {
-        showTitle = nt;
+        this.showTitle = title;
     }
 
     public void setShowView(SlideViewerComponent slideViewerComponent)
@@ -54,43 +54,55 @@ public class Presentation
 
     public int getSlideNumber()
     {
-        return currentSlideNumber;
+        return this.currentSlideNumber;
     }
 
     public void setSlideNumber(int number)
     {
-        currentSlideNumber = number;
-        if (slideViewComponent != null)
-        {
-            slideViewComponent.update(this, getCurrentSlide());
+        if (number < 0 || number > (getSize() - 1) ) {
+            this.currentSlideNumber = getSlideNumber();
         }
+        else {
+            this.currentSlideNumber = number;
+        }
+
+        if (this.slideViewComponent != null)
+        {
+            this.slideViewComponent.update(this, getCurrentSlide());
+        }
+
     }
 
-    public void prevSlide()
+    public void previousSlide()
     {
-        if (currentSlideNumber > 0)
+        if (this.currentSlideNumber > 0)
         {
-            setSlideNumber(currentSlideNumber - 1);
+            setSlideNumber(this.currentSlideNumber - 1);
+        }
+
+        else if (this.currentSlideNumber == 0)
+        {
+            setSlideNumber(1);
         }
     }
 
     public void nextSlide()
     {
-        if (currentSlideNumber < (showList.size() - 1))
+        if (this.currentSlideNumber < (getSize() -1))
         {
-            setSlideNumber(currentSlideNumber + 1);
+            setSlideNumber(this.currentSlideNumber + 1);
         }
     }
 
     public void clear()
     {
-        showList = new ArrayList<Slide>();
+        this.showList = new ArrayList<Slide>();
         setSlideNumber(-1);
     }
 
     public void append(Slide slide)
     {
-        showList.add(slide);
+        this.showList.add(slide);
     }
 
     public Slide getSlide(int number)
@@ -99,7 +111,7 @@ public class Presentation
         {
             return null;
         }
-        return showList.get(number);
+        return this.showList.get(number);
     }
 
     public Slide getCurrentSlide()
@@ -107,8 +119,8 @@ public class Presentation
         return getSlide(currentSlideNumber);
     }
 
-    public void exit(int n)
+    public void exit()
     {
-        System.exit(n);
+        System.exit(0);
     }
 }

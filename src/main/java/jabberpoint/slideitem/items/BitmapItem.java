@@ -65,9 +65,10 @@ public class BitmapItem implements SlideItem
         return this;
     }
 
-    public String getImageName()
+    @Override
+    public String getText()
     {
-        return imageName;
+        return this.imageName;
     }
 
     @Override
@@ -80,6 +81,20 @@ public class BitmapItem implements SlideItem
     }
 
     @Override
+    public Style getStyle()
+    {
+        return this.style;
+    }
+
+    @Override
+    public BufferedImage getBufferedImage()
+    {
+        return bufferedImage;
+    }
+
+
+
+    @Override
     public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer)
     {
         int width = x + (int) (this.style.getIndent() * scale);
@@ -87,11 +102,4 @@ public class BitmapItem implements SlideItem
         graphics.drawImage(bufferedImage, width, height, (int) (bufferedImage.getWidth(observer) * scale),
                 (int) (bufferedImage.getHeight(observer) * scale), observer);
     }
-
-    @Override
-    public Style getStyle()
-    {
-        return this.style;
-    }
-
 }

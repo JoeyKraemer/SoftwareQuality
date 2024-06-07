@@ -43,19 +43,28 @@ public class KeyController extends KeyAdapter implements Receiver
             case KeyEvent.VK_PAGE_DOWN:
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_ENTER:
-            case '+':
                 executeCommand(this.nextSlideCommand);
                 break;
             case KeyEvent.VK_PAGE_UP:
             case KeyEvent.VK_UP:
-            case '-':
                 executeCommand(this.previousSlideCommand);
                 break;
-            case 'q':
-            case 'Q':
+            case KeyEvent.VK_Q:
+                System.out.println("Q PRESSED"); //NEEDS TO BE REMOVED
                 executeCommand(this.quitCommand);
-                break; // Probably never reached!!
-            default:
+                break;
+            default: // check for characters on any keyboard type. Note: .getKeyCode() only works on QWERTY
+                switch (keyEvent.getKeyChar()) {
+                    case '+':
+                        executeCommand(this.nextSlideCommand);
+                        break;
+                    case '-':
+                        executeCommand(this.previousSlideCommand);
+                        break;
+
+                    default:
+                        break; // Probably never reached!!
+                }
                 break;
         }
     }

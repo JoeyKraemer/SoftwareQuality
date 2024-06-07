@@ -66,6 +66,26 @@ public class MenuController extends MenuBar implements Receiver
         setHelpMenu(helpMenu);
     }
 
+    public Presentation getPresentation()
+    {
+        return presentation;
+    }
+
+    public Menu getFileMenu()
+    {
+        return fileMenu;
+    }
+
+    public Menu getViewMenu()
+    {
+        return viewMenu;
+    }
+
+    public Menu getHelpMenu()
+    {
+        return helpMenu;
+    }
+
     private void addMenuItem(Menu menu, String name, Command command)
     {
         MenuItem menuItem = makeMenuItem(name);

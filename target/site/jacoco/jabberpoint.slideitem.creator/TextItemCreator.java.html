@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TextItemCreator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JabberPoint</a> &gt; <a href="index.source.html" class="el_package">jabberpoint.slideitem.creator</a> &gt; <span class="el_source">TextItemCreator.java</span></div><h1>TextItemCreator.java</h1><pre class="source lang-java linenums">package jabberpoint.slideitem.creator;
+
+import jabberpoint.slideitem.SlideItem;
+import jabberpoint.slideitem.items.TextItem;
+import jabberpoint.style.styles.Style;
+
+/**
+ * &lt;p&gt;This is the TextItemCreator, it creates TextItems&lt;/p&gt;
+ *
+ * @author Caterina Aresti &amp; Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
+<span class="fc" id="L14">public class TextItemCreator extends SlideItemCreator</span>
+{
+    @Override
+    public SlideItem createSlideItem()
+    {
+<span class="fc" id="L19">        SlideItem item = new TextItem();</span>
+
+<span class="fc" id="L21">        return item.createSlideItem();</span>
+    }
+
+    @Override
+    public SlideItem createSlideItem(Style style, String string)
+    {
+<span class="fc" id="L27">        SlideItem item = new TextItem();</span>
+
+<span class="fc" id="L29">        return item.createSlideItem(style, string);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

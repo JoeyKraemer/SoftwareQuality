@@ -42,10 +42,10 @@ public class XMLAccessor extends Accessor
 
     public void loadFile(Presentation presentation, String filename) throws IOException
     {
-        int slideNumber = 0;
-        int itemNumber = 0;
-        int max = 0;
-        int maxItems = 0;
+        int slideNumber;
+        int itemNumber;
+        int max;
+        int maxItems;
 
         try
         {
@@ -143,13 +143,13 @@ public class XMLAccessor extends Accessor
                 if (slideItem instanceof TextItem)
                 {
                     out.print("\"text\" style=\"" + slideItem.getStyle() + "\">");
-                    out.print(((TextItem) slideItem).getText());
+                    out.print(slideItem.getText());
                 } else
                 {
                     if (slideItem instanceof BitmapItem)
                     {
                         out.print("\"image\" style=\"" + slideItem.getStyle() + "\">");
-                        out.print(((BitmapItem) slideItem).getImageName());
+                        out.print(slideItem.getText());
                     } else
                     {
                         System.out.println("Ignoring " + slideItem);
