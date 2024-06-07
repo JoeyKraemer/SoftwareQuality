@@ -34,7 +34,7 @@ public class SlideViewerComponent extends JComponent
 
     public Slide getSlide()
     {
-        return slide;
+        return this.slide;
     }
 
     public void setSlide(Slide slide)
@@ -44,7 +44,7 @@ public class SlideViewerComponent extends JComponent
 
     public Font getLabelFont()
     {
-        return labelFont;
+        return this.labelFont;
     }
 
     public void setLabelFont(Font labelFont)
@@ -54,7 +54,7 @@ public class SlideViewerComponent extends JComponent
 
     public Presentation getPresentation()
     {
-        return presentation;
+        return this.presentation;
     }
 
     public void setPresentation(Presentation presentation)
@@ -64,7 +64,7 @@ public class SlideViewerComponent extends JComponent
 
     public JFrame getFrame()
     {
-        return frame;
+        return this.frame;
     }
 
     public void setFrame(JFrame frame)
@@ -88,7 +88,7 @@ public class SlideViewerComponent extends JComponent
         this.presentation = presentation;
         this.slide = data;
         repaint();
-        frame.setTitle(presentation.getTitle());
+        this.frame.setTitle(presentation.getTitle());
     }
 
     public void paintComponent(Graphics graphics)
@@ -98,15 +98,15 @@ public class SlideViewerComponent extends JComponent
 
         graphics.setColor(Color.white);
         graphics.fillRect(0, 0, getSize().width, getSize().height);
-        if (presentation.getSlideNumber() < 0 || slide == null)
+        if (this.presentation.getSlideNumber() < 0 || this.slide == null)
         {
             return;
         }
-        graphics.setFont(labelFont);
+        graphics.setFont(this.labelFont);
         graphics.setColor(Color.black);
-        graphics.drawString("JabberPoint.JabberPoint.Slide " + (1 + presentation.getSlideNumber()) + " of " +
-                presentation.getSize(), XPOS, YPOS);
+        graphics.drawString("JabberPoint.JabberPoint.Slide " + (1 + this.presentation.getSlideNumber()) + " of " +
+                this.presentation.getSize(), XPOS, YPOS);
         Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
-        slide.draw(graphics, area, this);
+        this.slide.draw(graphics, area, this);
     }
 }
