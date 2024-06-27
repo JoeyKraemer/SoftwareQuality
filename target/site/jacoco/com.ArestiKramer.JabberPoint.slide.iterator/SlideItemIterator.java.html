@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SlideItemIterator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JabberPoint</a> &gt; <a href="index.source.html" class="el_package">com.ArestiKramer.JabberPoint.slide.iterator</a> &gt; <span class="el_source">SlideItemIterator.java</span></div><h1>SlideItemIterator.java</h1><pre class="source lang-java linenums">package com.ArestiKramer.JabberPoint.slide.iterator;
+
+import com.ArestiKramer.JabberPoint.slideitem.SlideItem;
+
+import java.util.NoSuchElementException;
+import java.util.Vector;
+
+/**
+ * &lt;p&gt;This is the SlideItemIterator, it iterates through a Slide's slideItems&lt;/p&gt;
+ *
+ * @author Caterina Aresti &amp; Joey Kramer
+ * @version 2.0 2024/04/07
+ */
+
+public class SlideItemIterator implements Iterator
+{
+
+    private int currentPosition;
+    private final Vector&lt;SlideItem&gt; slideItems;
+
+    public SlideItemIterator(Vector&lt;SlideItem&gt; slideItems)
+<span class="fc" id="L22">    {</span>
+<span class="fc" id="L23">        this.currentPosition = 0;</span>
+<span class="fc" id="L24">        this.slideItems = slideItems;</span>
+<span class="fc" id="L25">    }</span>
+
+    @Override
+    public boolean hasNext()
+    {
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        return currentPosition &lt; slideItems.size();</span>
+    }
+
+    @Override
+    public SlideItem next()
+    {
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (!hasNext())</span>
+        {
+<span class="fc" id="L38">            throw new NoSuchElementException();</span>
+        }
+<span class="fc" id="L40">        return slideItems.get(currentPosition++);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

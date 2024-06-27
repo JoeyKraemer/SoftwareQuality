@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>XMLAccessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JabberPoint</a> &gt; <a href="index.source.html" class="el_package">com.ArestiKramer.JabberPoint.accessor</a> &gt; <span class="el_source">XMLAccessor.java</span></div><h1>XMLAccessor.java</h1><pre class="source lang-java linenums">package com.ArestiKramer.JabberPoint.accessor;
+
+import com.ArestiKramer.JabberPoint.presentation.Presentation;
+import com.ArestiKramer.JabberPoint.slide.Slide;
+import com.ArestiKramer.JabberPoint.slideitem.SlideItem;
+import com.ArestiKramer.JabberPoint.slideitem.items.*;
+import com.ArestiKramer.JabberPoint.style.StyleOptions;
+import com.ArestiKramer.JabberPoint.style.styles.Style;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Vector;
+
+
+/**
+ * &lt;p&gt;This is the XMLAccessor, it reads and writes XML files&lt;/p&gt;
+ *
+ * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
+ * @version 2.0 2024/04/07 Caterina Aresti &amp; Joey Kramer
+ */
+
+<span class="nc" id="L32">public class XMLAccessor extends Accessor</span>
+{
+
+    private String getTitle(Element element, String tagName)
+    {
+<span class="nc" id="L37">        NodeList titles = element.getElementsByTagName(tagName);</span>
+<span class="nc" id="L38">        return titles.item(0).getTextContent();</span>
+
+    }
+
+    public void loadFile(Presentation presentation, String filename) throws IOException
+    {
+        int slideNumber;
+        int itemNumber;
+        int max;
+        int maxItems;
+
+        try
+        {
+<span class="nc" id="L51">            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();</span>
+<span class="nc" id="L52">            Document document = builder.parse(new File(filename)); // Create a JDOM document</span>
+<span class="nc" id="L53">            Element doc = document.getDocumentElement();</span>
+<span class="nc" id="L54">            presentation.setTitle(getTitle(doc, &quot;showtitle&quot;));</span>
+
+<span class="nc" id="L56">            NodeList slides = doc.getElementsByTagName(&quot;slide&quot;);</span>
+<span class="nc" id="L57">            max = slides.getLength();</span>
+
+<span class="nc bnc" id="L59" title="All 2 branches missed.">            for (slideNumber = 0; slideNumber &lt; max; slideNumber++)</span>
+            {
+<span class="nc" id="L61">                Element xmlSlide = (Element) slides.item(slideNumber);</span>
+<span class="nc" id="L62">                Slide slide = new Slide();</span>
+<span class="nc" id="L63">                slide.setTitle(getTitle(xmlSlide, &quot;title&quot;));</span>
+<span class="nc" id="L64">                presentation.append(slide);</span>
+
+<span class="nc" id="L66">                NodeList slideItems = xmlSlide.getElementsByTagName(&quot;item&quot;);</span>
+<span class="nc" id="L67">                maxItems = slideItems.getLength();</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">                for (itemNumber = 0; itemNumber &lt; maxItems; itemNumber++)</span>
+                {
+<span class="nc" id="L70">                    Element item = (Element) slideItems.item(itemNumber);</span>
+<span class="nc" id="L71">                    loadSlideItem(slide, item);</span>
+                }
+            }
+<span class="nc" id="L74">        } catch (IOException iox)</span>
+        {
+<span class="nc" id="L76">            System.err.println(iox);</span>
+<span class="nc" id="L77">        } catch (SAXException sax)</span>
+        {
+<span class="nc" id="L79">            System.err.println(sax.getMessage());</span>
+<span class="nc" id="L80">        } catch (ParserConfigurationException pcx)</span>
+        {
+<span class="nc" id="L82">            System.err.println(&quot;Parser Configuration Exception&quot;);</span>
+<span class="nc" id="L83">        }</span>
+<span class="nc" id="L84">    }</span>
+
+    protected void loadSlideItem(Slide slide, Element item)
+    {
+<span class="nc" id="L88">        int level = 1; // default</span>
+<span class="nc" id="L89">        StyleOptions styleOptions = new StyleOptions();</span>
+<span class="nc" id="L90">        Style style = styleOptions.getText();</span>
+<span class="nc" id="L91">        NamedNodeMap attributes = item.getAttributes();</span>
+
+<span class="nc" id="L93">        String leveltext = attributes.getNamedItem(&quot;level&quot;).getTextContent();</span>
+
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (leveltext != null)</span>
+        {
+            try
+            {
+<span class="nc" id="L99">                level = Integer.parseInt(leveltext);</span>
+<span class="nc" id="L100">            } catch (NumberFormatException x)</span>
+            {
+<span class="nc" id="L102">                System.err.println(&quot;Number Format Exception&quot;);</span>
+<span class="nc" id="L103">            }</span>
+        }
+
+<span class="nc" id="L106">        String type = attributes.getNamedItem(&quot;kind&quot;).getTextContent();</span>
+
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (&quot;text&quot;.equals(type))</span>
+        {
+<span class="nc" id="L110">            slide.appendTextItem(style, item.getTextContent());</span>
+        } else
+        {
+<span class="nc bnc" id="L113" title="All 2 branches missed.">            if (&quot;image&quot;.equals(type))</span>
+            {
+<span class="nc" id="L115">                slide.appendBitMapItem(style, item.getTextContent());</span>
+            } else
+            {
+<span class="nc" id="L118">                System.err.println(&quot;Unknown Element type&quot;);</span>
+            }
+        }
+<span class="nc" id="L121">    }</span>
+
+    public void saveFile(Presentation presentation, String filename) throws IOException
+    {
+<span class="nc" id="L125">        PrintWriter out = new PrintWriter(new FileWriter(filename));</span>
+<span class="nc" id="L126">        out.println(&quot;&lt;?xml version=\&quot;1.0\&quot;?&gt;&quot;);</span>
+<span class="nc" id="L127">        out.println(&quot;&lt;!DOCTYPE presentation SYSTEM \&quot;jabberpoint.dtd\&quot;&gt;&quot;);</span>
+<span class="nc" id="L128">        out.println(&quot;&lt;presentation&gt;&quot;);</span>
+<span class="nc" id="L129">        out.print(&quot;&lt;showtitle&gt;&quot;);</span>
+<span class="nc" id="L130">        out.print(presentation.getTitle());</span>
+<span class="nc" id="L131">        out.println(&quot;&lt;/showtitle&gt;&quot;);</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">        for (int slideNumber = 0; slideNumber &lt; presentation.getSize(); slideNumber++)</span>
+        {
+<span class="nc" id="L134">            Slide slide = presentation.getSlide(slideNumber);</span>
+<span class="nc" id="L135">            out.println(&quot;&lt;slide&gt;&quot;);</span>
+<span class="nc" id="L136">            out.println(&quot;&lt;title&gt;&quot; + slide.getTitle() + &quot;&lt;/title&gt;&quot;);</span>
+<span class="nc" id="L137">            Vector&lt;SlideItem&gt; slideItems = slide.getSlideItems();</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">            for (int itemNumber = 0; itemNumber &lt; slideItems.size(); itemNumber++)</span>
+            {
+<span class="nc" id="L140">                SlideItem slideItem = slideItems.elementAt(itemNumber);</span>
+<span class="nc" id="L141">                out.print(&quot;&lt;item kind=&quot;);</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">                if (slideItem instanceof TextItem)</span>
+                {
+<span class="nc" id="L144">                    out.print(&quot;\&quot;text\&quot; style=\&quot;&quot; + slideItem.getStyle() + &quot;\&quot;&gt;&quot;);</span>
+<span class="nc" id="L145">                    out.print(slideItem.getText());</span>
+                } else
+                {
+<span class="nc bnc" id="L148" title="All 2 branches missed.">                    if (slideItem instanceof BitmapItem)</span>
+                    {
+<span class="nc" id="L150">                        out.print(&quot;\&quot;image\&quot; style=\&quot;&quot; + slideItem.getStyle() + &quot;\&quot;&gt;&quot;);</span>
+<span class="nc" id="L151">                        out.print(slideItem.getText());</span>
+                    } else
+                    {
+<span class="nc" id="L154">                        System.out.println(&quot;Ignoring &quot; + slideItem);</span>
+                    }
+                }
+<span class="nc" id="L157">                out.println(&quot;&lt;/item&gt;&quot;);</span>
+            }
+<span class="nc" id="L159">            out.println(&quot;&lt;/slide&gt;&quot;);</span>
+        }
+<span class="nc" id="L161">        out.println(&quot;&lt;/presentation&gt;&quot;);</span>
+<span class="nc" id="L162">        out.close();</span>
+<span class="nc" id="L163">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
