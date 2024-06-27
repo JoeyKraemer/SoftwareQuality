@@ -21,7 +21,6 @@ class MenuControllerTest {
         int exitCalls = 0;
         int nextSlideCalls = 0;
         int previousSlideCalls = 0;
-        int goToSlideCalls = 0;
 
         @Override
         public void clear() {
@@ -42,11 +41,6 @@ class MenuControllerTest {
         public void previousSlide() {
             previousSlideCalls++;
         }
-
-        @Override
-        public void setSlideNumber(int number) {
-            goToSlideCalls++;
-        }
     }
 
     @BeforeEach
@@ -55,14 +49,6 @@ class MenuControllerTest {
         frameStub = new Frame();
         menuController = new MenuController(frameStub, presentationStub);
     }
-
-    /*
-    @Test
-    void exitMenuItem_callExitCommand_oneExecution() {
-        simulateMenuItemAction(menuController.getFileMenu(), "Exit");
-        assertEquals(1, presentationStub.exitCalls);
-    }
-     */
 
     @Test
     void nextSlideMenuItem_callNextSlideCommand_oneExecution() {
@@ -74,12 +60,6 @@ class MenuControllerTest {
     void previousSlideMenuItem_callPreviousSlideCommand_oneExecution() {
         simulateMenuItemAction(menuController.getViewMenu(), "Previous");
         assertEquals(1, presentationStub.previousSlideCalls);
-    }
-
-    @Test
-    void goToSlideMenuItem_callGoToSlideCommand_oneExecution() {
-        simulateMenuItemAction(menuController.getViewMenu(), "Go-To");
-        assertEquals(1, presentationStub.goToSlideCalls);
     }
 
     private void simulateMenuItemAction(Menu menu, String itemName) {

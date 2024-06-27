@@ -4,7 +4,6 @@ import com.ArestiKramer.JabberPoint.controller.Command;
 import com.ArestiKramer.JabberPoint.controller.Receiver;
 import com.ArestiKramer.JabberPoint.presentation.Presentation;
 
-
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -17,58 +16,54 @@ import java.awt.event.KeyEvent;
 
 public class KeyController extends KeyAdapter implements Receiver
 {
-    private final Presentation presentation; // Commands are given to the presentation
+    private final Presentation presentation;
     private final NextSlideCommand nextSlideCommand;
     private final PreviousSlideCommand previousSlideCommand;
     private final QuitCommand quitCommand;
 
     public KeyController(Presentation presentation)
-<span class="fc" id="L26">    {</span>
-<span class="fc" id="L27">        this.presentation = presentation;</span>
-<span class="fc" id="L28">        this.nextSlideCommand = new NextSlideCommand(this.presentation);</span>
-<span class="fc" id="L29">        this.previousSlideCommand = new PreviousSlideCommand(this.presentation);</span>
-<span class="fc" id="L30">        this.quitCommand = new QuitCommand(this.presentation);</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L25">    {</span>
+<span class="fc" id="L26">        this.presentation = presentation;</span>
+<span class="fc" id="L27">        this.nextSlideCommand = new NextSlideCommand(this.presentation);</span>
+<span class="fc" id="L28">        this.previousSlideCommand = new PreviousSlideCommand(this.presentation);</span>
+<span class="fc" id="L29">        this.quitCommand = new QuitCommand(this.presentation);</span>
+<span class="fc" id="L30">    }</span>
 
     @Override
     public void executeCommand(Command command)
     {
-<span class="fc" id="L36">        command.execute();</span>
-<span class="fc" id="L37">    }</span>
+<span class="fc" id="L35">        command.execute();</span>
+<span class="fc" id="L36">    }</span>
 
     public void keyPressed(KeyEvent keyEvent)
     {
 
-<span class="pc bpc" id="L42" title="1 of 4 branches missed.">        switch (keyEvent.getKeyCode())</span>
+<span class="pc bpc" id="L41" title="1 of 4 branches missed.">        switch (keyEvent.getKeyCode())</span>
         {
             case KeyEvent.VK_PAGE_DOWN:
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_ENTER:
-<span class="fc" id="L47">                executeCommand(this.nextSlideCommand);</span>
-<span class="fc" id="L48">                break;</span>
+<span class="fc" id="L46">                executeCommand(this.nextSlideCommand);</span>
+<span class="fc" id="L47">                break;</span>
             case KeyEvent.VK_PAGE_UP:
             case KeyEvent.VK_UP:
-<span class="fc" id="L51">                executeCommand(this.previousSlideCommand);</span>
-<span class="fc" id="L52">                break;</span>
+<span class="fc" id="L50">                executeCommand(this.previousSlideCommand);</span>
+<span class="fc" id="L51">                break;</span>
             case KeyEvent.VK_Q:
-<span class="nc" id="L54">                System.out.println(&quot;Q PRESSED&quot;); //NEEDS TO BE REMOVED</span>
-<span class="nc" id="L55">                executeCommand(this.quitCommand);</span>
-<span class="nc" id="L56">                break;</span>
+<span class="nc" id="L53">                executeCommand(this.quitCommand);</span>
+<span class="nc" id="L54">                break;</span>
             default: // check for characters on any keyboard type. Note: .getKeyCode() only works on QWERTY
-<span class="pc bpc" id="L58" title="1 of 3 branches missed.">                switch (keyEvent.getKeyChar()) {</span>
+<span class="pc bpc" id="L56" title="1 of 3 branches missed.">                switch (keyEvent.getKeyChar()) {</span>
                     case '+':
-<span class="fc" id="L60">                        executeCommand(this.nextSlideCommand);</span>
-<span class="fc" id="L61">                        break;</span>
+<span class="fc" id="L58">                        executeCommand(this.nextSlideCommand);</span>
+<span class="fc" id="L59">                        break;</span>
                     case '-':
-<span class="fc" id="L63">                        executeCommand(this.previousSlideCommand);</span>
-<span class="fc" id="L64">                        break;</span>
-
+<span class="fc" id="L61">                        executeCommand(this.previousSlideCommand);</span>
+<span class="fc" id="L62">                        break;</span>
                     default:
-                        break; // Probably never reached!!
                 }
                 break;
         }
-<span class="fc" id="L71">    }</span>
-
+<span class="fc" id="L67">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

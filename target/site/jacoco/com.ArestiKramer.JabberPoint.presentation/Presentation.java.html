@@ -75,53 +75,47 @@ public class Presentation
 
     public void previousSlide()
     {
-<span class="pc bpc" id="L78" title="1 of 2 branches missed.">        if (this.currentSlideNumber &gt; 0)</span>
-        {
-<span class="fc" id="L80">            setSlideNumber(this.currentSlideNumber - 1);</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">        if (this.currentSlideNumber &gt; 0) {</span>
+<span class="fc" id="L79">            setSlideNumber(this.currentSlideNumber - 1);</span>
         }
-
-<span class="nc bnc" id="L83" title="All 2 branches missed.">        else if (this.currentSlideNumber == 0)</span>
-        {
-<span class="nc" id="L85">            setSlideNumber(1);</span>
-        }
-<span class="fc" id="L87">    }</span>
+<span class="fc" id="L81">    }</span>
 
     public void nextSlide()
     {
-<span class="pc bpc" id="L91" title="1 of 2 branches missed.">        if (this.currentSlideNumber &lt; (getSize() -1))</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">        if (this.currentSlideNumber &lt; (getSize() -1))</span>
         {
-<span class="fc" id="L93">            setSlideNumber(this.currentSlideNumber + 1);</span>
+<span class="fc" id="L87">            setSlideNumber(this.currentSlideNumber + 1);</span>
         }
-<span class="fc" id="L95">    }</span>
+<span class="fc" id="L89">    }</span>
 
     public void clear()
     {
-<span class="fc" id="L99">        this.showList = new ArrayList&lt;Slide&gt;();</span>
-<span class="fc" id="L100">        setSlideNumber(-1);</span>
-<span class="fc" id="L101">    }</span>
+<span class="fc" id="L93">        this.showList = new ArrayList&lt;Slide&gt;();</span>
+<span class="fc" id="L94">        setSlideNumber(-1);</span>
+<span class="fc" id="L95">    }</span>
 
     public void append(Slide slide)
     {
-<span class="fc" id="L105">        this.showList.add(slide);</span>
-<span class="fc" id="L106">    }</span>
+<span class="fc" id="L99">        this.showList.add(slide);</span>
+<span class="fc" id="L100">    }</span>
 
     public Slide getSlide(int number)
     {
-<span class="pc bpc" id="L110" title="2 of 4 branches missed.">        if (number &lt; 0 || number &gt;= getSize())</span>
+<span class="pc bpc" id="L104" title="2 of 4 branches missed.">        if (number &lt; 0 || number &gt;= getSize())</span>
         {
-<span class="nc" id="L112">            return null;</span>
+<span class="nc" id="L106">            return null;</span>
         }
-<span class="fc" id="L114">        return this.showList.get(number);</span>
+<span class="fc" id="L108">        return this.showList.get(number);</span>
     }
 
     public Slide getCurrentSlide()
     {
-<span class="fc" id="L119">        return getSlide(currentSlideNumber);</span>
+<span class="fc" id="L113">        return getSlide(currentSlideNumber);</span>
     }
 
     public void exit()
     {
-<span class="nc" id="L124">        System.exit(0);</span>
-<span class="nc" id="L125">    }</span>
+<span class="nc" id="L118">        System.exit(0);</span>
+<span class="nc" id="L119">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
