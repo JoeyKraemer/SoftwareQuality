@@ -4,7 +4,6 @@ import com.ArestiKramer.JabberPoint.controller.Command;
 import com.ArestiKramer.JabberPoint.controller.Receiver;
 import com.ArestiKramer.JabberPoint.presentation.Presentation;
 
-
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -17,7 +16,7 @@ import java.awt.event.KeyEvent;
 
 public class KeyController extends KeyAdapter implements Receiver
 {
-    private final Presentation presentation; // Commands are given to the presentation
+    private final Presentation presentation;
     private final NextSlideCommand nextSlideCommand;
     private final PreviousSlideCommand previousSlideCommand;
     private final QuitCommand quitCommand;
@@ -51,7 +50,6 @@ public class KeyController extends KeyAdapter implements Receiver
                 executeCommand(this.previousSlideCommand);
                 break;
             case KeyEvent.VK_Q:
-                System.out.println("Q PRESSED"); //NEEDS TO BE REMOVED
                 executeCommand(this.quitCommand);
                 break;
             default: // check for characters on any keyboard type. Note: .getKeyCode() only works on QWERTY
@@ -62,12 +60,9 @@ public class KeyController extends KeyAdapter implements Receiver
                     case '-':
                         executeCommand(this.previousSlideCommand);
                         break;
-
                     default:
-                        break; // Probably never reached!!
                 }
                 break;
         }
     }
-
 }

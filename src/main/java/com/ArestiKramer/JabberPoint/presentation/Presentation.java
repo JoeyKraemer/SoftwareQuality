@@ -75,14 +75,8 @@ public class Presentation
 
     public void previousSlide()
     {
-        if (this.currentSlideNumber > 0)
-        {
+        if (this.currentSlideNumber > 0) {
             setSlideNumber(this.currentSlideNumber - 1);
-        }
-
-        else if (this.currentSlideNumber == 0)
-        {
-            setSlideNumber(1);
         }
     }
 
