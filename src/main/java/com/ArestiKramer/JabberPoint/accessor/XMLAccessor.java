@@ -1,9 +1,16 @@
 package com.ArestiKramer.JabberPoint.accessor;
 
+/**
+ * <p>This is the XMLAccessor, it reads and writes XML files</p>
+ *
+ * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
+ * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
+ **/
+
 import com.ArestiKramer.JabberPoint.presentation.Presentation;
 import com.ArestiKramer.JabberPoint.slide.Slide;
 import com.ArestiKramer.JabberPoint.slideitem.SlideItem;
-import com.ArestiKramer.JabberPoint.slideitem.items.*;
+import com.ArestiKramer.JabberPoint.slideitem.items.TextItem;
 import com.ArestiKramer.JabberPoint.style.StyleOptions;
 import com.ArestiKramer.JabberPoint.style.styles.Style;
 import org.w3c.dom.Document;
@@ -19,146 +26,104 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+public class XMLAccessor extends Accessor {
 
-/**
- * <p>This is the XMLAccessor, it reads and writes XML files</p>
- *
- * @author Ian F. Darwin, Gert Florijn, Sylvia Stuurman
- * @version 2.0 2024/04/07 Caterina Aresti & Joey Kramer
- */
+    private static final Logger LOGGER = Logger.getLogger(XMLAccessor.class.getName());
+    private static final String SHOW_TITLE = "show title";
+    private static final String SLIDE = "slide";
+    private static final String TITLE = "title";
+    private static final String ITEM = "item";
+    private static final String KIND = "kind";
+    private static final String TEXT = "text";
+    private static final String IMAGE = "image";
 
-public class XMLAccessor extends Accessor
-{
-
-    private String getTitle(Element element, String tagName)
-    {
+    private String getTitle(Element element, String tagName) {
         NodeList titles = element.getElementsByTagName(tagName);
         return titles.item(0).getTextContent();
-
     }
 
-    public void loadFile(Presentation presentation, String filename) throws IOException
-    {
-        int slideNumber;
-        int itemNumber;
-        int max;
-        int maxItems;
-
-        try
-        {
+    public void loadFile(Presentation presentation, String filename) throws IOException {
+        try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document document = builder.parse(new File(filename)); // Create a JDOM document
+            Document document = builder.parse(new File(filename));
             Element doc = document.getDocumentElement();
-            presentation.setTitle(getTitle(doc, "showtitle"));
-
-            NodeList slides = doc.getElementsByTagName("slide");
-            max = slides.getLength();
-
-            for (slideNumber = 0; slideNumber < max; slideNumber++)
-            {
-                Element xmlSlide = (Element) slides.item(slideNumber);
-                Slide slide = new Slide();
-                slide.setTitle(getTitle(xmlSlide, "title"));
-                presentation.append(slide);
-
-                NodeList slideItems = xmlSlide.getElementsByTagName("item");
-                maxItems = slideItems.getLength();
-                for (itemNumber = 0; itemNumber < maxItems; itemNumber++)
-                {
-                    Element item = (Element) slideItems.item(itemNumber);
-                    loadSlideItem(slide, item);
-                }
-            }
-        } catch (IOException iox)
-        {
-            System.err.println(iox);
-        } catch (SAXException sax)
-        {
-            System.err.println(sax.getMessage());
-        } catch (ParserConfigurationException pcx)
-        {
-            System.err.println("Parser Configuration Exception");
+            presentation.setTitle(getTitle(doc, SHOW_TITLE));
+            loadSlides(presentation, doc);
+        } catch (IOException | SAXException | ParserConfigurationException e) {
+            LOGGER.log(Level.SEVERE, "Error loading file", e);
         }
     }
 
-    protected void loadSlideItem(Slide slide, Element item)
-    {
-        int level = 1; // default
+    private void loadSlides(Presentation presentation, Element doc) {
+        NodeList slides = doc.getElementsByTagName(SLIDE);
+        for (int slideNumber = 0; slideNumber < slides.getLength(); slideNumber++) {
+            Element xmlSlide = (Element) slides.item(slideNumber);
+            Slide slide = new Slide();
+            slide.setTitle(getTitle(xmlSlide, TITLE));
+            presentation.append(slide);
+            loadSlideItems(slide, xmlSlide);
+        }
+    }
+
+    private void loadSlideItems(Slide slide, Element xmlSlide) {
+        NodeList slideItems = xmlSlide.getElementsByTagName(ITEM);
+        for (int itemNumber = 0; itemNumber < slideItems.getLength(); itemNumber++) {
+            Element item = (Element) slideItems.item(itemNumber);
+            loadSlideItem(slide, item);
+        }
+    }
+
+    protected void loadSlideItem(Slide slide, Element item) {
+        String type = getAttribute(item, KIND);
         StyleOptions styleOptions = new StyleOptions();
         Style style = styleOptions.getText();
-        NamedNodeMap attributes = item.getAttributes();
 
-        String leveltext = attributes.getNamedItem("level").getTextContent();
-
-        if (leveltext != null)
-        {
-            try
-            {
-                level = Integer.parseInt(leveltext);
-            } catch (NumberFormatException x)
-            {
-                System.err.println("Number Format Exception");
-            }
-        }
-
-        String type = attributes.getNamedItem("kind").getTextContent();
-
-        if ("text".equals(type))
-        {
+        if (TEXT.equals(type)) {
             slide.appendTextItem(style, item.getTextContent());
-        } else
-        {
-            if ("image".equals(type))
-            {
-                slide.appendBitMapItem(style, item.getTextContent());
-            } else
-            {
-                System.err.println("Unknown Element type");
-            }
+        } else if (IMAGE.equals(type)) {
+            slide.appendBitMapItem(style, item.getTextContent());
+        } else {
+            LOGGER.warning("Unknown Element type: " + type);
         }
     }
 
-    public void saveFile(Presentation presentation, String filename) throws IOException
-    {
-        PrintWriter out = new PrintWriter(new FileWriter(filename));
+    private String getAttribute(Element item, String attribute) {
+        NamedNodeMap attributes = item.getAttributes();
+        return attributes.getNamedItem(attribute).getTextContent();
+    }
+
+    public void saveFile(Presentation presentation, String filename) throws IOException {
+        try (PrintWriter out = new PrintWriter(new FileWriter(filename))) {
+            writePresentation(presentation, out);
+        }
+    }
+
+    private void writePresentation(Presentation presentation, PrintWriter out) {
         out.println("<?xml version=\"1.0\"?>");
         out.println("<!DOCTYPE presentation SYSTEM \"jabberpoint.dtd\">");
         out.println("<presentation>");
-        out.print("<showtitle>");
-        out.print(presentation.getTitle());
-        out.println("</showtitle>");
-        for (int slideNumber = 0; slideNumber < presentation.getSize(); slideNumber++)
-        {
-            Slide slide = presentation.getSlide(slideNumber);
-            out.println("<slide>");
-            out.println("<title>" + slide.getTitle() + "</title>");
-            Vector<SlideItem> slideItems = slide.getSlideItems();
-            for (int itemNumber = 0; itemNumber < slideItems.size(); itemNumber++)
-            {
-                SlideItem slideItem = slideItems.elementAt(itemNumber);
-                out.print("<item kind=");
-                if (slideItem instanceof TextItem)
-                {
-                    out.print("\"text\" style=\"" + slideItem.getStyle() + "\">");
-                    out.print(slideItem.getText());
-                } else
-                {
-                    if (slideItem instanceof BitmapItem)
-                    {
-                        out.print("\"image\" style=\"" + slideItem.getStyle() + "\">");
-                        out.print(slideItem.getText());
-                    } else
-                    {
-                        System.out.println("Ignoring " + slideItem);
-                    }
-                }
-                out.println("</item>");
-            }
-            out.println("</slide>");
+        out.printf("<%s>%s</%s>%n", SHOW_TITLE, presentation.getTitle(), SHOW_TITLE);
+        for (int slideNumber = 0; slideNumber < presentation.getSize(); slideNumber++) {
+            writeSlide(presentation.getSlide(slideNumber), out);
         }
         out.println("</presentation>");
-        out.close();
+    }
+
+    private void writeSlide(Slide slide, PrintWriter out) {
+        out.println("<slide>");
+        out.printf("<%s>%s</%s>%n", TITLE, slide.getTitle(), TITLE);
+        for (SlideItem slideItem : slide.getSlideItems()) {
+            writeSlideItem(slideItem, out);
+        }
+        out.println("</slide>");
+    }
+
+    private void writeSlideItem(SlideItem slideItem, PrintWriter out) {
+        out.printf("<item kind=\"%s\" style=\"%s\">", slideItem instanceof TextItem ? TEXT : IMAGE, slideItem.getStyle());
+        out.print(slideItem.getText());
+        out.println("</item>");
     }
 }
