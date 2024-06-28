@@ -3,9 +3,10 @@ package com.ArestiKramer.JabberPoint.controller.keycontroller;
 import com.ArestiKramer.JabberPoint.presentation.Presentation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.awt.event.KeyEvent;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class KeyControllerTest {
 
@@ -35,19 +36,18 @@ public class KeyControllerTest {
 
     @BeforeEach
     void setup() {
-        System.setProperty("java.awt.headless", "true");
-        presentation = new PresentationStub();
+        presentation = mock(PresentationStub.class);
         keyController = new KeyController(presentation);
     }
 
     @Test
     void nextSlideCommand_caseNextSlide_fourExecutions() {
-        keyController.keyPressed(new KeyEvent(new java.awt.Label(),KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_PAGE_DOWN, KeyEvent.CHAR_UNDEFINED));
+        keyController.keyPressed(new KeyEvent(new java.awt.Label(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_PAGE_DOWN, KeyEvent.CHAR_UNDEFINED));
         keyController.keyPressed(new KeyEvent(new java.awt.Label(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_DOWN, KeyEvent.CHAR_UNDEFINED));
         keyController.keyPressed(new KeyEvent(new java.awt.Label(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED));
         keyController.keyPressed(new KeyEvent(new java.awt.Label(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, 0, '+'));
 
-        assertEquals(4, presentation.nextSlideCalls);
+        verify(presentation, times(4)).nextSlide();
     }
 
     @Test
@@ -56,6 +56,6 @@ public class KeyControllerTest {
         keyController.keyPressed(new KeyEvent(new java.awt.Label(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_UP, KeyEvent.CHAR_UNDEFINED));
         keyController.keyPressed(new KeyEvent(new java.awt.Label(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, 0, '-'));
 
-        assertEquals(3, presentation.previousSlideCalls);
+        verify(presentation, times(3)).previousSlide();
     }
 }

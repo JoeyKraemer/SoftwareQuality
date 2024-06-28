@@ -6,11 +6,13 @@ import com.ArestiKramer.JabberPoint.style.styles.Style;
 import com.ArestiKramer.JabberPoint.style.StyleOptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import javax.swing.*;
 import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class SlideViewerComponentTest {
 
@@ -22,10 +24,9 @@ public class SlideViewerComponentTest {
 
     @BeforeEach
     public void setup() {
-        System.setProperty("java.awt.headless", "true");
         presentation = new Presentation();
         slide = new Slide();
-        frame = new JFrame();
+        frame = mock(JFrame.class);
         slideViewerComponent = new SlideViewerComponent(presentation, frame);
 
         StyleOptions styleOptions = new StyleOptions();
@@ -47,7 +48,7 @@ public class SlideViewerComponentTest {
 
         assertEquals(presentation, slideViewerComponent.getPresentation());
         assertEquals(slide, slideViewerComponent.getSlide());
-        assertEquals(testTitle, frame.getTitle());
+        verify(frame).setTitle(testTitle);
     }
 
     @Test
@@ -60,7 +61,7 @@ public class SlideViewerComponentTest {
 
     @Test
     public void setAndGetFrame_updatesAndReturnsFrame() {
-        JFrame newFrame = new JFrame();
+        JFrame newFrame = mock(JFrame.class);
         slideViewerComponent.setFrame(newFrame);
 
         assertEquals(newFrame, slideViewerComponent.getFrame());

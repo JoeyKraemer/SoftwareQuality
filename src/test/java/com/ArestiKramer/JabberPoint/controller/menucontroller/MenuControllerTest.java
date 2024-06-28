@@ -3,64 +3,37 @@ package com.ArestiKramer.JabberPoint.controller.menucontroller;
 import com.ArestiKramer.JabberPoint.presentation.Presentation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 class MenuControllerTest {
 
     private MenuController menuController;
-    private PresentationStub presentationStub;
+    private Presentation presentationStub;
     private Frame frameStub;
-
-    private static class PresentationStub extends Presentation {
-
-        int openCalls = 0;
-        int exitCalls = 0;
-        int nextSlideCalls = 0;
-        int previousSlideCalls = 0;
-
-        @Override
-        public void clear() {
-            openCalls++;
-        }
-
-        @Override
-        public void exit() {
-            exitCalls++;
-        }
-
-        @Override
-        public void nextSlide() {
-            nextSlideCalls++;
-        }
-
-        @Override
-        public void previousSlide() {
-            previousSlideCalls++;
-        }
-    }
 
     @BeforeEach
     void setup() {
-        System.setProperty("java.awt.headless", "true");
-        presentationStub = new PresentationStub();
-        frameStub = new Frame();
+        presentationStub = mock(Presentation.class);
+        frameStub = mock(Frame.class);
         menuController = new MenuController(frameStub, presentationStub);
     }
 
     @Test
     void nextSlideMenuItem_callNextSlideCommand_oneExecution() {
         simulateMenuItemAction(menuController.getViewMenu(), "Next");
-        assertEquals(1, presentationStub.nextSlideCalls);
+        verify(presentationStub, times(1)).nextSlide();
     }
 
     @Test
     void previousSlideMenuItem_callPreviousSlideCommand_oneExecution() {
         simulateMenuItemAction(menuController.getViewMenu(), "Previous");
-        assertEquals(1, presentationStub.previousSlideCalls);
+        verify(presentationStub, times(1)).previousSlide();
     }
 
     private void simulateMenuItemAction(Menu menu, String itemName) {
