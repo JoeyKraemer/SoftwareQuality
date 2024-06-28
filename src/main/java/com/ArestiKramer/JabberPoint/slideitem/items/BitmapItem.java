@@ -42,7 +42,7 @@ public class BitmapItem implements SlideItem
     public SlideItem createSlideItem(Style style, String imageName)
     {
         this.style = style;
-        if (this.imageName.length() < 4)
+        if (imageName.length() < 4)
         {
             throw new IllegalArgumentException("Image needs to be at least 4 character long");
         }

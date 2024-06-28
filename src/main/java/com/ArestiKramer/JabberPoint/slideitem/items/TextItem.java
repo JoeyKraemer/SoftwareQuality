@@ -93,7 +93,7 @@ public class TextItem implements SlideItem
         }
         return new Rectangle((int) (style.getIndent() * scale), 0, xsize, ysize);
     }
-    
+
     @Override
     public Style getStyle()
     {
