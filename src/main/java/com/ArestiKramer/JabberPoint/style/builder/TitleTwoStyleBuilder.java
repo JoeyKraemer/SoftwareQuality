@@ -1,6 +1,7 @@
 package com.ArestiKramer.JabberPoint.style.builder;
 
 import com.ArestiKramer.JabberPoint.style.styles.Style;
+import com.ArestiKramer.JabberPoint.style.styles.SubtitleTwoStyle;
 import com.ArestiKramer.JabberPoint.style.styles.TitleTwoStyle;
 
 /**
@@ -10,17 +11,12 @@ import com.ArestiKramer.JabberPoint.style.styles.TitleTwoStyle;
  * @version 2.0 2024/04/07
  */
 
-public class TitleTwoStyleBuilder extends StyleBuilder
+public class TitleTwoStyleBuilder extends StyleBuilder<TitleTwoStyle>
 {
-
-    public TitleTwoStyleBuilder()
-    {
-        super();
-    }
-
     @Override
-    public Style getResult()
+    public TitleTwoStyle build()
     {
-        return new TitleTwoStyle(this.indent, this.color, this.fontSize, this.leading);
+        return new TitleTwoStyle(indent, color, fontSize, leading);
     }
 }
+

@@ -10,17 +10,11 @@ import com.ArestiKramer.JabberPoint.style.styles.SubtitleOneStyle;
  * @version 2.0 2024/04/07
  */
 
-public class SubtitleOneStyleBuilder extends StyleBuilder
+public class SubtitleOneStyleBuilder extends StyleBuilder<SubtitleOneStyle>
 {
-
-    public SubtitleOneStyleBuilder()
-    {
-        super();
-    }
-
     @Override
-    public Style getResult()
+    public SubtitleOneStyle build()
     {
-        return new SubtitleOneStyle(this.indent, this.color, this.fontSize, this.leading);
+        return new SubtitleOneStyle(indent, color, fontSize, leading);
     }
 }

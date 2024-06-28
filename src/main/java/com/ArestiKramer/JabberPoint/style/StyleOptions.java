@@ -12,12 +12,7 @@ import com.ArestiKramer.JabberPoint.style.styles.Style;
 
 public class StyleOptions
 {
-    private final Director director;
-    private final SubtitleOneStyleBuilder subtitleOneStyleBuilder;
-    private final SubtitleTwoStyleBuilder subtitleTwoStyleBuilder;
-    private final TitleOneStyleBuilder titleOneStyleBuilder;
-    private final TitleTwoStyleBuilder titleTwoStyleBuilder;
-    private final TextStyleBuilder textStyleBuilder;
+    private final Director director = new Director();
     private final Style subtitleOne;
     private final Style subtitleTwo;
     private final Style titleOne;
@@ -26,27 +21,11 @@ public class StyleOptions
 
     public StyleOptions()
     {
-        this.director = new Director();
-        this.subtitleOneStyleBuilder = new SubtitleOneStyleBuilder();
-        this.subtitleTwoStyleBuilder = new SubtitleTwoStyleBuilder();
-        this.titleOneStyleBuilder = new TitleOneStyleBuilder();
-        this.titleTwoStyleBuilder = new TitleTwoStyleBuilder();
-        this.textStyleBuilder = new TextStyleBuilder();
-
-        this.director.constructSubtitleOneStyle(this.subtitleOneStyleBuilder);
-        this.subtitleOne = this.subtitleOneStyleBuilder.getResult();
-
-        this.director.constructSubtitleTwoStyle(this.subtitleTwoStyleBuilder);
-        this.subtitleTwo = this.subtitleTwoStyleBuilder.getResult();
-
-        this.director.constructTitleOneStyle(this.titleOneStyleBuilder);
-        this.titleOne = this.titleOneStyleBuilder.getResult();
-
-        this.director.constructTitleTwoStyle(this.titleTwoStyleBuilder);
-        this.titleTwo = this.titleTwoStyleBuilder.getResult();
-
-        this.director.constructTextStyle(this.textStyleBuilder);
-        this.text = this.textStyleBuilder.getResult();
+        this.subtitleOne = director.constructSubtitleOneStyle(new SubtitleOneStyleBuilder());
+        this.subtitleTwo = director.constructSubtitleTwoStyle(new SubtitleTwoStyleBuilder());
+        this.titleOne = director.constructTitleOneStyle(new TitleOneStyleBuilder());
+        this.titleTwo = director.constructTitleTwoStyle(new TitleTwoStyleBuilder());
+        this.text = director.constructTextStyle(new TextStyleBuilder());
     }
 
     public Style getSubtitleOne()

@@ -2,6 +2,7 @@ package com.ArestiKramer.JabberPoint.style;
 
 
 import com.ArestiKramer.JabberPoint.style.builder.StyleBuilder;
+import com.ArestiKramer.JabberPoint.style.styles.Style;
 
 import java.awt.*;
 
@@ -15,44 +16,37 @@ import java.awt.*;
 public class Director
 {
 
-    public void constructTitleOneStyle(StyleBuilder builder)
+    public <T extends Style> T constructStyle(StyleBuilder<T> builder, int indent, Color color, int fontSize, int leading)
     {
-        builder.setIndent(0);
-        builder.setColor(Color.green);
-        builder.setFontSize(48);
-        builder.setLeading(20);
+        return builder.setIndent(indent)
+                .setColor(color)
+                .setFontSize(fontSize)
+                .setLeading(leading)
+                .build();
     }
 
-    public void constructTitleTwoStyle(StyleBuilder builder)
+    public <T extends Style> T constructTitleOneStyle(StyleBuilder<T> builder)
     {
-        builder.setIndent(0);
-        builder.setColor(Color.red);
-        builder.setFontSize(48);
-        builder.setLeading(20);
+        return constructStyle(builder, 0, Color.green, 48, 20);
     }
 
-    public void constructSubtitleOneStyle(StyleBuilder builder)
+    public <T extends Style> T constructTitleTwoStyle(StyleBuilder<T> builder)
     {
-        builder.setIndent(20);
-        builder.setColor(Color.blue);
-        builder.setFontSize(40);
-        builder.setLeading(10);
+        return constructStyle(builder, 0, Color.red, 48, 20);
     }
 
-    public void constructSubtitleTwoStyle(StyleBuilder builder)
+    public <T extends Style> T constructSubtitleOneStyle(StyleBuilder<T> builder)
     {
-        builder.setIndent(20);
-        builder.setColor(Color.pink);
-        builder.setFontSize(40);
-        builder.setLeading(10);
+        return constructStyle(builder, 20, Color.blue, 40, 10);
     }
 
-    public void constructTextStyle(StyleBuilder builder)
+    public <T extends Style> T constructSubtitleTwoStyle(StyleBuilder<T> builder)
     {
-        builder.setIndent(50);
-        builder.setColor(Color.black);
-        builder.setFontSize(36);
-        builder.setLeading(10);
+        return constructStyle(builder, 20, Color.pink, 40, 10);
     }
 
+    public <T extends Style> T constructTextStyle(StyleBuilder<T> builder)
+    {
+        return constructStyle(builder, 50, Color.black, 36, 10);
+    }
 }
