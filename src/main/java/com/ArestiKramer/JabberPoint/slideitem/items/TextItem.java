@@ -93,27 +93,7 @@ public class TextItem implements SlideItem
         }
         return new Rectangle((int) (style.getIndent() * scale), 0, xsize, ysize);
     }
-
-    @Override
-    public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer)
-    {
-
-        List<TextLayout> layouts = getLayouts(graphics, this.style, scale);
-
-        Point pen = new Point(x + (int) (this.style.getIndent() * scale), y + (int) (this.style.getLeading() * scale));
-        Graphics2D g2d = (Graphics2D) graphics;
-        g2d.setColor(this.style.getColor());
-        java.util.Iterator<TextLayout> it = layouts.iterator();
-
-        while (it.hasNext())
-        {
-            TextLayout layout = it.next();
-            pen.y += layout.getAscent();
-            layout.draw(g2d, pen.x, pen.y);
-            pen.y += layout.getDescent();
-        }
-    }
-
+    
     @Override
     public Style getStyle()
     {
@@ -143,5 +123,25 @@ public class TextItem implements SlideItem
         }
 
         return layouts;
+    }
+
+    @Override
+    public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer)
+    {
+
+        List<TextLayout> layouts = getLayouts(graphics, this.style, scale);
+
+        Point pen = new Point(x + (int) (this.style.getIndent() * scale), y + (int) (this.style.getLeading() * scale));
+        Graphics2D g2d = (Graphics2D) graphics;
+        g2d.setColor(this.style.getColor());
+        java.util.Iterator<TextLayout> it = layouts.iterator();
+
+        while (it.hasNext())
+        {
+            TextLayout layout = it.next();
+            pen.y += layout.getAscent();
+            layout.draw(g2d, pen.x, pen.y);
+            pen.y += layout.getDescent();
+        }
     }
 }

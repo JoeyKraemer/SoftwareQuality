@@ -45,6 +45,11 @@ public class XMLAccessor extends Accessor {
         return titles.item(0).getTextContent();
     }
 
+    private String getAttribute(Element item, String attribute) {
+        NamedNodeMap attributes = item.getAttributes();
+        return attributes.getNamedItem(attribute).getTextContent();
+    }
+
     @Override
     public void loadFile(Presentation presentation, String filename) throws IOException {
         try {
@@ -89,11 +94,6 @@ public class XMLAccessor extends Accessor {
         } else {
             LOGGER.warning("Unknown Element type: " + type);
         }
-    }
-
-    private String getAttribute(Element item, String attribute) {
-        NamedNodeMap attributes = item.getAttributes();
-        return attributes.getNamedItem(attribute).getTextContent();
     }
 
     @Override

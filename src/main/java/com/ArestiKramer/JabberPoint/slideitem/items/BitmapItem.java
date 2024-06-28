@@ -33,13 +33,7 @@ public class BitmapItem implements SlideItem
         StyleOptions tempStyle = new StyleOptions();
         this.style = tempStyle.getText();
 
-        try
-        {
-            this.bufferedImage = ImageIO.read(new File("./bitmapimage/" + this.imageName));
-        } catch (IOException e)
-        {
-            System.err.println("File " + this.imageName + " not found");
-        }
+        setBufferedImage();
 
         return this;
     }
@@ -48,19 +42,13 @@ public class BitmapItem implements SlideItem
     public SlideItem createSlideItem(Style style, String imageName)
     {
         this.style = style;
-        if (imageName.length() < 4)
+        if (this.imageName.length() < 4)
         {
             throw new IllegalArgumentException("Image needs to be at least 4 character long");
         }
         this.imageName = imageName;
 
-        try
-        {
-            this.bufferedImage = ImageIO.read(new File("./bitmapimage/" + this.imageName));
-        } catch (IOException e)
-        {
-            System.err.println("File " + this.imageName + " not found");
-        }
+        setBufferedImage();
 
         return this;
     }
@@ -92,7 +80,16 @@ public class BitmapItem implements SlideItem
         return bufferedImage;
     }
 
-
+    private void setBufferedImage()
+    {
+        try
+        {
+            this.bufferedImage = ImageIO.read(new File("./bitmapimage/" + this.imageName));
+        } catch (IOException e)
+        {
+            System.err.println("File " + this.imageName + " not found");
+        }
+    }
 
     @Override
     public void draw(int x, int y, float scale, Graphics graphics, ImageObserver observer)
