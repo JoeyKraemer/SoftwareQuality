@@ -7,16 +7,13 @@ import java.awt.event.KeyEvent;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class KeyControllerTest
-{
+public class KeyControllerTest {
 
-    private static class PresentationStub extends Presentation
-    {
+    private static class PresentationStub extends Presentation {
         int nextSlideCalls = 0;
         int previousSlideCalls = 0;
         int exitCalls = 0;
 
-        // Methods need to be overwritten otherwise no way of tracking the execution calls
         @Override
         public void nextSlide() {
             nextSlideCalls++;
@@ -31,7 +28,6 @@ public class KeyControllerTest
         public void exit() {
             exitCalls++;
         }
-
     }
 
     private PresentationStub presentation;
@@ -39,6 +35,7 @@ public class KeyControllerTest
 
     @BeforeEach
     void setup() {
+        System.setProperty("java.awt.headless", "true");
         presentation = new PresentationStub();
         keyController = new KeyController(presentation);
     }

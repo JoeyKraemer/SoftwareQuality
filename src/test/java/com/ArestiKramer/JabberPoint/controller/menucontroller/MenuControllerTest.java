@@ -45,6 +45,7 @@ class MenuControllerTest {
 
     @BeforeEach
     void setup() {
+        System.setProperty("java.awt.headless", "true");
         presentationStub = new PresentationStub();
         frameStub = new Frame();
         menuController = new MenuController(frameStub, presentationStub);

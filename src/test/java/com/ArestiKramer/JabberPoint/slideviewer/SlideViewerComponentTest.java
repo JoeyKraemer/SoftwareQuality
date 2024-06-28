@@ -22,6 +22,7 @@ public class SlideViewerComponentTest {
 
     @BeforeEach
     public void setup() {
+        System.setProperty("java.awt.headless", "true");
         presentation = new Presentation();
         slide = new Slide();
         frame = new JFrame();
