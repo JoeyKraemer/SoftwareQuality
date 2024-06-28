@@ -6,7 +6,6 @@ import com.ArestiKramer.JabberPoint.style.styles.Style;
 import com.ArestiKramer.JabberPoint.style.StyleOptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import javax.swing.*;
 import java.awt.*;

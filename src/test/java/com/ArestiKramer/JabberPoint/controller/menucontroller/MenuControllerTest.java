@@ -8,7 +8,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class MenuControllerTest {
@@ -40,9 +39,10 @@ class MenuControllerTest {
         for (int i = 0; i < menu.getItemCount(); i++) {
             MenuItem menuItem = menu.getItem(i);
             if (menuItem.getLabel().equals(itemName)) {
-                ActionListener actionListener = menuItem.getActionListeners()[0];
-                ActionEvent actionEvent = new ActionEvent(menuItem, ActionEvent.ACTION_PERFORMED, menuItem.getActionCommand());
-                actionListener.actionPerformed(actionEvent);
+                for (ActionListener listener : menuItem.getActionListeners()) {
+                    ActionEvent event = new ActionEvent(menuItem, ActionEvent.ACTION_PERFORMED, itemName);
+                    listener.actionPerformed(event);
+                }
                 break;
             }
         }
