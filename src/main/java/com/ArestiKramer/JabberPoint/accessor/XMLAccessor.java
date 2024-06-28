@@ -45,6 +45,7 @@ public class XMLAccessor extends Accessor {
         return titles.item(0).getTextContent();
     }
 
+    @Override
     public void loadFile(Presentation presentation, String filename) throws IOException {
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -95,6 +96,7 @@ public class XMLAccessor extends Accessor {
         return attributes.getNamedItem(attribute).getTextContent();
     }
 
+    @Override
     public void saveFile(Presentation presentation, String filename) throws IOException {
         try (PrintWriter out = new PrintWriter(new FileWriter(filename))) {
             writePresentation(presentation, out);
