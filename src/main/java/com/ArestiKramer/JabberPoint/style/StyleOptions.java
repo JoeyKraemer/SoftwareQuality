@@ -12,7 +12,6 @@ import com.ArestiKramer.JabberPoint.style.styles.Style;
 
 public class StyleOptions
 {
-    private final Director director = new Director();
     private final Style subtitleOne;
     private final Style subtitleTwo;
     private final Style titleOne;
@@ -21,6 +20,7 @@ public class StyleOptions
 
     public StyleOptions()
     {
+        Director director = new Director();
         this.subtitleOne = director.constructSubtitleOneStyle(new SubtitleOneStyleBuilder());
         this.subtitleTwo = director.constructSubtitleTwoStyle(new SubtitleTwoStyleBuilder());
         this.titleOne = director.constructTitleOneStyle(new TitleOneStyleBuilder());

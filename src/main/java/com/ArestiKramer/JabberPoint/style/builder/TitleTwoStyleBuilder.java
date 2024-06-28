@@ -1,7 +1,5 @@
 package com.ArestiKramer.JabberPoint.style.builder;
 
-import com.ArestiKramer.JabberPoint.style.styles.Style;
-import com.ArestiKramer.JabberPoint.style.styles.SubtitleTwoStyle;
 import com.ArestiKramer.JabberPoint.style.styles.TitleTwoStyle;
 
 /**
